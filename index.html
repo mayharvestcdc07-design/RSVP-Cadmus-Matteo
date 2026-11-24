@@ -69,11 +69,47 @@ input,textarea,select{width:100%;padding:11px;border:2px solid var(--line);borde
 .seg input:checked+span{background:var(--red);border-color:var(--red);color:#fff}
 #out{display:none;margin-top:14px;font-size:.95rem}
 footer{padding:30px 20px 50px;color:var(--sub);font-size:.85rem}
-@media (min-width:600px){
-html{background:#2a1a0e}
-body{background:transparent;max-width:430px;min-height:100vh;margin:0 auto;box-shadow:0 0 50px rgba(0,0,0,.6)}
-body::before,.mapdeco{left:50%;right:auto;width:430px;margin-left:-215px}
-#cover{left:0;right:0;max-width:430px;margin:0 auto}
+/* RESPONSIVE LAYOUT ENGINE FOR BOTH CP (MOBILE) AND COMPUTER (DESKTOP) */
+@media (max-width: 600px) {
+  /* CP / Mobile Phone Optimizations */
+  body { padding: 0; }
+  section { max-width: 100%; padding: 24px 14px; }
+  .card { padding: 16px 14px; border-radius: 14px; margin: 12px 0; }
+  .hero h1 { font-size: clamp(2.1rem, 8.5vw, 2.9rem); }
+  .wanted-card { max-width: 100%; padding: 12px 10px 16px; margin: 10px auto; }
+  .wanted-card .poster-portrait { height: clamp(170px, 45vw, 220px); }
+  .cd { gap: 6px; }
+  .cd div { padding: 8px 2px; }
+  .cd b { font-size: 1.5rem; }
+  .cd span { font-size: 0.65rem; }
+  #cover { padding: max(5vh, 20px) 16px 20px; }
+  .coverpic { width: min(85vw, 42vh, 310px); }
+  .ship-art { width: min(92vw, 360px); bottom: 22%; }
+  .seg span { padding: 12px 8px; font-size: 0.95rem; }
+  input, textarea, select { font-size: 16px; } /* Prevents iOS auto-zoom */
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Tablet / iPad Layout */
+  html { background: radial-gradient(ellipse at 50% 20%, #153c61 0%, #091c2f 100%); min-height: 100vh; }
+  body { background: var(--bg); max-width: 680px; min-height: 100vh; margin: 0 auto; box-shadow: 0 0 55px rgba(0,0,0,.65); border-left: 3px solid #b77c22; border-right: 3px solid #b77c22; position: relative; }
+  body::before, .mapdeco { left: 50%; right: auto; width: 680px; margin-left: -340px; }
+  section { max-width: 620px; padding: 36px 24px; }
+  .wanted-card { max-width: 480px; }
+}
+
+@media (min-width: 1025px) {
+  /* Computer / Desktop / Laptop Layout */
+  html { background: radial-gradient(ellipse at 50% 15%, #18426b 0%, #071829 100%); min-height: 100vh; }
+  body { background: var(--bg); max-width: 800px; min-height: 100vh; margin: 0 auto; box-shadow: 0 0 75px rgba(0,0,0,.75); border-left: 3px solid #b77c22; border-right: 3px solid #b77c22; position: relative; }
+  body::before, .mapdeco { left: 50%; right: auto; width: 800px; margin-left: -400px; }
+  section { max-width: 720px; padding: 46px 36px; }
+  .wanted-card { max-width: 520px; margin: 18px auto 26px; }
+  .wanted-card .poster-portrait { height: 260px; }
+  .card { padding: 26px 24px; border-radius: 16px; margin: 18px 0; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .coverpic { width: 360px; }
+  .ship-art { width: 480px; bottom: 25%; }
 }
 @media (prefers-reduced-motion:reduce){.pulse,.ship,.crest,.cloud,.bird,.coverpic{animation:none}#cover{transition:none}}
 

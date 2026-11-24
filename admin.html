@@ -141,6 +141,34 @@
       margin: 16px 0;
       background: #fbf0d4;
     }
+  
+    /* RESPONSIVE DESIGN FOR CP & DESKTOP */
+    @media (max-width: 768px) {
+      body { padding: 12px 8px; }
+      .container { max-width: 100%; }
+      header { padding: 14px 16px; border-radius: 14px; flex-direction: column; align-items: stretch; text-align: center; gap: 14px; }
+      .brand { margin-bottom: 4px; }
+      .brand h1 { font-size: 24px; }
+      .brand p { font-size: 12px; }
+      .header-actions { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+      .header-actions .btn { width: 100%; text-align: center; padding: 10px 14px; font-size: 13px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 18px; }
+      .kpi-box { padding: 12px 8px; }
+      .kpi-num { font-size: 30px; }
+      .kpi-lbl { font-size: 10.5px; }
+      .card { padding: 14px 10px; border-radius: 12px; margin-bottom: 18px; }
+      .card-head { flex-direction: column; align-items: stretch; gap: 10px; }
+      .card-head h2 { font-size: 22px; text-align: center; }
+      .search-input { width: 100%; max-width: 100%; }
+      .table-responsive {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        -webkit-overflow-scrolling: touch;
+      }
+      th, td { padding: 8px 6px; font-size: 12px; }
+      .btn-action { padding: 6px 8px; font-size: 11px; }
+      .table-select { font-size: 12px; padding: 4px 6px; }
+    }
   </style>
 </head>
 <body>
@@ -184,7 +212,8 @@
         <input type="text" class="search-input" id="searchBox" placeholder="🔍 Search guest name or code..." oninput="renderTable()">
       </div>
 
-      <div class="table-responsive">
+      <div style="display:none; font-size:11.5px; color:var(--sub); margin-bottom:8px; font-weight:700;" class="mobile-swipe-hint">👉 Swipe horizontal para makita ang buong detalye (Table, Actions, etc.)</div>
+    <div class="table-responsive">
         <table>
           <thead>
             <tr>

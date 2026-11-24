@@ -72,6 +72,25 @@
     .result.ok { background: var(--success-bg); color: var(--success); border: 2px solid #86efac; }
     .result.warn { background: #fef3c7; color: #92400e; border: 2px solid #fde68a; }
     .result.fail { background: var(--danger-bg); color: var(--danger); border: 2px solid #fca5a5; }
+  
+    /* RESPONSIVE DESIGN FOR CP & DESKTOP */
+    @media (max-width: 600px) {
+      body { padding: 10px 8px; }
+      .card { max-width: 100%; border-radius: 16px; padding: 18px 12px; margin: 4px auto; }
+      h1 { font-size: 26px; }
+      p { font-size: 12.5px; }
+      #reader { min-height: 250px; border-radius: 12px; }
+      .btn { width: 100%; padding: 14px 16px; font-size: 15px; }
+      .manual-box { flex-direction: column; gap: 8px; }
+      .manual-box input { width: 100%; font-size: 16px; padding: 12px 10px; text-align: center; }
+      .manual-box button { width: 100%; padding: 12px; }
+      .nav-links { flex-direction: column; width: 100%; gap: 6px !important; }
+      .nav-links a { width: 100%; }
+    }
+    @media (min-width: 601px) {
+      body { padding: 30px 16px; }
+      .card { max-width: 520px; padding: 28px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -91,7 +110,7 @@
 
   <div id="resBox" class="result"></div>
 
-  <div style="margin-top:20px; display:flex; justify-content:center; gap:10px;">
+  <div class="nav-links" style="margin-top:20px; display:flex; justify-content:center; gap:10px;">
     <a href="/" class="btn" style="background:#0a4570; text-decoration:none; padding:8px 16px; font-size:12px;">🏠 Invitation</a>
     <a href="/admin" class="btn" style="background:#0a4570; text-decoration:none; padding:8px 16px; font-size:12px;">📊 Captain's Dashboard</a>
   </div>
