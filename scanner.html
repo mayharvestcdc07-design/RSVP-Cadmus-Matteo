@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Reception QR Scanner &bull; Cadmus Matteo's 7th Birthday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <style>
+    :root {
+      --bg: #f2dfb0;
+      --card: #fffdf5;
+      --ink: #182b42;
+      --sub: #49627b;
+      --red: #c62828;
+      --sea: #0b5d91;
+      --gold: #d49522;
+      --border: #d29b35;
+      --success: #15803d;
+      --success-bg: #dcfce7;
+      --danger: #b91c1c;
+      --danger-bg: #fee2e2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+    body { background: var(--bg); color: var(--ink); padding: 16px; text-align: center; }
+    .card {
+      max-width: 480px;
+      margin: 10px auto;
+      background: var(--card);
+      border: 3px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+    h1 { font-family: 'Pirata One', serif; font-size: 32px; color: var(--red); margin-bottom: 4px; }
+    p { color: var(--sub); font-size: 13.5px; }
+    #reader { width: 100%; border-radius: 14px; overflow: hidden; border: 2px solid var(--border); margin: 16px 0; }
+    .btn {
+      background: var(--sea);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 24px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-block;
+      margin: 6px 0;
+    }
+    .manual-box { display: flex; gap: 8px; margin-top: 14px; }
+    .manual-box input {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: 800;
+      background: #fbf0d4;
+    }
+    .result {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+      display: none;
+      font-size: 15px;
+      line-height: 1.4;
+      text-align: left;
+    }
+    .result.ok { background: var(--success-bg); color: var(--success); border: 2px solid #86efac; }
+    .result.warn { background: #fef3c7; color: #92400e; border: 2px solid #fde68a; }
+    .result.fail { background: var(--danger-bg); color: var(--danger); border: 2px solid #fca5a5; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Reception QR Scanner</h1>
+  <p>Scan pirate boarding passes for entrance verification</p>
+
+  <div id="reader"></div>
+
+  <button class="btn" id="btnCam" onclick="toggleCamera()">📷 Start Camera Scanner</button>
+
+  <div class="manual-box">
+    <input type="text" id="manualInput" placeholder="OR ENTER TICKET CODE (CM-123456)" onkeydown="if(event.key==='Enter') scanManual()">
+    <button class="btn" style="background:var(--red)" onclick="scanManual()">VERIFY</button>
+  </div>
+
+  <div id="resBox" class="result"></div>
+
+  <div style="margin-top:20px; display:flex; justify-content:center; gap:10px;">
+    <a href="/" class="btn" style="background:#0a4570; text-decoration:none; padding:8px 16px; font-size:12px;">🏠 Invitation</a>
+    <a href="/admin" class="btn" style="background:#0a4570; text-decoration:none; padding:8px 16px; font-size:12px;">📊 Captain's Dashboard</a>
+  </div>
+</div>
+
+<script>
+let scanner = null;
+let running = false;
+
+function toggleCamera() {
+  const btn = document.getElementById('btnCam');
+  if (running) {
+    if (scanner) {
+      scanner.stop().then(() => {
+        running = false;
+        btn.textContent = '📷 Start Camera Scanner';
+      });
+    }
+  } else {
+    scanner = new Html5Qrcode("reader");
+    scanner.start(
+      { facingMode: "environment" },
+      { fps: 10, qrbox: { width: 230, height: 230 } },
+      (decodedText) => { verifyTicket(decodedText); },
+      (err) => {}
+    ).then(() => {
+      running = true;
+      btn.textContent = '⏹ Stop Camera Scanner';
+    }).catch(err => {
+      alert('Camera access denied or unavailable: ' + err);
+    });
+  }
+}
+
+async function verifyTicket(code) {
+  const box = document.getElementById('resBox');
+  box.style.display = 'block';
+  box.className = 'result';
+  box.textContent = 'Verifying Ticket Code...';
+
+  try {
+    const res = await fetch('/api/check-in', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: code.trim() })
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      const g = data.guest;
+      if (data.alreadyCheckedIn) {
+        box.className = 'result warn';
+        box.innerHTML = `⚠️ <strong>ALREADY CHECKED IN:</strong><br><strong style="font-size:18px;">${g.name}</strong><br><small>${data.message}</small><br><strong>Assigned:</strong> ${g.tableNumber || 'Open Seating'} &bull; ${g.seats} seats`;
+      } else {
+        box.className = 'result ok';
+        box.innerHTML = `🎉 <strong>WELCOME ABOARD!</strong><br><strong style="font-size:22px; color:#14532d">${g.name}</strong><br><strong>Seats:</strong> ${g.seats} seats &bull; <strong>Assigned:</strong> <span style="font-size:18px; color:#14532d; font-weight:900;">${g.tableNumber || 'Open Seating'}</span><br><small style="color:#15803d">${g.guestList || ''}</small>`;
+      }
+    } else {
+      box.className = 'result fail';
+      box.innerHTML = `❌ <strong>NOT FOUND:</strong> ${data.error || 'Invalid ticket code'}`;
+    }
+  } catch(e) {
+    box.className = 'result fail';
+    box.textContent = 'Server connection error.';
+  }
+}
+
+function scanManual() {
+  const inp = document.getElementById('manualInput');
+  const val = inp.value.trim();
+  if (!val) return;
+  verifyTicket(val);
+  inp.value = '';
+}
+</script>
+</body>
+</html>

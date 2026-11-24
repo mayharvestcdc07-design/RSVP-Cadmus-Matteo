@@ -126,6 +126,7 @@ body::before,.mapdeco{left:50%;right:auto;width:430px;margin-left:-215px}
 .guest-entry select.guest-type{display:block;width:100%;padding:10px;border:2px solid var(--line);border-radius:10px;background:#fbf0d4;color:var(--ink);font:inherit}
 
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 <div class="mapdeco" aria-hidden="true"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#6b3f17" stroke-linecap="round" stroke-linejoin="round" opacity=".5"><path d="M-10 90C70 40 150 170 230 120S350 190 330 290S150 330 170 440S340 520 300 620S160 700 260 780" stroke-width="3" stroke-dasharray="2 9"/><path d="M40 210q14-18 28 0t28 0M300 430q14-18 28 0t28 0M30 520q14-18 28 0t28 0" stroke-width="2"/><path d="M310 60c14-14 40-8 46 8s-10 34-34 30-26-24-12-38zM60 340c10-12 30-8 34 6s-8 26-26 22-18-18-8-28z" stroke-width="2"/><g transform="translate(70 700)"><circle r="34" stroke-width="2"/><circle r="26" stroke-width="1"/><path d="M0-50L8-8 50 0 8 8 0 50-8 8-50 0-8-8Z" stroke-width="2" fill="#6b3f17" fill-opacity=".25"/><text x="-5" y="-56" font-size="15" font-family="Pirata One,serif" fill="#6b3f17" stroke="none">N</text></g><path d="M246 764l22 22M268 764l-22 22" stroke="#a8281f" stroke-width="5" opacity="1"/></g></svg></div>
@@ -226,6 +227,11 @@ body::before,.mapdeco{left:50%;right:auto;width:430px;margin-left:-215px}
 <footer>
   <div class="t" style="font-size:1.4rem;color:var(--red)">See you on the Grand Line, nakama!</div>
   <p>With love, the Cortes family ❤️</p>
+<div style="margin-top:20px; padding-top:14px; border-top:1px dashed rgba(242,182,50,0.3); font-size:0.8rem; opacity:0.85;">
+  ⚓ Crew & Coordinator Access: 
+  <a href="/scanner" style="color:#f2b632; text-decoration:underline; font-weight:bold; margin:0 6px;">Reception QR Scanner</a> • 
+  <a href="/admin" style="color:#f2b632; text-decoration:underline; font-weight:bold; margin:0 6px;">Captain's Master List</a>
+</div>
 </footer>
 
 <script>
@@ -281,194 +287,129 @@ $("copy").addEventListener("click",function(){
 });
 </script>
 
-<!-- One Piece QR Code Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<!-- Pirate Digital Boarding Pass Modal -->
+<div id="piratePassModal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(10,26,44,0.92); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:16px;">
+  <div style="background:#fffcf0; border:4px solid #f2b632; border-radius:24px; max-width:420px; width:100%; box-shadow:0 25px 60px rgba(0,0,0,0.7); text-align:center; padding:28px 22px; font-family:'Nunito',sans-serif; color:#182b42; position:relative; max-height:90vh; overflow-y:auto;">
+    <div style="font-family:'Pirata One',serif; font-size:1.9rem; color:#c62828; letter-spacing:1px; margin-bottom:2px">🏴‍☠️ STRAW HAT CREW PASS 🏴‍☠️</div>
+    <div style="font-size:0.9rem; color:#49627b; margin-bottom:14px; font-weight:700;">Cadmus Matteo's 7th Birthday Voyage</div>
+    
+    <div style="background:#fdf2cf; border:2px dashed #d29b35; border-radius:16px; padding:12px; margin-bottom:16px;">
+      <div id="passGuestName" style="font-family:'Pirata One',serif; font-size:1.7rem; color:#0b5d91; margin-bottom:2px; line-height:1.2;">Guest Name</div>
+      <div id="passTicketCode" style="font-size:1.1rem; font-weight:800; color:#c62828; letter-spacing:2px; margin-bottom:4px;">CM-000000</div>
+      <div id="passCrewBadge" style="font-size:0.85rem; color:#6b4700; font-weight:bold;">Official Straw Hat Crew Member</div>
+    </div>
 
-<!-- Pirate Digital Pass Modal -->
-<div id="piratePassModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(16,42,69,0.88); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:16px;">
-  <div style="background:#fff8e1; border:4px solid #f2b632; border-radius:20px; max-width:400px; width:100%; box-shadow:0 20px 45px rgba(0,0,0,0.6); text-align:center; padding:26px 20px; font-family:Nunito,sans-serif; color:#182b42; position:relative;">
-    <div style="font-family:'Pirata One',serif; font-size:1.8rem; color:#c62828; letter-spacing:1px; margin-bottom:2px">? STRAW HAT CREW PASS ?</div>
-    <div style="font-size:0.85rem; color:#49627b; margin-bottom:12px">Captain Cadmus's 7th Birthday Voyage</div>
-    <div id="passGuestName" style="font-family:'Pirata One',serif; font-size:1.6rem; color:#0b5d91; margin-bottom:4px">Guest Name</div>
-    <div id="passTicketCode" style="font-size:1.05rem; font-weight:800; color:#c62828; margin-bottom:12px; letter-spacing:2px">CM-000000</div>
-    <div style="background:#fff; padding:12px; display:inline-block; border-radius:12px; border:2px solid #d29b35; margin-bottom:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1)">
+    <div style="background:#ffffff; padding:14px; display:inline-block; border-radius:16px; border:2px solid #d29b35; margin-bottom:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
       <div id="pirateQr"></div>
     </div>
-    <div style="background:#fbf0d4; border:1px solid #d29b35; border-radius:10px; padding:10px 14px; font-size:0.85rem; margin-bottom:14px; text-align:left; line-height:1.45">
-      <div>?? <strong>Date:</strong> Monday, Nov 30, 2026 (3:00 PM)</div>
-      <div>?? <strong>Venue:</strong> Grace Harbour Pavillion, Bulacan</div>
-      <div id="passSeats">?? <strong>Crew Seats:</strong> 1</div>
-      <div id="passTable">????? <strong>Table:</strong> Open Seating</div>
-    </div>
-    <p style="font-size:0.8rem; color:#5a6e82; margin:0 0 14px">I-screenshot o i-save itong pass para sa entrance scan sa party!</p>
-    <div style="display:flex; gap:8px;">
-      <button class="btn" style="flex:1; padding:10px;" onclick="window.print()">Print / Save</button>
-      <button class="btn alt" style="flex:1; padding:10px;" onclick="document.getElementById('piratePassModal').style.display='none'">Close</button>
-    </div>
-  </div>
-</div>
 
-<!-- Floating Organizer Buttons -->
-<div style="position:fixed; bottom:16px; right:16px; z-index:9000; display:flex; gap:8px;">
-  <button onclick="openScannerModal()" style="background:#0b5d91; color:#fff; border:2px solid #f2b632; border-radius:999px; padding:8px 14px; font:800 0.85rem Nunito,sans-serif; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3)">?? Scanner</button>
-  <button onclick="openAdminModal()" style="background:#182b42; color:#f2b632; border:2px solid #f2b632; border-radius:999px; padding:8px 14px; font:800 0.85rem Nunito,sans-serif; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3)">?? Admin</button>
-</div>
+    <div style="background:#f4ece1; border:1px solid #d4c2a5; border-radius:14px; padding:12px 16px; font-size:0.85rem; margin-bottom:16px; text-align:left; line-height:1.6;">
+      <div>📅 <strong>Date:</strong> Monday, Nov 30, 2026 • 3:00 PM</div>
+      <div>📍 <strong>Venue:</strong> Grace Harbour Pavillion, Santa Maria, Bulacan</div>
+      <div id="passSeats">👥 <strong>Seats Reserved:</strong> 1</div>
+      <div id="passTable">🧭 <strong>Table:</strong> Open Seating</div>
+      <div>👒 <strong>Dress Code:</strong> Pirate / Straw Hat / Red & Blue</div>
+    </div>
 
-<!-- Organizer Scanner Modal -->
-<div id="scannerModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; padding:16px;">
-  <div style="background:#fff8e1; border:3px solid #f2b632; border-radius:18px; max-width:440px; width:100%; padding:20px; text-align:center; font-family:Nunito,sans-serif;">
-    <h3 style="font-family:'Pirata One',serif; font-size:1.7rem; color:#c62828; margin:0 0 8px;">Party Entrance QR Scanner</h3>
-    <div id="reader" style="width:100%; border-radius:10px; overflow:hidden; border:2px solid #c89a4d; margin-bottom:10px;"></div>
-    <div style="display:flex; gap:8px; margin-bottom:10px;">
-      <input type="text" id="manualCode" placeholder="Type Ticket Code (e.g. CM-123456)" style="flex:1; padding:10px; border:2px solid #d29b35; border-radius:8px; text-transform:uppercase; font-weight:800;">
-      <button class="btn" onclick="verifyTicket(document.getElementById('manualCode').value)" style="padding:10px 14px;">Verify</button>
+    <div style="font-size:0.8rem; color:#666; margin-bottom:16px;">
+      📸 <em>Please take a screenshot of this boarding pass or present this QR code at the reception scanner!</em>
     </div>
-    <div id="scanStatus" style="font-weight:800; font-size:1rem; margin:10px 0; display:none;"></div>
-    <div style="display:flex; gap:8px; margin-top:14px;">
-      <button class="btn alt" style="flex:1;" id="btnCamera" onclick="toggleCamera()">Start Camera</button>
-      <button class="btn" style="flex:1;" onclick="closeScannerModal()">Close</button>
-    </div>
-  </div>
-</div>
 
-<!-- Organizer Admin Modal -->
-<div id="adminModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; padding:16px;">
-  <div style="background:#fff8e1; border:3px solid #f2b632; border-radius:18px; max-width:600px; width:100%; max-height:85vh; overflow-y:auto; padding:22px; font-family:Nunito,sans-serif; text-align:left;">
-    <div id="adminPinBox">
-      <h3 style="font-family:'Pirata One',serif; font-size:1.8rem; color:#c62828; margin:0 0 8px; text-align:center;">Organizer Access</h3>
-      <p style="text-align:center; font-size:0.9rem; color:#49627b; margin-bottom:14px;">Enter PIN (Default: 2026)</p>
-      <input type="password" id="adminPin" placeholder="PIN" style="width:100%; padding:10px; font-size:1.2rem; text-align:center; border:2px solid #d29b35; border-radius:8px; margin-bottom:12px;">
-      <button class="btn" style="width:100%;" onclick="unlockAdminBox()">Unlock Dashboard</button>
-      <button class="btn alt" style="width:100%; margin-top:8px;" onclick="document.getElementById('adminModal').style.display='none'">Close</button>
-    </div>
-    <div id="adminDataBox" style="display:none;">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
-        <h3 style="font-family:'Pirata One',serif; font-size:1.7rem; color:#c62828; margin:0;">Guest Master List</h3>
-        <a href="/api/export" class="btn alt" style="padding:6px 14px; font-size:0.85rem; text-decoration:none;">?? Export CSV</a>
-      </div>
-      <div id="adminKpis" style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:14px; text-align:center;">
-        <div style="background:#fbf0d4; padding:8px; border-radius:8px; border:1px solid #d29b35"><b id="kpiConf" style="font-size:1.3rem; color:#c62828">0</b><small style="display:block; font-size:0.75rem">Confirmed</small></div>
-        <div style="background:#fbf0d4; padding:8px; border-radius:8px; border:1px solid #d29b35"><b id="kpiSeats" style="font-size:1.3rem; color:#0b5d91">0</b><small style="display:block; font-size:0.75rem">Total Seats</small></div>
-        <div style="background:#fbf0d4; padding:8px; border-radius:8px; border:1px solid #d29b35"><b id="kpiChecked" style="font-size:1.3rem; color:#15803d">0</b><small style="display:block; font-size:0.75rem">Checked-in</small></div>
-      </div>
-      <div id="adminGuestList" style="max-height:40vh; overflow-y:auto; border:1px solid #d29b35; border-radius:8px; background:#fff; padding:6px;"></div>
-      <button class="btn" style="width:100%; margin-top:14px;" onclick="document.getElementById('adminModal').style.display='none'">Close</button>
+    <div style="display:flex; gap:10px; justify-content:center;">
+      <button onclick="window.print()" style="padding:10px 18px; border:none; border-radius:10px; background:#0b5d91; color:#fff; font-weight:bold; cursor:pointer; font-size:0.9rem;">🖨️ Print / Save</button>
+      <button onclick="document.getElementById('piratePassModal').style.display='none'" style="padding:10px 22px; border:none; border-radius:10px; background:#c62828; color:#fff; font-weight:bold; cursor:pointer; font-size:0.9rem;">Close</button>
     </div>
   </div>
 </div>
 
 <script>
 function showPiratePass(guest) {
-  document.getElementById("passGuestName").textContent = guest.name;
-  document.getElementById("passTicketCode").textContent = guest.ticketCode;
-  document.getElementById("passSeats").innerHTML = "?? <strong>Crew Seats:</strong> " + guest.seats;
-  document.getElementById("passTable").innerHTML = "????? <strong>Table:</strong> " + (guest.tableNumber || "Open Seating");
+  var nameEl = document.getElementById("passGuestName");
+  var codeEl = document.getElementById("passTicketCode");
+  var seatsEl = document.getElementById("passSeats");
+  var tableEl = document.getElementById("passTable");
   
+  if (nameEl) nameEl.textContent = guest.name || "Straw Hat Nakama";
+  if (codeEl) codeEl.textContent = guest.ticketCode || "CM-INVITE";
+  if (seatsEl) seatsEl.innerHTML = "👥 <strong>Seats Reserved:</strong> " + (guest.seats || 1);
+  if (tableEl) tableEl.innerHTML = "🧭 <strong>Table:</strong> " + (guest.tableNumber || "Open Seating");
+
   var qr = document.getElementById("pirateQr");
-  qr.innerHTML = "";
-  if (window.QRCode) {
-    new QRCode(qr, { text: guest.ticketCode, width: 160, height: 160, colorDark: "#182b42", colorLight: "#ffffff" });
+  if (qr) {
+    qr.innerHTML = "";
+    if (window.QRCode) {
+      new QRCode(qr, {
+        text: guest.ticketCode,
+        width: 170,
+        height: 170,
+        colorDark: "#182b42",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
   }
+
   var modal = document.getElementById("piratePassModal");
-  modal.style.display = "flex";
-}
-
-var originalSend = $("send").onclick;
-$("send").addEventListener("click", function(){
-  var entries = Array.from(document.querySelectorAll(".guest-entry"));
-  var guests = entries.map(function(r){ return { name: r.querySelector(".guest-name").value.trim(), type: r.querySelector(".guest-type").value }; });
-  if (guests.some(function(g){ return !g.name; })) return;
-  var yes = document.querySelector('input[name="go"]:checked').value === "yes";
-  var primary = guests[0] ? guests[0].name : "Guest";
-  var detailList = guests.map(function(g, i){ return (i+1)+". "+g.name+" ("+g.type+")"; }).join(", ");
-
-  fetch('/api/rsvp', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: primary + (guests.length > 1 ? " (" + guests.length + " crew: " + detailList + ")" : ""),
-      status: yes ? "Attending" : "Declined",
-      seats: guests.length,
-      dietary: detailList,
-      wishes: $("msg").value.trim()
-    })
-  }).then(function(res){ return res.json(); }).then(function(data){
-    if (data.success && data.guest && yes) {
-      showPiratePass(data.guest);
-    }
-  }).catch(function(e){ console.warn(e); });
-});
-
-// Scanner Logic
-var qrScanner = null, isCamOn = false;
-function openScannerModal() { document.getElementById("scannerModal").style.display = "flex"; }
-function closeScannerModal() {
-  if (qrScanner && isCamOn) { qrScanner.stop(); isCamOn = false; }
-  document.getElementById("scannerModal").style.display = "none";
-}
-function toggleCamera() {
-  var btn = document.getElementById("btnCamera");
-  if (isCamOn) {
-    if (qrScanner) qrScanner.stop();
-    isCamOn = false;
-    btn.textContent = "Start Camera";
-  } else {
-    qrScanner = new Html5Qrcode("reader");
-    qrScanner.start({ facingMode: "environment" }, { fps: 10, qrbox: 240 }, function(code){ verifyTicket(code); }, function(){})
-      .then(function(){ isCamOn = true; btn.textContent = "Stop Camera"; })
-      .catch(function(e){ alert("Camera error: " + e); });
+  if (modal) {
+    modal.style.display = "flex";
   }
 }
-function verifyTicket(code) {
-  if (!code) return;
-  var statusEl = document.getElementById("scanStatus");
-  statusEl.style.display = "block";
-  statusEl.textContent = "Checking code " + code + "...";
-  fetch('/api/check-in', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: code.trim() })
-  }).then(function(r){ return r.json(); }).then(function(d){
-    if (d.success) {
-      statusEl.style.color = d.alreadyCheckedIn ? "#d97706" : "#15803d";
-      statusEl.innerHTML = (d.alreadyCheckedIn ? "?? ALREADY SCANNED:<br>" : "?? WELCOME ABOARD!<br>") + d.guest.name + "<br>Seats: " + d.guest.seats + " | Table: " + (d.guest.tableNumber || "Open Seating");
-    } else {
-      statusEl.style.color = "#dc2626";
-      statusEl.textContent = "? " + (d.error || "Invalid ticket");
-    }
-  }).catch(function(){ statusEl.textContent = "Network error"; });
-}
 
-// Admin Logic
-function openAdminModal() { document.getElementById("adminModal").style.display = "flex"; }
-function unlockAdminBox() {
-  var pin = document.getElementById("adminPin").value.trim();
-  fetch('/api/admin/verify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pin: pin }) })
-    .then(function(r){ return r.json(); }).then(function(d){
-      if (d.valid) {
-        document.getElementById("adminPinBox").style.display = "none";
-        document.getElementById("adminDataBox").style.display = "block";
-        loadAdminList();
-      } else { alert("Incorrect PIN!"); }
+// Enhance RSVP submission with API call
+(function() {
+  var sendBtn = document.getElementById("send");
+  if (!sendBtn) return;
+
+  sendBtn.addEventListener("click", function() {
+    var attendingBtn = document.querySelector(".btn-attending.active") || document.querySelector("button[data-status='attending'].active");
+    var yes = true;
+    if (document.getElementById("btn-no") && document.getElementById("btn-no").classList.contains("active")) {
+      yes = false;
+    }
+    
+    // Read guests list from original form
+    var guestRows = document.querySelectorAll(".guest-row") || [];
+    var guests = [];
+    if (guestRows.length > 0) {
+      guestRows.forEach(function(row) {
+        var nameInput = row.querySelector("input[type='text']");
+        var typeSelect = row.querySelector("select");
+        if (nameInput && nameInput.value.trim()) {
+          guests.push({
+            name: nameInput.value.trim(),
+            type: typeSelect ? typeSelect.value : "Adult"
+          });
+        }
+      });
+    }
+
+    var primaryName = guests.length > 0 ? guests[0].name : "Guest";
+    var wishesMsg = document.getElementById("msg") ? document.getElementById("msg").value.trim() : "";
+
+    // Sync to backend API
+    fetch('/api/rsvp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: primaryName,
+        guests: guests,
+        status: yes ? "Attending" : "Declined",
+        seats: guests.length > 0 ? guests.length : 1,
+        wishes: wishesMsg
+      })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success && data.guest && yes) {
+        showPiratePass(data.guest);
+      }
+    })
+    .catch(function(err) {
+      console.warn("API sync fallback:", err);
     });
-}
-function loadAdminList() {
-  fetch('/api/guests').then(function(r){ return r.json(); }).then(function(d){
-    if (!d.success) return;
-    document.getElementById("kpiConf").textContent = d.stats.attendingCount;
-    document.getElementById("kpiSeats").textContent = d.stats.totalSeats;
-    document.getElementById("kpiChecked").textContent = d.stats.checkedInSeats;
-    var list = document.getElementById("adminGuestList");
-    if (!d.guests.length) { list.innerHTML = "<p style='text-align:center; color:#666;'>No RSVPs yet.</p>"; return; }
-    list.innerHTML = d.guests.map(function(g){
-      return "<div style='padding:6px 8px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center; font-size:0.85rem;'>" +
-        "<div><b>" + g.name + "</b><br><small style='color:#777;'>" + g.ticketCode + " � " + g.seats + " seats � Table: " + (g.tableNumber || "None") + "</small></div>" +
-        "<div><span style='padding:2px 6px; border-radius:4px; font-weight:bold; font-size:0.75rem; background:" + (g.checkedIn ? "#dcfce7; color:#15803d" : "#fef3c7; color:#b45309") + ";'>" + (g.checkedIn ? "Checked-in" : "Pending") + "</span></div>" +
-        "</div>";
-    }).join("");
   });
-}
+})();
 </script>
+
 </body>
 </html>

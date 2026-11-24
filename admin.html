@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Captain's Dashboard &bull; Cadmus Matteo's 7th Birthday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2dfb0;
+      --card: #fffdf5;
+      --ink: #182b42;
+      --sub: #49627b;
+      --red: #c62828;
+      --sea: #0b5d91;
+      --gold: #d49522;
+      --border: #d29b35;
+      --success: #15803d;
+      --success-bg: #dcfce7;
+      --danger: #b91c1c;
+      --danger-bg: #fee2e2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+    body { background: var(--bg); color: var(--ink); padding: 20px; line-height: 1.5; }
+    .container { max-width: 1050px; margin: 0 auto; }
+    
+    header {
+      background: var(--sea);
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      border: 3px solid var(--gold);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .brand h1 { font-family: 'Pirata One', serif; font-size: 28px; letter-spacing: 1px; }
+    .brand p { font-size: 13px; color: #ffe08b; }
+    .btn {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-weight: 800;
+      font-size: 13.5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn.alt { background: #063d68; }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .kpi-box {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .kpi-num { font-family: 'Pirata One', serif; font-size: 42px; line-height: 1; color: var(--red); }
+    .kpi-lbl { font-size: 11.5px; text-transform: uppercase; font-weight: 800; color: var(--sub); letter-spacing: 1px; margin-top: 4px; }
+
+    /* Table */
+    .card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .card-head h2 { font-family: 'Pirata One', serif; font-size: 26px; color: var(--red); }
+    .search-input {
+      padding: 9px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      background: #fbf0d4;
+      font-size: 13.5px;
+      width: 260px;
+    }
+    .table-responsive { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; }
+    th { background: #faeac5; padding: 12px; border-bottom: 2px solid var(--border); font-weight: 800; color: var(--ink); }
+    td { padding: 12px; border-bottom: 1px dotted var(--border); vertical-align: middle; }
+    tr:hover td { background: #fdf6e2; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 11.5px;
+    }
+    .badge.yes { background: var(--success-bg); color: var(--success); }
+    .badge.no { background: var(--danger-bg); color: var(--danger); }
+    .badge.checked { background: #dbeafe; color: #0369a1; }
+
+    /* Gate prompt */
+    #gateModal {
+      max-width: 380px;
+      margin: 80px auto;
+      text-align: center;
+      background: var(--card);
+      border: 3px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    #gateModal input {
+      padding: 12px;
+      font-size: 22px;
+      letter-spacing: 5px;
+      text-align: center;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      width: 100%;
+      margin: 16px 0;
+      background: #fbf0d4;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- PIN GATE -->
+  <div id="gateModal">
+    <div style="font-size:44px; margin-bottom:8px">🏴‍☠️</div>
+    <h2 style="font-family:'Pirata One',serif; color:var(--red); font-size:32px;">Captain's Quarters</h2>
+    <p style="color:var(--sub); font-size:13.5px;">Enter the Admin Secret PIN to access guest manifest (Default: 2026)</p>
+    <input type="password" id="pinInput" placeholder="••••" maxlength="8" onkeydown="if(event.key==='Enter') unlock()">
+    <button class="btn" style="width:100%" onclick="unlock()">ENTER QUARTERS</button>
+  </div>
+
+  <!-- DASHBOARD CONTENT -->
+  <div id="dashContent" style="display:none;">
+    <header>
+      <div class="brand">
+        <h1>Cadmus Matteo's 7th Birthday</h1>
+        <p>Grand Line Birthday Crew Manifest &bull; Admin Operations</p>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <a href="/" class="btn alt">🏠 View Invitation</a>
+        <a href="/scanner" class="btn alt">📷 Entrance Scanner</a>
+        <a href="/api/export" class="btn">📥 Export CSV</a>
+      </div>
+    </header>
+
+    <div class="kpi-grid">
+      <div class="kpi-box"><div class="kpi-num" id="kTotal">0</div><div class="kpi-lbl">Total Responses</div></div>
+      <div class="kpi-box"><div class="kpi-num" style="color:var(--success)" id="kConfirmed">0</div><div class="kpi-lbl">Aboard Crew</div></div>
+      <div class="kpi-box"><div class="kpi-num" style="color:var(--gold)" id="kSeats">0</div><div class="kpi-lbl">Total Reserved Seats</div></div>
+      <div class="kpi-box"><div class="kpi-num" style="color:var(--sea)" id="kChecked">0</div><div class="kpi-lbl">Checked-In Seats</div></div>
+      <div class="kpi-box"><div class="kpi-num" style="color:var(--danger)" id="kDeclined">0</div><div class="kpi-lbl">Can't Make It</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>Pirate Crew Roster (<span id="countBadge">0</span>)</h2>
+        <input type="text" class="search-input" id="searchBox" placeholder="🔍 Search guest name or code..." oninput="renderTable()">
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Ticket Code</th>
+              <th>Guest Name</th>
+              <th>Crew Details</th>
+              <th>Status</th>
+              <th>Seats</th>
+              <th>Table #</th>
+              <th>Entrance Check-In</th>
+              <th>Message / Wishes</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="rosterBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let allGuests = [];
+
+async function unlock() {
+  const pin = document.getElementById('pinInput').value.trim();
+  try {
+    const res = await fetch('/api/admin/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin })
+    });
+    const data = await res.json();
+    if (data.valid) {
+      document.getElementById('gateModal').style.display = 'none';
+      document.getElementById('dashContent').style.display = 'block';
+      loadData();
+    } else {
+      alert('Incorrect Secret PIN.');
+    }
+  } catch(e) {
+    alert('Connection error.');
+  }
+}
+
+async function loadData() {
+  try {
+    const res = await fetch('/api/guests');
+    if (res.ok) {
+      const data = await res.json();
+      allGuests = data.guests || [];
+      const s = data.stats;
+      document.getElementById('kTotal').textContent = s.totalGuests;
+      document.getElementById('kConfirmed').textContent = s.attendingCount;
+      document.getElementById('kSeats').textContent = s.totalSeats;
+      document.getElementById('kChecked').textContent = s.checkedInSeats;
+      document.getElementById('kDeclined').textContent = s.declinedCount;
+      document.getElementById('countBadge').textContent = allGuests.length;
+      renderTable();
+    }
+  } catch(e) {}
+}
+
+function renderTable() {
+  const q = (document.getElementById('searchBox')?.value || '').toLowerCase();
+  const tbody = document.getElementById('rosterBody');
+  const filtered = allGuests.filter(g => 
+    (g.name || '').toLowerCase().includes(q) ||
+    (g.ticketCode || '').toLowerCase().includes(q) ||
+    (g.guestList || '').toLowerCase().includes(q)
+  );
+
+  if (!filtered.length) {
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; padding:30px; color:var(--sub)">No pirates found matching search.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(g => {
+    const yes = g.status === 'Attending';
+    return `<tr>
+      <td><strong style="font-family:monospace; color:var(--sea); font-size:14px">${escapeHtml(g.ticketCode)}</strong></td>
+      <td><strong>${escapeHtml(g.name)}</strong></td>
+      <td><small style="color:var(--sub)">${escapeHtml(g.guestList || '—')}</small></td>
+      <td><span class="badge ${yes?'yes':'no'}">${escapeHtml(g.status)}</span></td>
+      <td><strong>${g.seats}</strong></td>
+      <td>
+        <input type="text" value="${escapeHtml(g.tableNumber || '')}" placeholder="Table #" style="width:75px; padding:4px 8px; border:1px solid var(--border); border-radius:6px; background:#fbf0d4" onchange="updateTable('${g.id}', this.value)">
+      </td>
+      <td>
+        <button class="badge ${g.checkedIn?'checked':'yes'}" style="cursor:pointer; border:none;" onclick="toggleCheckin('${g.id}', ${!g.checkedIn})">
+          ${g.checkedIn ? '✓ ENTERED' : '⭕ CHECK IN'}
+        </button>
+      </td>
+      <td><small style="font-style:italic">"${escapeHtml(g.wishes || '—')}"</small></td>
+      <td>
+        <button class="btn" style="padding:4px 10px; font-size:11px; background:#991b1b;" onclick="deleteGuest('${g.id}')">Delete</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+async function updateTable(id, tableNumber) {
+  await fetch(`/api/guests/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ tableNumber })
+  });
+  loadData();
+}
+
+async function toggleCheckin(id, checkedIn) {
+  await fetch(`/api/guests/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ checkedIn, checkedInAt: checkedIn ? new Date().toISOString() : null })
+  });
+  loadData();
+}
+
+async function deleteGuest(id) {
+  if (!confirm('Remove this guest from roster?')) return;
+  await fetch(`/api/guests/${id}`, { method: 'DELETE' });
+  loadData();
+}
+
+function escapeHtml(v) {
+  return String(v || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+</script>
+</body>
+</html>

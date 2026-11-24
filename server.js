@@ -191,24 +191,32 @@ const server = http.createServer(async (req, res) => {
   if (pathname === '/api/rsvp' && req.method === 'POST') {
     try {
       const body = await parseBody(req);
-      if (!body.name || !body.status) {
-        return sendJson(res, 400, { error: 'Name and Attendance Status are required.' });
+      let mainName = String(body.name || '').trim();
+      let guestList = Array.isArray(body.guests) ? body.guests : [];
+      if (!mainName && guestList.length > 0) {
+        mainName = guestList[0].name;
+      }
+      if (!mainName && body.status !== 'Declined') {
+        return sendJson(res, 400, { error: 'Name is required.' });
       }
 
       const data = loadData();
       const code = 'CM-' + Math.floor(100000 + Math.random() * 900000);
       const id = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+      const seatsCount = body.status === 'Declined' ? 0 : (guestList.length > 0 ? guestList.length : Math.max(1, parseInt(body.seats, 10) || 1));
+      const guestDetails = guestList.length > 0 ? guestList.map(g => `${g.name} (${g.type || 'Adult'})`).join(', ') : '';
 
       const guest = {
         id,
         ticketCode: code,
-        name: String(body.name).trim(),
+        name: mainName || 'Unnamed Guest',
+        guestList: guestDetails,
         contact: String(body.contact || '').trim(),
         email: String(body.email || '').trim(),
         status: body.status === 'Declined' ? 'Declined' : 'Attending',
-        seats: body.status === 'Declined' ? 0 : Math.max(1, parseInt(body.seats, 10) || 1),
+        seats: seatsCount,
         dietary: String(body.dietary || '').trim(),
-        wishes: String(body.wishes || '').trim(),
+        wishes: String(body.wishes || body.message || '').trim(),
         tableNumber: '',
         checkedIn: false,
         checkedInAt: null,
@@ -368,7 +376,11 @@ const server = http.createServer(async (req, res) => {
 
   let filePath = path.join(__dirname, relativePath);
 
-  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+  if (pathname === '/admin' || pathname === '/dashboard') {
+    filePath = path.join(__dirname, 'admin.html');
+  } else if (pathname === '/scanner' || pathname === '/checkin') {
+    filePath = path.join(__dirname, 'scanner.html');
+  } else if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
     filePath = path.join(__dirname, 'index.html');
   }
 
