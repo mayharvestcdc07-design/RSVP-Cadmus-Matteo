@@ -14,16 +14,16 @@ if (!fs.existsSync(DATA_DIR)) {
 // Initial state with default event details for Cadmus Matteo
 const freshState = () => ({
   event: {
-    title: "Cadmus Matteo's Celebration",
-    subtitle: "A Grand Celebration of Love, Joy & Blessings",
-    eventDate: "2026-12-19",
+    title: "Cadmus Matteo's 7th Birthday",
+    subtitle: "One Piece Grand Line Adventure — 7 Years & 7 Million Berries! 🏴‍☠️",
+    eventDate: "2026-11-30",
     eventTime: "15:00",
-    venueName: "The Grand Pavilion",
-    venueAddress: "Metropolitan Hall, Manila, Philippines",
-    mapsUrl: "https://maps.google.com",
-    contactPerson: "Event Coordinators",
+    venueName: "Grace Harbour Pavillion",
+    venueAddress: "544 Gov Fortunato Halili Ave, Santa Maria, 3022 Bulacan",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=544+Gov+Fortunato+Halili+Ave+Santa+Maria+3022+Bulacan",
+    contactPerson: "The Cortes Family",
     contactNumber: "+63 917 123 4567",
-    welcomeNote: "We cordially invite you to celebrate this meaningful milestone with our family. Your presence will make our joy complete!",
+    welcomeNote: "The crew is gathering. The treasure is cake. The adventure is turning seven! See you on the Grand Line, nakama! 🏴‍☠️",
     adminPin: "2026"
   },
   guests: [],
