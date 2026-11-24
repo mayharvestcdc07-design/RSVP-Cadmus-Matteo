@@ -188,6 +188,60 @@ footer{padding:30px 20px 50px;color:var(--sub);font-size:.85rem}
 
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style id="adventureLogStyles">
+.adventure-log-card {
+  padding: 16px 20px;
+}
+.adv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(66, 39, 20, 0.25);
+}
+.adv-time {
+  color: var(--blue, #0d5c9c);
+  font-size: 1.05rem;
+  font-weight: 800;
+  white-space: nowrap;
+  min-width: 78px;
+}
+.adv-desc {
+  text-align: right;
+  flex: 1;
+}
+.adv-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #422714;
+}
+.adv-sub {
+  font-size: 0.85rem;
+  color: #55331a;
+  opacity: 0.9;
+  margin-top: 2px;
+  line-height: 1.35;
+}
+
+@media (max-width: 500px) {
+  .adv-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 10px 0;
+  }
+  .adv-desc {
+    text-align: left;
+  }
+  .adv-time {
+    font-size: 0.95rem;
+    color: var(--red);
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="mapdeco" aria-hidden="true"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#6b3f17" stroke-linecap="round" stroke-linejoin="round" opacity=".5"><path d="M-10 90C70 40 150 170 230 120S350 190 330 290S150 330 170 440S340 520 300 620S160 700 260 780" stroke-width="3" stroke-dasharray="2 9"/><path d="M40 210q14-18 28 0t28 0M300 430q14-18 28 0t28 0M30 520q14-18 28 0t28 0" stroke-width="2"/><path d="M310 60c14-14 40-8 46 8s-10 34-34 30-26-24-12-38zM60 340c10-12 30-8 34 6s-8 26-26 22-18-18-8-28z" stroke-width="2"/><g transform="translate(70 700)"><circle r="34" stroke-width="2"/><circle r="26" stroke-width="1"/><path d="M0-50L8-8 50 0 8 8 0 50-8 8-50 0-8-8Z" stroke-width="2" fill="#6b3f17" fill-opacity=".25"/><text x="-5" y="-56" font-size="15" font-family="Pirata One,serif" fill="#6b3f17" stroke="none">N</text></g><path d="M246 764l22 22M268 764l-22 22" stroke="#a8281f" stroke-width="5" opacity="1"/></g></svg></div>
@@ -248,14 +302,69 @@ footer{padding:30px 20px 50px;color:var(--sub);font-size:.85rem}
 </section>
 
 <section>
-  <h2>Adventure Log</h2>
-  <div class="card">
-    <div class="row"><b>3:00 PM</b><span>Crew arrives at the party island</span></div>
-    <div class="row"><b>3:30 PM</b><span>One Piece games &amp; treasure hunt</span></div>
-    <div class="row"><b>4:30 PM</b><span>Birthday feast &amp; cake for Captain Cadmus</span></div>
-    <div class="row"><b>5:30 PM</b><span>Prizes &amp; farewell</span></div>
+  <h2>CAPTAIN TEO'S GRAND ADVENTURE</h2>
+  <p class="sub" style="font-family:'Pirata One',serif; font-size:1.3rem; color:var(--red); letter-spacing:1px; margin-top:-6px; margin-bottom:14px;">The Voyage to the 7th Treasure</p>
+  
+  <div class="card adventure-log-card">
+    <div class="row adv-row">
+      <b class="adv-time">3:00 PM</b>
+      <div class="adv-desc">
+        <div class="adv-title">All Aboard!</div>
+        <div class="adv-sub">Food, Fun, Games &amp; Adventure Booths</div>
+      </div>
+    </div>
+    <div class="row adv-row">
+      <b class="adv-time">4:30 PM</b>
+      <div class="adv-desc">
+        <div class="adv-title">The Grand Voyage Begins</div>
+        <div class="adv-sub">Grand Entrance &amp; Birthday Celebration</div>
+      </div>
+    </div>
+    <div class="row adv-row">
+      <b class="adv-time">5:00 PM</b>
+      <div class="adv-desc">
+        <div class="adv-title">The Grand Pirate Adventure</div>
+        <div class="adv-sub">Surprise Guests, Entertainment &amp; Games</div>
+      </div>
+    </div>
+    <div class="row adv-row">
+      <b class="adv-time">6:00 PM</b>
+      <div class="adv-desc">
+        <div class="adv-title">The Pirates’ Grand Feast</div>
+        <div class="adv-sub">Dinner &amp; Captain Teo’s Growing-Up Journey</div>
+      </div>
+    </div>
+    <div class="row adv-row">
+      <b class="adv-time">6:30 PM</b>
+      <div class="adv-desc">
+        <div class="adv-title">The Ultimate Crew Celebration</div>
+        <div class="adv-sub">Music, Dancing &amp; More Surprises</div>
+      </div>
+    </div>
+    <div class="row adv-row">
+      <b class="adv-time">7:15 PM</b>
+      <div class="adv-desc">
+        <div class="adv-title">The Final Treasure</div>
+        <div class="adv-sub">Special Memories &amp; Treasure Giveaways</div>
+      </div>
+    </div>
+    <div class="row adv-row" style="border-bottom:none;">
+      <b class="adv-time">7:30 PM</b>
+      <div class="adv-desc">
+        <div class="adv-title" style="color:var(--red);">Until Our Next Adventure!</div>
+      </div>
+    </div>
   </div>
-  <p class="sub"><b>Dress code:</b> Come as a pirate! Straw hats, bandanas, and red or blue outfits are welcome. 🏴‍☠️</p>
+
+  <p class="sub" style="font-weight:700; color:var(--navy); font-size:1.05rem; margin-top:16px; margin-bottom:4px;">
+    Come early, join the crew, and discover the treasures that await you!
+  </p>
+  <p class="sub" style="font-family:'Pirata One',serif; font-size:1.25rem; color:var(--red); letter-spacing:1px; margin-top:4px; margin-bottom:10px;">
+    One Captain. One Crew. One Epic Adventure! 🏴‍☠️
+  </p>
+  <p class="sub" style="font-size:0.88rem; opacity:0.85; margin-top:6px;">
+    <b>Dress code:</b> Come as a pirate! Straw hats, bandanas, and red or blue outfits are welcome. 👒
+  </p>
 </section>
 
 <section>
