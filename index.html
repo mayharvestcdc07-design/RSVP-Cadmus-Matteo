@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cadmus Matteo's Celebration - Official RSVP & Guest Pass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  
+  <!-- QR Code and Scanner Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #0f2b48;
+      --primary-light: #1e3a5f;
+      --gold: #d4af37;
+      --gold-light: #f7e7b4;
+      --gold-dark: #aa820a;
+      --cream: #fdfbf7;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --success: #15803d;
+      --success-bg: #dcfce7;
+      --danger: #b91c1c;
+      --danger-bg: #fee2e2;
+      --border: #e2e8f0;
+      --shadow-sm: 0 2px 4px rgba(15, 43, 72, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(15, 43, 72, 0.08), 0 8px 10px -6px rgba(15, 43, 72, 0.05);
+      --shadow-lg: 0 20px 35px -5px rgba(15, 43, 72, 0.12), 0 10px 15px -5px rgba(15, 43, 72, 0.08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background-color: var(--cream); color: var(--text-main); min-height: 100vh; overflow-x: hidden; }
+
+    /* Top Navigation */
+    header {
+      background: rgba(15, 43, 72, 0.95);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--gold), #996515);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: #0f2b48;
+      box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+    }
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--gold-light);
+      letter-spacing: 0.5px;
+      display: block;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      padding: 4px;
+      border-radius: 30px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: #e2e8f0;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--gold), #b8860b);
+      color: #0f2b48;
+      font-weight: 800;
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Views container */
+    .container {
+      max-width: 1060px;
+      margin: 28px auto 60px;
+      padding: 0 16px;
+    }
+    .view-section { display: none; }
+    .view-section.active { display: block; animation: fadeIn 0.35s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Hero Invitation Banner */
+    .hero-card {
+      background: linear-gradient(145deg, #0b1f35 0%, #15385e 60%, #1c497a 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 48px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 32px;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 54px);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero-subtitle {
+      font-size: clamp(15px, 2.5vw, 19px);
+      color: var(--gold-light);
+      font-style: italic;
+      max-width: 650px;
+      margin: 0 auto 28px;
+      line-height: 1.5;
+    }
+
+    /* Countdown Timer */
+    .countdown-grid {
+      display: inline-grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto 30px;
+    }
+    .countdown-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 12px;
+      padding: 12px 8px;
+      min-width: 70px;
+      backdrop-filter: blur(5px);
+    }
+    .countdown-num {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+      line-height: 1.1;
+    }
+    .countdown-lbl {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    /* Event Details Pill List */
+    .details-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .detail-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 30px;
+      padding: 9px 18px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f1f5f9;
+    }
+    .detail-pill strong { color: var(--gold); }
+
+    /* RSVP Form Section */
+    .form-wrapper {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-full { grid-column: 1 / -1; }
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--text-main);
+      background: #fafbfc;
+      transition: all 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold-dark);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    }
+
+    /* Radio Attending Selector */
+    .attend-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .attend-card {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .attend-card input { display: none; }
+    .attend-card.selected-yes {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: var(--success);
+      font-weight: 800;
+    }
+    .attend-card.selected-no {
+      border-color: var(--danger);
+      background: var(--danger-bg);
+      color: var(--danger);
+      font-weight: 800;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), #1e3a5f);
+      color: #fff;
+      border: 2px solid var(--gold);
+      padding: 16px 24px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 10px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #133961, #244673);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 43, 72, 0.25);
+    }
+
+    /* Digital Pass Modal / Card */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 43, 72, 0.8);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 16px;
+    }
+    .modal-overlay.active { display: flex; animation: fadeIn 0.3s; }
+    .ticket-pass {
+      background: linear-gradient(145deg, #ffffff 0%, #fdfbf7 100%);
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      border: 2px solid var(--gold);
+      position: relative;
+      overflow: hidden;
+    }
+    .ticket-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 3px dashed var(--gold);
+    }
+    .ticket-header h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--gold-light);
+      letter-spacing: 1.5px;
+    }
+    .ticket-header p { font-size: 12px; color: #cbd5e1; margin-top: 4px; }
+    .ticket-body { padding: 26px 24px; text-align: center; }
+    .guest-name-badge {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .ticket-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin: 16px 0;
+      text-align: left;
+    }
+    .ticket-info-grid small { font-size: 11px; color: var(--text-muted); display: block; }
+    .ticket-info-grid strong { font-size: 14px; color: var(--primary); }
+    .qr-container {
+      background: #fff;
+      padding: 14px;
+      display: inline-block;
+      border-radius: 14px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      margin-bottom: 12px;
+    }
+    .ticket-code {
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+    .ticket-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .btn-action {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-action.print { background: var(--primary); color: #fff; }
+    .btn-action.close { background: #e2e8f0; color: var(--text-main); }
+
+    /* Scanner View */
+    .scanner-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-md);
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    #reader {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 18px 0;
+      border: 2px solid var(--border);
+    }
+    .manual-checkin {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .manual-checkin input {
+      flex: 1;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .checkin-result {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      display: none;
+    }
+    .checkin-result.success { background: var(--success-bg); color: var(--success); border: 2px solid #86efac; }
+    .checkin-result.warning { background: #fef3c7; color: #92400e; border: 2px solid #fde68a; }
+    .checkin-result.error { background: var(--danger-bg); color: var(--danger); border: 2px solid #fca5a5; }
+
+    /* Admin View */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .kpi-val {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+    .kpi-lbl {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .table-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    .table-tools {
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+    }
+    .search-box {
+      padding: 8px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 13.5px;
+      width: 260px;
+    }
+    .table-responsive { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px; }
+    th { background: #f1f5f9; padding: 12px 16px; font-weight: 750; color: var(--primary); border-bottom: 2px solid var(--border); }
+    td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tr:hover td { background: #fafbfc; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 800;
+    }
+    .status-badge.attending { background: var(--success-bg); color: var(--success); }
+    .status-badge.declined { background: var(--danger-bg); color: var(--danger); }
+    .status-badge.checked-in { background: #dbeafe; color: #1e40af; }
+
+    /* Wishes Wall */
+    .wishes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .wish-bubble {
+      background: #fff;
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .wish-quote { font-style: italic; color: #334155; margin-bottom: 10px; line-height: 1.45; font-size: 13.5px; }
+    .wish-author { font-weight: 800; color: var(--primary); font-size: 13px; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .hero-card { padding: 32px 18px; }
+      .form-wrapper { padding: 28px 18px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .attend-selector { grid-template-columns: 1fr; }
+      .search-box { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="brand" onclick="showView('invitation')">
+        <div class="brand-logo">C</div>
+        <div>
+          <div class="brand-title">CADMUS MATTEO</div>
+          <span class="brand-sub">CELEBRATION &bull; OFFICIAL RSVP</span>
+        </div>
+      </a>
+      <nav class="nav-tabs">
+        <button class="nav-btn active" onclick="showView('invitation', this)">💌 Invitation &amp; RSVP</button>
+        <button class="nav-btn" onclick="showView('scanner', this)">📷 QR Scanner</button>
+        <button class="nav-btn" onclick="showView('admin', this)">📊 Admin Dashboard</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ==========================================
+         VIEW 1: INVITATION & RSVP LANDING
+    =========================================== -->
+    <section id="viewInvitation" class="view-section active">
+      <div class="hero-card">
+        <div class="hero-eyebrow">A Special Celebration</div>
+        <h1 class="hero-title" id="eventHeroTitle">Cadmus Matteo</h1>
+        <p class="hero-subtitle" id="eventHeroSubtitle">"A Grand Celebration of Love, Joy &amp; Endless Blessings"</p>
+
+        <!-- Live Countdown -->
+        <div class="countdown-grid">
+          <div class="countdown-box"><span class="countdown-num" id="cdDays">00</span><span class="countdown-lbl">Days</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdHours">00</span><span class="countdown-lbl">Hours</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdMins">00</span><span class="countdown-lbl">Mins</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdSecs">00</span><span class="countdown-lbl">Secs</span></div>
+        </div>
+
+        <div class="details-row">
+          <div class="detail-pill">📅 <span id="eventDateDisplay">December 19, 2026</span></div>
+          <div class="detail-pill">⏰ <span id="eventTimeDisplay">3:00 PM</span></div>
+          <div class="detail-pill">📍 <span id="eventVenueDisplay">The Grand Pavilion, Manila</span></div>
+          <a id="btnGoogleMaps" href="https://maps.google.com" target="_blank" class="detail-pill" style="text-decoration:none; background:rgba(212,175,55,0.2); border-color:var(--gold);">🗺️ <strong>Open Map</strong></a>
+        </div>
+      </div>
+
+      <!-- RSVP Form Card -->
+      <div class="form-wrapper">
+        <div class="section-head">
+          <h2>Please RSVP by Confirming Below</h2>
+          <p>Kindly confirm your attendance to ensure your reserved seat and digital pass.</p>
+        </div>
+
+        <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)">
+          <div class="form-grid">
+            
+            <div class="form-group form-full">
+              <label>Will you be able to attend? *</label>
+              <div class="attend-selector">
+                <div class="attend-card selected-yes" id="cardAttendYes" onclick="selectAttendance('Attending')">
+                  <div style="font-size:22px; margin-bottom:4px">🎉</div>
+                  <div>Joyfully Accept</div>
+                  <small style="font-size:11px; opacity:0.8">I / We will be there!</small>
+                </div>
+                <div class="attend-card" id="cardAttendNo" onclick="selectAttendance('Declined')">
+                  <div style="font-size:22px; margin-bottom:4px">💌</div>
+                  <div>Regretfully Decline</div>
+                  <small style="font-size:11px; opacity:0.8">Sending love from afar</small>
+                </div>
+              </div>
+              <input type="hidden" id="rsvpStatus" value="Attending" required>
+            </div>
+
+            <div class="form-group form-full">
+              <label for="rsvpName">Full Name / Family Name *</label>
+              <input type="text" id="rsvpName" placeholder="e.g., Juan dela Cruz & Family" required>
+            </div>
+
+            <div class="form-group" id="seatsGroup">
+              <label for="rsvpSeats">Number of Reserved Seats *</label>
+              <select id="rsvpSeats">
+                <option value="1">1 Person</option>
+                <option value="2">2 Persons</option>
+                <option value="3">3 Persons</option>
+                <option value="4">4 Persons</option>
+                <option value="5">5 Persons</option>
+                <option value="6">6+ (Family / Group)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpContact">Mobile Number (SMS)</label>
+              <input type="tel" id="rsvpContact" placeholder="e.g., 0917 123 4567">
+            </div>
+
+            <div class="form-group form-full">
+              <label for="rsvpEmail">Email Address (Optional)</label>
+              <input type="email" id="rsvpEmail" placeholder="For instant digital pass delivery">
+            </div>
+
+            <div class="form-group form-full" id="dietaryGroup">
+              <label for="rsvpDietary">Dietary Preferences / Allergies</label>
+              <input type="text" id="rsvpDietary" placeholder="e.g., None, Halal, Vegetarian, Seafood Allergy">
+            </div>
+
+            <div class="form-group form-full">
+              <label for="rsvpWishes">Wishes &amp; Message for Cadmus Matteo</label>
+              <textarea id="rsvpWishes" rows="3" placeholder="Write a warm dedication or greeting for Cadmus Matteo..."></textarea>
+            </div>
+
+            <div class="form-full">
+              <button type="submit" class="btn-submit" id="btnRsvpSubmit">
+                <span>SUBMIT RSVP &amp; GET DIGITAL PASS</span> &rarr;
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         VIEW 2: COORDINATOR ENTRANCE QR SCANNER
+    =========================================== -->
+    <section id="viewScanner" class="view-section">
+      <div class="scanner-card">
+        <h2 style="font-family:'Playfair Display',serif; color:var(--primary); font-size:26px;">Reception QR Scanner</h2>
+        <p style="color:var(--text-muted); font-size:13.5px; margin-top:4px;">Scan guest digital passes for seamless entrance verification and table assignment.</p>
+
+        <div id="reader"></div>
+
+        <div style="display:flex; justify-content:center; gap:10px; margin:12px 0;">
+          <button type="button" class="btn-action print" id="btnToggleCamera" onclick="toggleCameraScanner()" style="max-width:200px;">
+            📷 Start Camera Scanner
+          </button>
+        </div>
+
+        <div class="manual-checkin">
+          <input type="text" id="manualTicketInput" placeholder="OR TYPE TICKET (E.G. CM-123456)" onkeydown="if(event.key==='Enter') submitManualCheckIn()">
+          <button type="button" class="btn-action print" onclick="submitManualCheckIn()" style="max-width:120px;">CHECK-IN</button>
+        </div>
+
+        <div id="checkinResult" class="checkin-result"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         VIEW 3: ORGANIZER ADMIN DASHBOARD
+    =========================================== -->
+    <section id="viewAdmin" class="view-section">
+      
+      <!-- Admin PIN Protection Prompt -->
+      <div id="adminPinGate" class="form-wrapper" style="max-width:400px; text-align:center; padding:36px 24px;">
+        <div style="font-size:36px; margin-bottom:8px">🔒</div>
+        <h3 style="font-family:'Cinzel',serif; color:var(--primary);">Admin Access</h3>
+        <p style="color:var(--text-muted); font-size:13px; margin:6px 0 18px;">Please enter the 4-digit Event Admin PIN (Default: 2026)</p>
+        <input type="password" id="adminPinInput" maxlength="8" placeholder="Enter PIN" style="padding:12px; font-size:20px; text-align:center; letter-spacing:4px; width:100%; border:2px solid var(--border); border-radius:10px;" onkeydown="if(event.key==='Enter') unlockAdmin()">
+        <button type="button" class="btn-submit" onclick="unlockAdmin()" style="margin-top:14px; padding:12px;">UNLOCK DASHBOARD</button>
+      </div>
+
+      <!-- Admin Real Dashboard -->
+      <div id="adminContent" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:20px; flex-wrap:wrap;">
+          <div>
+            <h2 style="font-family:'Playfair Display',serif; color:var(--primary); font-size:28px;">Event Master Dashboard</h2>
+            <p style="color:var(--text-muted); font-size:13px;">Real-time attendance tracking and guest allocations.</p>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn-action print" onclick="exportGuestListCSV()" style="padding:10px 16px;">📥 Export CSV</button>
+            <button class="btn-action close" onclick="openEventSettingsModal()" style="padding:10px 16px;">⚙️ Edit Event Details</button>
+          </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card"><span class="kpi-lbl">Total Responses</span><div class="kpi-val" id="kpiTotal">0</div></div>
+          <div class="kpi-card" style="border-top:4px solid var(--success);"><span class="kpi-lbl">Confirmed Guests</span><div class="kpi-val" style="color:var(--success);" id="kpiConfirmed">0</div></div>
+          <div class="kpi-card" style="border-top:4px solid var(--gold);"><span class="kpi-lbl">Total Reserved Seats</span><div class="kpi-val" style="color:var(--gold-dark);" id="kpiSeats">0</div></div>
+          <div class="kpi-card" style="border-top:4px solid #0284c7;"><span class="kpi-lbl">Checked-In Seats</span><div class="kpi-val" style="color:#0284c7;" id="kpiCheckedIn">0</div></div>
+          <div class="kpi-card" style="border-top:4px solid var(--danger);"><span class="kpi-lbl">Declined</span><div class="kpi-val" style="color:var(--danger);" id="kpiDeclined">0</div></div>
+        </div>
+
+        <!-- Guest List Management Table -->
+        <div class="table-card">
+          <div class="table-tools">
+            <h3 style="font-size:16px; font-weight:800; color:var(--primary);">Guest Registry (<span id="guestCountBadge">0</span>)</h3>
+            <input type="text" class="search-box" id="guestSearchInput" placeholder="🔍 Search by name, code, contact..." oninput="renderGuestTable()">
+          </div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ticket</th>
+                  <th>Guest Name</th>
+                  <th>Status</th>
+                  <th>Seats</th>
+                  <th>Table Assignment</th>
+                  <th>Check-In Status</th>
+                  <th>Dietary / Notes</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="guestTableBody">
+                <tr><td colspan="8" style="text-align:center; padding:30px; color:#64748b;">Loading guest responses...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Wishes & Dedication Wall -->
+        <div class="table-card" style="padding:22px;">
+          <h3 style="font-family:'Playfair Display',serif; color:var(--primary); font-size:22px; margin-bottom:12px;">💌 Wishes &amp; Dedications Wall</h3>
+          <div class="wishes-grid" id="wishesWall"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ==========================================
+       DIGITAL PASS MODAL
+  =========================================== -->
+  <div class="modal-overlay" id="ticketModal">
+    <div class="ticket-pass">
+      <div class="ticket-header">
+        <h3>CADMUS MATTEO</h3>
+        <p id="ticketEventSubtitle">Official Guest Invitation &amp; Pass</p>
+      </div>
+      <div class="ticket-body">
+        <div class="guest-name-badge" id="ticketGuestName">Guest Name</div>
+        <div class="ticket-code" id="ticketCodeDisplay">CM-000000</div>
+        
+        <div class="qr-container">
+          <div id="qrcode"></div>
+        </div>
+
+        <div class="ticket-info-grid">
+          <div><small>Seats Reserved</small><strong id="ticketSeats">1 Person</strong></div>
+          <div><small>Table Assigned</small><strong id="ticketTable">Open Seating</strong></div>
+          <div><small>Date</small><strong id="ticketDate">Dec 19, 2026</strong></div>
+          <div><small>Time</small><strong id="ticketTime">3:00 PM</strong></div>
+        </div>
+
+        <p style="font-size:11.5px; color:#64748b;">Please present this QR ticket at the entrance for fast check-in.</p>
+
+        <div class="ticket-actions">
+          <button class="btn-action print" onclick="window.print()">🖨️ Print / Save Pass</button>
+          <button class="btn-action close" onclick="closeTicketModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event Settings Modal -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="form-wrapper" style="max-width:550px; background:#fff;">
+      <h3 style="font-family:'Playfair Display',serif; color:var(--primary); font-size:22px; margin-bottom:16px;">Edit Event Details</h3>
+      <form onsubmit="saveEventSettings(event)">
+        <div class="form-grid">
+          <div class="form-group form-full"><label>Event Title</label><input id="cfgTitle" required></div>
+          <div class="form-group form-full"><label>Subtitle / Motto</label><input id="cfgSubtitle" required></div>
+          <div class="form-group"><label>Event Date</label><input type="date" id="cfgDate" required></div>
+          <div class="form-group"><label>Event Time</label><input type="time" id="cfgTime" required></div>
+          <div class="form-group form-full"><label>Venue Name</label><input id="cfgVenue" required></div>
+          <div class="form-group form-full"><label>Google Maps URL</label><input id="cfgMaps"></div>
+          <div class="form-group"><label>Admin PIN</label><input id="cfgPin" type="password" placeholder="Change PIN"></div>
+          <div class="form-full" style="display:flex; gap:10px; margin-top:10px;">
+            <button type="submit" class="btn-submit" style="margin:0;">Save Settings</button>
+            <button type="button" class="btn-action close" onclick="document.getElementById('settingsModal').classList.remove('active')">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Cadmus Matteo Celebration &bull; Built &amp; Deployed for May Harvest Corporation</p>
+  </footer>
+
+  <!-- ==========================================
+       SYSTEM JAVASCRIPT ENGINE
+  =========================================== -->
+  <script>
+    let currentEvent = {
+      title: "Cadmus Matteo",
+      subtitle: "A Grand Celebration of Love, Joy & Blessings",
+      eventDate: "2026-12-19",
+      eventTime: "15:00",
+      venueName: "The Grand Pavilion, Manila",
+      mapsUrl: "https://maps.google.com"
+    };
+
+    let allGuests = [];
+    let html5QrcodeScanner = null;
+    let qrGenerator = null;
+    let isAdminUnlocked = false;
+
+    // View Switching
+    function showView(viewId, btnEl) {
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+      if (viewId === 'invitation') document.getElementById('viewInvitation').classList.add('active');
+      if (viewId === 'scanner') {
+        document.getElementById('viewScanner').classList.add('active');
+        setTimeout(() => document.getElementById('manualTicketInput')?.focus(), 200);
+      }
+      if (viewId === 'admin') {
+        document.getElementById('viewAdmin').classList.add('active');
+        if (isAdminUnlocked) refreshAdminData();
+      }
+
+      if (btnEl) btnEl.classList.add('active');
+    }
+
+    // Attendance Selector Radio Cards
+    function selectAttendance(status) {
+      document.getElementById('rsvpStatus').value = status;
+      const yesCard = document.getElementById('cardAttendYes');
+      const noCard = document.getElementById('cardAttendNo');
+      const seatsGrp = document.getElementById('seatsGroup');
+      const dietGrp = document.getElementById('dietaryGroup');
+
+      if (status === 'Attending') {
+        yesCard.className = 'attend-card selected-yes';
+        noCard.className = 'attend-card';
+        if (seatsGrp) seatsGrp.style.display = 'block';
+        if (dietGrp) dietGrp.style.display = 'block';
+      } else {
+        noCard.className = 'attend-card selected-no';
+        yesCard.className = 'attend-card';
+        if (seatsGrp) seatsGrp.style.display = 'none';
+        if (dietGrp) dietGrp.style.display = 'none';
+      }
+    }
+
+    // Countdown Engine
+    function startCountdown() {
+      function update() {
+        if (!currentEvent.eventDate) return;
+        const targetStr = `${currentEvent.eventDate}T${currentEvent.eventTime || '15:00'}:00`;
+        const target = new Date(targetStr).getTime();
+        const now = Date.now();
+        const diff = Math.max(0, target - now);
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
+        document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+        document.getElementById('cdSecs').textContent = String(secs).padStart(2, '0');
+      }
+      setInterval(update, 1000);
+      update();
+    }
+
+    // Load Event Details from Backend
+    async function loadEventData() {
+      try {
+        const res = await fetch('/api/event');
+        if (res.ok) {
+          const json = await res.json();
+          if (json.event) {
+            currentEvent = json.event;
+            document.getElementById('eventHeroTitle').textContent = currentEvent.title || "Cadmus Matteo";
+            document.getElementById('eventHeroSubtitle').textContent = currentEvent.subtitle || "";
+            document.getElementById('eventVenueDisplay').textContent = currentEvent.venueName || "Manila";
+            
+            if (currentEvent.eventDate) {
+              const d = new Date(currentEvent.eventDate + 'T00:00:00');
+              document.getElementById('eventDateDisplay').textContent = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+            }
+            if (currentEvent.eventTime) {
+              document.getElementById('eventTimeDisplay').textContent = currentEvent.eventTime;
+            }
+            if (currentEvent.mapsUrl) {
+              document.getElementById('btnGoogleMaps').href = currentEvent.mapsUrl;
+            }
+          }
+        }
+      } catch(e) {}
+    }
+
+    // Handle RSVP Form Submit
+    async function handleRsvpSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btnRsvpSubmit');
+      btn.disabled = true;
+      btn.innerHTML = '<span>SAVING YOUR RSVP...</span>';
+
+      const payload = {
+        name: document.getElementById('rsvpName').value,
+        status: document.getElementById('rsvpStatus').value,
+        seats: document.getElementById('rsvpSeats').value,
+        contact: document.getElementById('rsvpContact').value,
+        email: document.getElementById('rsvpEmail').value,
+        dietary: document.getElementById('rsvpDietary').value,
+        wishes: document.getElementById('rsvpWishes').value
+      };
+
+      try {
+        const res = await fetch('/api/rsvp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          const errData = await res.json();
+          throw new Error(errData.error || 'Submission failed');
+        }
+
+        const data = await res.json();
+        btn.innerHTML = '<span>✓ RSVP CONFIRMED!</span>';
+
+        if (payload.status === 'Attending') {
+          showDigitalPass(data.guest);
+        } else {
+          alert(`Maraming salamat po, ${payload.name}. Naitala na namin ang iyong tugon at pagbati para kay Cadmus Matteo! ❤️`);
+        }
+
+        document.getElementById('rsvpForm').reset();
+        selectAttendance('Attending');
+      } catch(err) {
+        alert('Error submitting RSVP: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span>SUBMIT RSVP &amp; GET DIGITAL PASS</span> &rarr;';
+      }
+    }
+
+    // Digital Pass Modal & QR Generator
+    function showDigitalPass(guest) {
+      document.getElementById('ticketGuestName').textContent = guest.name;
+      document.getElementById('ticketCodeDisplay').textContent = guest.ticketCode;
+      document.getElementById('ticketSeats').textContent = guest.seats + ' Seat' + (guest.seats > 1 ? 's' : '');
+      document.getElementById('ticketTable').textContent = guest.tableNumber || 'Open Seating';
+      document.getElementById('ticketDate').textContent = currentEvent.eventDate || 'Dec 19, 2026';
+      document.getElementById('ticketTime').textContent = currentEvent.eventTime || '3:00 PM';
+
+      // Generate QR Code
+      const qrEl = document.getElementById('qrcode');
+      qrEl.innerHTML = '';
+      new QRCode(qrEl, {
+        text: guest.ticketCode,
+        width: 170,
+        height: 170,
+        colorDark: '#0f2b48',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      document.getElementById('ticketModal').classList.add('active');
+    }
+
+    function closeTicketModal() {
+      document.getElementById('ticketModal').classList.remove('active');
+    }
+
+    // Check-in Scanner Engine
+    let isCameraRunning = false;
+    function toggleCameraScanner() {
+      const btn = document.getElementById('btnToggleCamera');
+      if (isCameraRunning) {
+        if (html5QrcodeScanner) {
+          html5QrcodeScanner.stop().then(() => {
+            isCameraRunning = false;
+            btn.textContent = '📷 Start Camera Scanner';
+          });
+        }
+      } else {
+        html5QrcodeScanner = new Html5Qrcode("reader");
+        html5QrcodeScanner.start(
+          { facingMode: "environment" },
+          { fps: 10, qrbox: { width: 250, height: 250 } },
+          (decodedText) => {
+            handleCheckInScan(decodedText);
+          },
+          (err) => {}
+        ).then(() => {
+          isCameraRunning = true;
+          btn.textContent = '⏹ Stop Camera Scanner';
+        }).catch(err => {
+          alert('Could not access camera: ' + err);
+        });
+      }
+    }
+
+    async function handleCheckInScan(queryCode) {
+      const resEl = document.getElementById('checkinResult');
+      resEl.style.display = 'block';
+      resEl.className = 'checkin-result';
+      resEl.textContent = 'Verifying Ticket...';
+
+      try {
+        const res = await fetch('/api/check-in', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: queryCode })
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          const g = data.guest;
+          if (data.alreadyCheckedIn) {
+            resEl.className = 'checkin-result warning';
+            resEl.innerHTML = `⚠️ <strong>ALREADY CHECKED IN:</strong> ${escapeHtml(g.name)}<br><small>${data.message}</small><br><strong>Assigned:</strong> ${escapeHtml(g.tableNumber || 'Open Seating')} (${g.seats} seats)`;
+          } else {
+            resEl.className = 'checkin-result success';
+            resEl.innerHTML = `🎉 <strong>CHECK-IN SUCCESS!</strong><br><span style="font-size:20px;">${escapeHtml(g.name)}</span><br><strong>Seats:</strong> ${g.seats} &bull; <strong>Table:</strong> ${escapeHtml(g.tableNumber || 'Open Seating')}`;
+          }
+        } else {
+          resEl.className = 'checkin-result error';
+          resEl.innerHTML = `❌ <strong>CHECK-IN FAILED:</strong> ${escapeHtml(data.error || 'Invalid Ticket')}`;
+        }
+      } catch(e) {
+        resEl.className = 'checkin-result error';
+        resEl.textContent = 'Network error checking in ticket.';
+      }
+    }
+
+    function submitManualCheckIn() {
+      const inp = document.getElementById('manualTicketInput');
+      const val = inp.value.trim();
+      if (!val) return;
+      handleCheckInScan(val);
+      inp.value = '';
+    }
+
+    // Admin Dashboard Engine
+    async function unlockAdmin() {
+      const pin = document.getElementById('adminPinInput').value.trim();
+      try {
+        const res = await fetch('/api/admin/verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pin })
+        });
+        const data = await res.json();
+        if (data.valid) {
+          isAdminUnlocked = true;
+          document.getElementById('adminPinGate').style.display = 'none';
+          document.getElementById('adminContent').style.display = 'block';
+          refreshAdminData();
+        } else {
+          alert('Incorrect Admin PIN. Please try again.');
+        }
+      } catch(e) {
+        alert('Server connection error.');
+      }
+    }
+
+    async function refreshAdminData() {
+      try {
+        const res = await fetch('/api/guests');
+        if (res.ok) {
+          const json = await res.json();
+          allGuests = json.guests || [];
+          const s = json.stats;
+
+          document.getElementById('kpiTotal').textContent = s.totalGuests;
+          document.getElementById('kpiConfirmed').textContent = s.attendingCount;
+          document.getElementById('kpiSeats').textContent = s.totalSeats;
+          document.getElementById('kpiCheckedIn').textContent = `${s.checkedInSeats} (${s.checkedInCount} tix)`;
+          document.getElementById('kpiDeclined').textContent = s.declinedCount;
+          document.getElementById('guestCountBadge').textContent = allGuests.length;
+
+          renderGuestTable();
+          renderWishesWall();
+        }
+      } catch(e) {}
+    }
+
+    function renderGuestTable() {
+      const q = (document.getElementById('guestSearchInput')?.value || '').toLowerCase();
+      const tbody = document.getElementById('guestTableBody');
+      const filtered = allGuests.filter(g => 
+        (g.name || '').toLowerCase().includes(q) ||
+        (g.ticketCode || '').toLowerCase().includes(q) ||
+        (g.contact || '').toLowerCase().includes(q)
+      );
+
+      if (!filtered.length) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:24px; color:#64748b;">No guests matching search.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(g => {
+        const isAttending = g.status === 'Attending';
+        return `<tr>
+          <td><strong style="font-family:monospace; color:var(--primary);">${escapeHtml(g.ticketCode)}</strong></td>
+          <td><strong>${escapeHtml(g.name)}</strong><br><small style="color:#64748b;">${escapeHtml(g.contact || '')}</small></td>
+          <td><span class="status-badge ${isAttending ? 'attending' : 'declined'}">${escapeHtml(g.status)}</span></td>
+          <td>${g.seats}</td>
+          <td>
+            <input type="text" value="${escapeHtml(g.tableNumber || '')}" placeholder="Set Table" style="width:95px; padding:4px 8px; font-size:12px; border:1px solid #cbd5e1; border-radius:6px;" onchange="updateGuestTable('${g.id}', this.value)">
+          </td>
+          <td>
+            <button class="status-badge ${g.checkedIn ? 'checked-in' : 'attending'}" style="cursor:pointer; border:none;" onclick="toggleGuestCheckin('${g.id}', ${!g.checkedIn})">
+              ${g.checkedIn ? '✓ CHECKED IN' : '⭕ MARK PRESENT'}
+            </button>
+          </td>
+          <td><small>${escapeHtml(g.dietary || 'None')}</small></td>
+          <td>
+            <button type="button" class="btn-action close" style="padding:4px 8px; font-size:11px;" onclick="deleteGuest('${g.id}')">Delete</button>
+          </td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderWishesWall() {
+      const wall = document.getElementById('wishesWall');
+      const withWishes = allGuests.filter(g => g.wishes && g.wishes.trim());
+      if (!withWishes.length) {
+        wall.innerHTML = '<p style="color:#64748b; font-size:13px;">No wishes submitted yet. When guests leave messages, they will appear here!</p>';
+        return;
+      }
+      wall.innerHTML = withWishes.map(g => `
+        <div class="wish-bubble">
+          <div class="wish-quote">"${escapeHtml(g.wishes)}"</div>
+          <div class="wish-author">&mdash; ${escapeHtml(g.name)}</div>
+        </div>
+      `).join('');
+    }
+
+    async function updateGuestTable(id, tableVal) {
+      await fetch(`/api/guests/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tableNumber: tableVal.trim() })
+      });
+      refreshAdminData();
+    }
+
+    async function toggleGuestCheckin(id, checkedInStatus) {
+      await fetch(`/api/guests/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          checkedIn: checkedInStatus,
+          checkedInAt: checkedInStatus ? new Date().toISOString() : null
+        })
+      });
+      refreshAdminData();
+    }
+
+    async function deleteGuest(id) {
+      if (!confirm('Are you sure you want to remove this RSVP entry?')) return;
+      await fetch(`/api/guests/${id}`, { method: 'DELETE' });
+      refreshAdminData();
+    }
+
+    function exportGuestListCSV() {
+      window.location.href = '/api/export';
+    }
+
+    function openEventSettingsModal() {
+      document.getElementById('cfgTitle').value = currentEvent.title || '';
+      document.getElementById('cfgSubtitle').value = currentEvent.subtitle || '';
+      document.getElementById('cfgDate').value = currentEvent.eventDate || '';
+      document.getElementById('cfgTime').value = currentEvent.eventTime || '';
+      document.getElementById('cfgVenue').value = currentEvent.venueName || '';
+      document.getElementById('cfgMaps').value = currentEvent.mapsUrl || '';
+      document.getElementById('settingsModal').classList.add('active');
+    }
+
+    async function saveEventSettings(e) {
+      e.preventDefault();
+      const pin = document.getElementById('adminPinInput').value.trim();
+      const newPin = document.getElementById('cfgPin').value.trim();
+      const payload = {
+        pin,
+        newPin: newPin || undefined,
+        event: {
+          title: document.getElementById('cfgTitle').value,
+          subtitle: document.getElementById('cfgSubtitle').value,
+          eventDate: document.getElementById('cfgDate').value,
+          eventTime: document.getElementById('cfgTime').value,
+          venueName: document.getElementById('cfgVenue').value,
+          mapsUrl: document.getElementById('cfgMaps').value
+        }
+      };
+
+      const res = await fetch('/api/event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        alert('Event settings updated successfully!');
+        document.getElementById('settingsModal').classList.remove('active');
+        loadEventData();
+      } else {
+        alert('Failed to save settings.');
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[m]);
+    }
+
+    // Startup
+    document.addEventListener('DOMContentLoaded', () => {
+      loadEventData();
+      startCountdown();
+    });
+  </script>
+</body>
+</html>
