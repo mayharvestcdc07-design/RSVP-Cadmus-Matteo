@@ -124,7 +124,23 @@
       "checkedIn": false,
       "checkedInAt": null,
       "registeredAt": "2026-11-25T02:16:05.942Z"
+    },
+    {
+      "id": "mwvltt9tmq1ft",
+      "ticketCode": "CM-526744",
+      "name": "Sanji (Cook of the Straw Hats)",
+      "guestList": "Sanji (Adult)",
+      "contact": "",
+      "email": "",
+      "status": "Attending",
+      "seats": 1,
+      "dietary": "",
+      "wishes": "Cooking the grand feast for Captain Cadmus!",
+      "tableNumber": "",
+      "checkedIn": true,
+      "checkedInAt": "2026-11-25T04:09:19.217Z",
+      "registeredAt": "2026-11-25T04:09:19.217Z"
     }
   ],
-  "lastUpdated": "2026-11-25T04:00:33.063Z"
+  "lastUpdated": "2026-11-25T04:09:43.132Z"
 }
