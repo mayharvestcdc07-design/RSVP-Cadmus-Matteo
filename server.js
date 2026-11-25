@@ -220,8 +220,8 @@ const server = http.createServer(async (req, res) => {
         dietary: String(body.dietary || '').trim(),
         wishes: String(body.wishes || body.message || '').trim(),
         tableNumber: '',
-        checkedIn: false,
-        checkedInAt: null,
+        checkedIn: body.status !== 'Declined',
+        checkedInAt: body.status !== 'Declined' ? new Date().toISOString() : null,
         registeredAt: new Date().toISOString()
       };
 

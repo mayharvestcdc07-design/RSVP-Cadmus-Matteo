@@ -28,6 +28,22 @@
       "checkedIn": false,
       "checkedInAt": null,
       "registeredAt": "2026-11-25T01:50:21.093Z"
+    },
+    {
+      "id": "mwvhrh6zblxsz",
+      "ticketCode": "CM-736882",
+      "name": "Nami (Navigator)",
+      "guestList": "Nami (Adult)",
+      "contact": "",
+      "email": "",
+      "status": "Attending",
+      "seats": 1,
+      "dietary": "",
+      "wishes": "Set sail!",
+      "tableNumber": "",
+      "checkedIn": false,
+      "checkedInAt": null,
+      "registeredAt": "2026-11-25T02:16:05.942Z"
     }
   ],
   "lastUpdated": "2026-11-25T01:50:21.093Z"

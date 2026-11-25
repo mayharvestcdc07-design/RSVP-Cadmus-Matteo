@@ -434,17 +434,15 @@
       <div class="header-actions">
         <button class="btn alt" onclick="loadData()" title="Reload latest guest responses">🔄 Refresh Now</button>
         <a href="/" class="btn alt">🏠 View Invitation</a>
-        <a href="/scanner" class="btn alt">📷 Entrance Scanner</a>
         <a href="/api/export" class="btn">📥 Export CSV</a>
       </div>
     </header>
 
     <!-- Top KPI Grid -->
-    <div class="kpi-grid">
+    <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
       <div class="kpi-box"><div class="kpi-num" id="kTotal">0</div><div class="kpi-lbl">Total Responses</div></div>
-      <div class="kpi-box"><div class="kpi-num" style="color:var(--success)" id="kConfirmed">0</div><div class="kpi-lbl">Aboard Crew</div></div>
+      <div class="kpi-box"><div class="kpi-num" style="color:var(--success)" id="kConfirmed">0</div><div class="kpi-lbl">Confirmed Guests (Dadalo)</div></div>
       <div class="kpi-box"><div class="kpi-num" style="color:var(--gold)" id="kSeats">0</div><div class="kpi-lbl">Total Reserved Seats</div></div>
-      <div class="kpi-box"><div class="kpi-num" style="color:var(--sea)" id="kChecked">0</div><div class="kpi-lbl">Checked-In Seats</div></div>
       <div class="kpi-box"><div class="kpi-num" style="color:var(--danger)" id="kDeclined">0</div><div class="kpi-lbl">Can't Make It</div></div>
     </div>
 
@@ -535,7 +533,6 @@
               <th>Status</th>
               <th>Seats</th>
               <th>Assign Table (With Vacancy)</th>
-              <th>Entrance Check-In</th>
               <th>Message / Wishes</th>
               <th>Action</th>
             </tr>
@@ -626,7 +623,6 @@ async function loadData() {
       document.getElementById('kTotal').textContent = s.totalGuests;
       document.getElementById('kConfirmed').textContent = s.attendingCount;
       document.getElementById('kSeats').textContent = s.totalSeats;
-      document.getElementById('kChecked').textContent = s.checkedInSeats;
       document.getElementById('kDeclined').textContent = s.declinedCount;
       document.getElementById('countBadge').textContent = allGuests.length;
       
@@ -915,7 +911,7 @@ function renderTable() {
   }
 
   if (!filtered.length) {
-    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; padding:30px; color:var(--sub)">Walang bisitang tumutugma sa filter o search.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:30px; color:var(--sub)">Walang bisitang tumutugma sa filter o search.</td></tr>';
     return;
   }
 
@@ -943,17 +939,12 @@ function renderTable() {
       <td><strong style="font-family:monospace; color:var(--sea); font-size:14px">${escapeHtml(g.ticketCode)}</strong></td>
       <td><strong>${escapeHtml(g.name || (g.guestList ? g.guestList.split('(')[0].trim() : 'Guest'))}</strong></td>
       <td><small style="color:var(--sub)">${escapeHtml(g.guestList || '—')}</small></td>
-      <td><span class="badge ${yes?'yes':'no'}">${escapeHtml(g.status)}</span></td>
-      <td><strong style="font-size:15px;">${g.seats}</strong></td>
+      <td><span class="badge ${yes?'yes':'no'}" style="font-size:12px; font-weight:700;">${yes ? '✅ Confirmed' : '❌ Declined'}</span></td>
+      <td><strong style="font-size:15px; color:var(--sea);">${g.seats}</strong></td>
       <td>
         <select class="table-select" onchange="handleTableSelect('${g.id}', this)">
           ${tableOptionsHtml}
         </select>
-      </td>
-      <td>
-        <button class="badge ${g.checkedIn?'checked':'yes'}" style="cursor:pointer; border:none;" onclick="toggleCheckin('${g.id}', ${!g.checkedIn})">
-          ${g.checkedIn ? '✓ ENTERED' : '⭕ CHECK IN'}
-        </button>
       </td>
       <td><small style="font-style:italic">"${escapeHtml(g.wishes || '—')}"</small></td>
       <td>

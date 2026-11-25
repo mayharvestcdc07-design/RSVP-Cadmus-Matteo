@@ -187,7 +187,6 @@ footer{padding:30px 20px 50px;color:var(--sub);font-size:.85rem}
   }
 
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style id="adventureLogStyles">
 .adventure-log-card {
@@ -742,19 +741,36 @@ $("send").addEventListener("click", async function() {
     alertBox.style.border = "1px solid #86efac";
 
     if (yes) {
-      alertBox.innerHTML = "🎉 <strong>RSVP Confirmed!</strong> Welcome aboard, " + escapeHtml(primaryName) + "! (Ticket: " + data.guest.ticketCode + ")";
-      sendBtn.textContent = "✅ Naka-RSVP na! (" + data.guest.ticketCode + ")";
-      
-      // Update text to include Ticket Code
-      $("txt").value = m + "\nTicket Code: " + data.guest.ticketCode;
-      
-      // Open Boarding Pass with QR code
-      if (typeof showPiratePass === "function") {
-        showPiratePass(data.guest);
-      }
+      alertBox.innerHTML = '<div style="text-align:center; padding:8px 4px;">' +
+        '<div style="font-family:\'Pirata One\',serif; font-size:1.6rem; color:#14532d; margin-bottom:6px; letter-spacing:1px;">' +
+        '🎉 KUMPIRMADO AT NAKALISTA KA NA SA CREW! 🏴‍☠️' +
+        '</div>' +
+        '<div style="font-size:1.05rem; font-weight:800; color:#166534; margin-bottom:8px;">' +
+        'Welcome aboard, ' + escapeHtml(primaryName) + '! (Confirmation Code: ' + data.guest.ticketCode + ')' +
+        '</div>' +
+        '<p style="font-size:0.95rem; color:#166534; line-height:1.55; margin-bottom:10px;">' +
+        'Awtomatiko nang nakatala ang iyong <strong>' + guests.length + ' reserved seat(s)</strong> sa opisyal na guest list ni Captain Cadmus Matteo.' +
+        '</p>' +
+        '<div style="background:#ffffff; border:2px dashed #86efac; border-radius:12px; padding:10px 14px; font-size:0.88rem; color:#14532d; font-weight:700; line-height:1.45;">' +
+        '✅ Diretso ka na sa party sa Monday, Nov 30, 2026 (Grace Harbour Pavillion)!<br>' +
+        '<span style="color:#0b5d91; font-weight:600;">Hindi na kailangan mag-scan ng QR code — kumpirmado na ang inyong upuan!</span>' +
+        '</div>' +
+        '</div>';
+      sendBtn.textContent = "✅ Kumpirmadong Dadalo sa Crew!";
+      sendBtn.style.background = "#15803d";
+      sendBtn.disabled = true;
+      $("txt").value = m + "\nStatus: Confirmed Attending\nConfirmation Code: " + data.guest.ticketCode;
     } else {
-      alertBox.innerHTML = "💌 <strong>Maraming salamat sa pag-abiso, " + escapeHtml(primaryName) + "!</strong> Naitala na sa system ang iyong tugon.";
+      alertBox.innerHTML = '<div style="text-align:center; padding:8px 4px;">' +
+        '<div style="font-family:\'Pirata One\',serif; font-size:1.4rem; color:#1e293b; margin-bottom:6px;">' +
+        '💌 Maraming salamat sa pag-abiso, ' + escapeHtml(primaryName) + '!' +
+        '</div>' +
+        '<p style="font-size:0.92rem; color:#475569; line-height:1.55; margin-bottom:0;">' +
+        'Naitala na sa system ang iyong tugon na hindi makakadalo.' +
+        '</p>' +
+        '</div>';
       sendBtn.textContent = "✅ Naitala na ang iyong sagot";
+      sendBtn.disabled = true;
     }
 
     $("out").style.display = "block";
@@ -780,76 +796,6 @@ $("copy").addEventListener("click",function(){
   try{ navigator.clipboard.writeText($("txt").value); }catch(e){ document.execCommand("copy"); }
   $("copy").textContent = "Copied!";
 });
-</script>
-
-<!-- Pirate Digital Boarding Pass Modal -->
-<div id="piratePassModal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(10,26,44,0.92); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:16px;">
-  <div style="background:#fffcf0; border:4px solid #f2b632; border-radius:24px; max-width:420px; width:100%; box-shadow:0 25px 60px rgba(0,0,0,0.7); text-align:center; padding:28px 22px; font-family:'Nunito',sans-serif; color:#182b42; position:relative; max-height:90vh; overflow-y:auto;">
-    <div style="font-family:'Pirata One',serif; font-size:1.9rem; color:#c62828; letter-spacing:1px; margin-bottom:2px">🏴‍☠️ STRAW HAT CREW PASS 🏴‍☠️</div>
-    <div style="font-size:0.9rem; color:#49627b; margin-bottom:14px; font-weight:700;">Cadmus Matteo's 7th Birthday Voyage</div>
-    
-    <div style="background:#fdf2cf; border:2px dashed #d29b35; border-radius:16px; padding:12px; margin-bottom:16px;">
-      <div id="passGuestName" style="font-family:'Pirata One',serif; font-size:1.7rem; color:#0b5d91; margin-bottom:2px; line-height:1.2;">Guest Name</div>
-      <div id="passTicketCode" style="font-size:1.1rem; font-weight:800; color:#c62828; letter-spacing:2px; margin-bottom:4px;">CM-000000</div>
-      <div id="passCrewBadge" style="font-size:0.85rem; color:#6b4700; font-weight:bold;">Official Straw Hat Crew Member</div>
-    </div>
-
-    <div style="background:#ffffff; padding:14px; display:inline-block; border-radius:16px; border:2px solid #d29b35; margin-bottom:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-      <div id="pirateQr"></div>
-    </div>
-
-    <div style="background:#f4ece1; border:1px solid #d4c2a5; border-radius:14px; padding:12px 16px; font-size:0.85rem; margin-bottom:16px; text-align:left; line-height:1.6;">
-      <div>📅 <strong>Date:</strong> Monday, Nov 30, 2026 • 3:00 PM</div>
-      <div>📍 <strong>Venue:</strong> Grace Harbour Pavillion, Santa Maria, Bulacan</div>
-      <div id="passSeats">👥 <strong>Seats Reserved:</strong> 1</div>
-      <div id="passTable">🧭 <strong>Table:</strong> Open Seating</div>
-      <div>👒 <strong>Attire:</strong> Dress like a Nakama! (Pirate / Red, Blue, Yellow / Adventure-ready)</div>
-    </div>
-
-    <div style="font-size:0.8rem; color:#666; margin-bottom:16px;">
-      📸 <em>Please take a screenshot of this boarding pass or present this QR code at the reception scanner!</em>
-    </div>
-
-    <div style="display:flex; gap:10px; justify-content:center;">
-      <button onclick="window.print()" style="padding:10px 18px; border:none; border-radius:10px; background:#0b5d91; color:#fff; font-weight:bold; cursor:pointer; font-size:0.9rem;">🖨️ Print / Save</button>
-      <button onclick="document.getElementById('piratePassModal').style.display='none'" style="padding:10px 22px; border:none; border-radius:10px; background:#c62828; color:#fff; font-weight:bold; cursor:pointer; font-size:0.9rem;">Close</button>
-    </div>
-  </div>
-</div>
-
-<script>
-function showPiratePass(guest) {
-  var nameEl = document.getElementById("passGuestName");
-  var codeEl = document.getElementById("passTicketCode");
-  var seatsEl = document.getElementById("passSeats");
-  var tableEl = document.getElementById("passTable");
-  
-  if (nameEl) nameEl.textContent = guest.name || "Straw Hat Nakama";
-  if (codeEl) codeEl.textContent = guest.ticketCode || "CM-INVITE";
-  if (seatsEl) seatsEl.innerHTML = "👥 <strong>Seats Reserved:</strong> " + (guest.seats || 1);
-  if (tableEl) tableEl.innerHTML = "🧭 <strong>Table:</strong> " + (guest.tableNumber || "Open Seating");
-
-  var qr = document.getElementById("pirateQr");
-  if (qr) {
-    qr.innerHTML = "";
-    if (window.QRCode) {
-      new QRCode(qr, {
-        text: guest.ticketCode,
-        width: 170,
-        height: 170,
-        colorDark: "#182b42",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-      });
-    }
-  }
-
-  var modal = document.getElementById("piratePassModal");
-  if (modal) {
-    modal.style.display = "flex";
-  }
-}
-
 </script>
 
 
