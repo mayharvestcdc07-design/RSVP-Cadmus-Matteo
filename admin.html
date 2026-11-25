@@ -433,6 +433,9 @@
       </div>
       <div class="header-actions">
         <button class="btn alt" onclick="loadData()" title="Reload latest guest responses">🔄 Refresh Now</button>
+        <button class="btn alt" onclick="downloadBackup()" title="Download a JSON backup file to keep on your device">💾 Download Backup</button>
+        <button class="btn alt" onclick="triggerRestoreBackup()" title="Restore/Import guests from a JSON backup file">📤 Restore Backup</button>
+        <input type="file" id="restoreFileInput" accept=".json" style="display:none;" onchange="handleRestoreFile(event)">
         <a href="/" class="btn alt">🏠 View Invitation</a>
         <a href="/api/export" class="btn">📥 Export CSV</a>
       </div>
@@ -580,6 +583,56 @@ function toggleServer() {
   updateServerBadge();
   alert('Switched Server to: ' + (API_BASE || 'Current Host') + '\nKinukuha ang pinakabagong datos...');
   loadData();
+}
+
+async function downloadBackup() {
+  try {
+    const res = await fetch(`${API_BASE}/api/sync`);
+    if (!res.ok) throw new Error('Failed to fetch backup');
+    const data = await res.json();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Cadmus_Matteo_RSVP_Backup_${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch(e) {
+    alert('Backup failed: ' + e.message);
+  }
+}
+
+function triggerRestoreBackup() {
+  document.getElementById('restoreFileInput').click();
+}
+
+async function handleRestoreFile(e) {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = async function(evt) {
+    try {
+      const parsed = JSON.parse(evt.target.result);
+      const guests = Array.isArray(parsed.guests) ? parsed.guests : (Array.isArray(parsed) ? parsed : null);
+      if (!guests) throw new Error('Invalid backup file format.');
+      if (!confirm(`I-restore ang ${guests.length} na bisita mula sa backup file?`)) return;
+      const res = await fetch(`${API_BASE}/api/sync`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ guests })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        alert('Matagumpay na na-restore ang ' + guests.length + ' na bisita!');
+        loadData();
+      } else {
+        throw new Error(data.error || 'Restore failed');
+      }
+    } catch(err) {
+      alert('Error restoring backup: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
 }
 
 // On load set capacity selector

@@ -61,6 +61,78 @@ function saveData(data) {
 // Ensure file is loaded once on boot
 loadData();
 
+// Optional Cloud Database Connection (Neon / Supabase PostgreSQL)
+let pgPool = null;
+if (process.env.DATABASE_URL) {
+  try {
+    const { Pool } = require('pg');
+    pgPool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false }
+    });
+    console.log('[RSVP Server] DATABASE_URL detected: Initializing Cloud PostgreSQL connection...');
+
+    pgPool.query(`
+      CREATE TABLE IF NOT EXISTS rsvp_guests (
+        id TEXT PRIMARY KEY,
+        ticket_code TEXT,
+        name TEXT,
+        guest_list TEXT,
+        contact TEXT,
+        email TEXT,
+        status TEXT,
+        seats INT,
+        dietary TEXT,
+        wishes TEXT,
+        table_number TEXT,
+        checked_in BOOLEAN,
+        checked_in_at TIMESTAMPTZ,
+        registered_at TIMESTAMPTZ
+      );
+    `).then(async () => {
+      const countRes = await pgPool.query('SELECT count(*) FROM rsvp_guests');
+      const count = parseInt(countRes.rows[0].count, 10);
+      if (count === 0) {
+        const local = loadData();
+        for (const g of local.guests) {
+          await pgPool.query(
+            `INSERT INTO rsvp_guests (id, ticket_code, name, guest_list, contact, email, status, seats, dietary, wishes, table_number, checked_in, checked_in_at, registered_at)
+             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+             ON CONFLICT (id) DO NOTHING`,
+            [g.id, g.ticketCode, g.name, g.guestList, g.contact, g.email, g.status, g.seats, g.dietary, g.wishes, g.tableNumber, g.checkedIn, g.checkedInAt, g.registeredAt]
+          );
+        }
+        console.log(`[RSVP Server] Cloud Database initialized and seeded with ${local.guests.length} guests!`);
+      } else {
+        const cloudRes = await pgPool.query('SELECT * FROM rsvp_guests ORDER BY registered_at DESC');
+        const local = loadData();
+        local.guests = cloudRes.rows.map(r => ({
+          id: r.id,
+          ticketCode: r.ticket_code,
+          name: r.name,
+          guestList: r.guest_list,
+          contact: r.contact,
+          email: r.email,
+          status: r.status,
+          seats: r.seats,
+          dietary: r.dietary,
+          wishes: r.wishes,
+          tableNumber: r.table_number,
+          checkedIn: r.checked_in,
+          checkedInAt: r.checked_in_at,
+          registeredAt: r.registered_at
+        }));
+        saveData(local);
+        console.log(`[RSVP Server] Successfully synced ${cloudRes.rows.length} guests from Cloud PostgreSQL into local storage!`);
+      }
+    }).catch(err => {
+      console.error('[RSVP Server] Cloud PostgreSQL init error:', err.message);
+    });
+  } catch (err) {
+    console.error('[RSVP Server] Failed to initialize PostgreSQL pool:', err.message);
+  }
+}
+
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -228,6 +300,22 @@ const server = http.createServer(async (req, res) => {
       data.guests.unshift(guest);
       saveData(data);
 
+      if (pgPool) {
+        pgPool.query(
+          `INSERT INTO rsvp_guests (id, ticket_code, name, guest_list, contact, email, status, seats, dietary, wishes, table_number, checked_in, checked_in_at, registered_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+           ON CONFLICT (id) DO UPDATE SET
+             name = EXCLUDED.name,
+             guest_list = EXCLUDED.guest_list,
+             status = EXCLUDED.status,
+             seats = EXCLUDED.seats,
+             wishes = EXCLUDED.wishes,
+             table_number = EXCLUDED.table_number,
+             checked_in = EXCLUDED.checked_in`,
+          [guest.id, guest.ticketCode, guest.name, guest.guestList, guest.contact, guest.email, guest.status, guest.seats, guest.dietary, guest.wishes, guest.tableNumber, guest.checkedIn, guest.checkedInAt, guest.registeredAt]
+        ).catch(err => console.error('[RSVP Server] PG insert error:', err.message));
+      }
+
       return sendJson(res, 201, { success: true, guest });
     } catch (e) {
       return sendJson(res, 400, { error: e.message });
@@ -294,6 +382,11 @@ const server = http.createServer(async (req, res) => {
 
       data.guests[idx] = { ...data.guests[idx], ...body };
       saveData(data);
+      if (pgPool) {
+        pgPool.query('UPDATE rsvp_guests SET table_number = $1, checked_in = $2 WHERE id = $3', 
+          [data.guests[idx].tableNumber || '', !!data.guests[idx].checkedIn, id]
+        ).catch(err => console.error('[RSVP Server] PG update error:', err.message));
+      }
       return sendJson(res, 200, { success: true, guest: data.guests[idx] });
     } catch (e) {
       return sendJson(res, 400, { error: e.message });
@@ -308,6 +401,9 @@ const server = http.createServer(async (req, res) => {
     data.guests = data.guests.filter(g => g.id !== id);
     if (data.guests.length !== initialLen) {
       saveData(data);
+      if (pgPool) {
+        pgPool.query('DELETE FROM rsvp_guests WHERE id = $1', [id]).catch(err => console.error('[RSVP Server] PG delete error:', err.message));
+      }
       return sendJson(res, 200, { success: true, message: 'Guest deleted' });
     }
     return sendJson(res, 404, { error: 'Guest not found' });
@@ -363,6 +459,18 @@ const server = http.createServer(async (req, res) => {
           data.event = { ...data.event, ...body.event };
         }
         saveData(data);
+        if (pgPool && Array.isArray(body.guests)) {
+          for (const g of body.guests) {
+            pgPool.query(
+              `INSERT INTO rsvp_guests (id, ticket_code, name, guest_list, contact, email, status, seats, dietary, wishes, table_number, checked_in, checked_in_at, registered_at)
+               VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+               ON CONFLICT (id) DO UPDATE SET
+                 table_number = EXCLUDED.table_number,
+                 checked_in = EXCLUDED.checked_in`,
+              [g.id, g.ticketCode, g.name, g.guestList, g.contact, g.email, g.status, g.seats, g.dietary, g.wishes, g.tableNumber, g.checkedIn, g.checkedInAt, g.registeredAt]
+            ).catch(e => {});
+          }
+        }
         return sendJson(res, 200, { success: true, count: data.guests.length, lastUpdated: data.lastUpdated });
       } catch (e) {
         return sendJson(res, 400, { error: e.message });
