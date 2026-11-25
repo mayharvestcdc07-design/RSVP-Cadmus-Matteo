@@ -574,7 +574,7 @@ $("copy").addEventListener("click",function(){
 
 <!-- Hidden / active in-viewport iframe for YouTube player -->
 <iframe id="ytMusicIframe"
-  src="https://www.youtube.com/embed/nUBWp89ATE8?enablejsapi=1&autoplay=1&mute=0&loop=1&playlist=nUBWp89ATE8&controls=0&playsinline=1"
+  src="https://www.youtube.com/embed/nUBWp89ATE8?enablejsapi=1&autoplay=1&mute=0&start=13&loop=1&playlist=nUBWp89ATE8&controls=0&playsinline=1"
   allow="autoplay *; encrypted-media *; fullscreen *"
   style="position:fixed; bottom:10px; right:10px; width:280px; height:160px; opacity:0.01; z-index:-1000; pointer-events:none; border:none;">
 </iframe>
@@ -589,6 +589,7 @@ $("copy").addEventListener("click",function(){
   var ytReady = false;
   var iframe = document.getElementById('ytMusicIframe');
   var hasUnmuted = false;
+  var hasSeeked = false;
 
   function updateMusicUI(playing) {
     isMusicPlaying = playing;
@@ -625,11 +626,13 @@ $("copy").addEventListener("click",function(){
     hasUnmuted = true;
     if (ytPlayer && ytReady) {
       try {
+        if (!hasSeeked) { ytPlayer.seekTo(13, true); hasSeeked = true; }
         ytPlayer.unMute();
         ytPlayer.setVolume(85);
         ytPlayer.playVideo();
       } catch(e) {}
     }
+    sendIframeCommand('seekTo', [13, true]);
     sendIframeCommand('unMute');
     sendIframeCommand('setVolume', [85]);
     sendIframeCommand('playVideo');
@@ -686,6 +689,7 @@ $("copy").addEventListener("click",function(){
             ytReady = true;
             try {
               e.target.setVolume(85);
+              e.target.seekTo(13, true);
               e.target.unMute();
               e.target.playVideo();
               updateMusicUI(true);
@@ -693,6 +697,12 @@ $("copy").addEventListener("click",function(){
           },
           onStateChange: function(e) {
             if (e.data === YT.PlayerState.PLAYING) {
+              try {
+                if (!hasSeeked && e.target.getCurrentTime() < 12) {
+                  e.target.seekTo(13, true);
+                  hasSeeked = true;
+                }
+              } catch(err) {}
               updateMusicUI(true);
             } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
               updateMusicUI(false);
