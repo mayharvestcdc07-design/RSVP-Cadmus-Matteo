@@ -425,9 +425,14 @@
       <div class="brand">
         <h1>Cadmus Matteo's 7th Birthday</h1>
         <p>Grand Line Birthday Crew Manifest &bull; Admin Operations</p>
+        <div style="margin-top:6px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span id="serverBadge" style="font-size:11.5px; padding:3px 10px; border-radius:12px; background:rgba(34, 197, 94, 0.25); color:#fff; font-weight:700;">🟢 Cloud Server (Render Live)</span>
+          <button onclick="toggleServer()" style="font-size:10.5px; padding:2px 8px; border-radius:6px; border:1px solid rgba(255,255,255,0.4); background:transparent; color:#fff; cursor:pointer;" title="Switch between Online Render Cloud and Local Server">🔄 Switch Server</button>
+          <span style="font-size:11px; opacity:0.85; color:#cbd5e1;">⚡ Auto-refreshes every 3 seconds</span>
+        </div>
       </div>
       <div class="header-actions">
-        <button class="btn alt" onclick="loadData()" title="Reload latest guest responses">🔄 Refresh</button>
+        <button class="btn alt" onclick="loadData()" title="Reload latest guest responses">🔄 Refresh Now</button>
         <a href="/" class="btn alt">🏠 View Invitation</a>
         <a href="/scanner" class="btn alt">📷 Entrance Scanner</a>
         <a href="/api/export" class="btn">📥 Export CSV</a>
@@ -544,17 +549,47 @@
 </div>
 
 <script>
-const API_BASE = (window.location.protocol === 'file:') ? 'http://localhost:3000' : '';
+let API_BASE = localStorage.getItem('cadmus_api_base') || (function() {
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || /^192\.168\./.test(window.location.hostname)) {
+    return '';
+  }
+  if (window.location.hostname && !window.location.hostname.endsWith('github.io')) {
+    return '';
+  }
+  return 'https://rsvp-cadmus-matteo.onrender.com';
+})();
+
 let allGuests = [];
 let defaultCapacity = parseInt(localStorage.getItem('teo_table_capacity') || '10', 10);
 let customTables = JSON.parse(localStorage.getItem('teo_custom_tables') || '[]');
 let activeMapFilter = 'all';
 let currentTableFilter = '';
 
+function updateServerBadge() {
+  const badge = document.getElementById('serverBadge');
+  if (!badge) return;
+  const isCloud = API_BASE.includes('onrender.com') || (window.location.hostname.includes('onrender.com'));
+  badge.textContent = isCloud ? '🟢 Cloud Server (Render Live)' : '💻 Local Server (Port 3000)';
+  badge.style.background = isCloud ? 'rgba(34, 197, 94, 0.25)' : 'rgba(59, 130, 246, 0.25)';
+}
+
+function toggleServer() {
+  if (API_BASE.includes('onrender.com')) {
+    API_BASE = 'http://localhost:3000';
+  } else {
+    API_BASE = 'https://rsvp-cadmus-matteo.onrender.com';
+  }
+  localStorage.setItem('cadmus_api_base', API_BASE);
+  updateServerBadge();
+  alert('Switched Server to: ' + (API_BASE || 'Current Host') + '\nKinukuha ang pinakabagong datos...');
+  loadData();
+}
+
 // On load set capacity selector
 document.addEventListener('DOMContentLoaded', () => {
   const sel = document.getElementById('capSelect');
   if (sel) sel.value = String(defaultCapacity);
+  updateServerBadge();
 });
 
 async function unlock() {
@@ -571,13 +606,13 @@ async function unlock() {
       document.getElementById('dashContent').style.display = 'block';
       loadData();
       if (!window._adminPollInterval) {
-        window._adminPollInterval = setInterval(loadData, 15000);
+        window._adminPollInterval = setInterval(loadData, 3000); // Super-fast 3-second auto-poll
       }
     } else {
       alert('Incorrect Secret PIN.');
     }
   } catch(e) {
-    alert('Connection error.');
+    alert('Connection error to: ' + (API_BASE || 'server') + '. Please verify network or click Switch Server.');
   }
 }
 
@@ -597,6 +632,7 @@ async function loadData() {
       
       renderSeatingMap();
       renderTable();
+      updateServerBadge();
     }
   } catch(e) {
     console.error('Failed to load guest data', e);

@@ -708,7 +708,16 @@ $("send").addEventListener("click", async function() {
   sendBtn.textContent = "⏳ Isinusumite sa System...";
 
   try {
-    var apiUrl = (window.location.protocol === "file:") ? "http://localhost:3000/api/rsvp" : "/api/rsvp";
+    var apiBase = (function() {
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || /^192\.168\./.test(window.location.hostname)) {
+        return '';
+      }
+      if (window.location.hostname && !window.location.hostname.endsWith('github.io')) {
+        return '';
+      }
+      return 'https://rsvp-cadmus-matteo.onrender.com';
+    })();
+    var apiUrl = apiBase + '/api/rsvp';
     var res = await fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
