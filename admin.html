@@ -426,9 +426,8 @@
         <h1>Cadmus Matteo's 7th Birthday</h1>
         <p>Grand Line Birthday Crew Manifest &bull; Admin Operations</p>
         <div style="margin-top:6px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-          <span id="serverBadge" style="font-size:11.5px; padding:3px 10px; border-radius:12px; background:rgba(34, 197, 94, 0.25); color:#fff; font-weight:700;">🟢 Cloud Server (Render Live)</span>
-          <button onclick="toggleServer()" style="font-size:10.5px; padding:2px 8px; border-radius:6px; border:1px solid rgba(255,255,255,0.4); background:transparent; color:#fff; cursor:pointer;" title="Switch between Online Render Cloud and Local Server">🔄 Switch Server</button>
-          <span style="font-size:11px; opacity:0.85; color:#cbd5e1;">⚡ Auto-refreshes every 3 seconds</span>
+          <span id="serverBadge" style="font-size:11.5px; padding:3px 10px; border-radius:12px; background:rgba(34, 197, 94, 0.25); color:#fff; font-weight:700;">🟢 All Devices Synced (Render Cloud)</span>
+          <span style="font-size:11px; opacity:0.85; color:#cbd5e1;">⚡ Real-time auto-poll active (3s)</span>
         </div>
       </div>
       <div class="header-actions">
@@ -549,15 +548,9 @@
 </div>
 
 <script>
-let API_BASE = localStorage.getItem('cadmus_api_base') || (function() {
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || /^192\.168\./.test(window.location.hostname)) {
-    return '';
-  }
-  if (window.location.hostname && !window.location.hostname.endsWith('github.io')) {
-    return '';
-  }
-  return 'https://rsvp-cadmus-matteo.onrender.com';
-})();
+// Universal Cloud API Endpoint - All devices (phones, tablets, laptops) connect to this exact same cloud database
+try { localStorage.removeItem('cadmus_api_base'); } catch(e) {}
+const API_BASE = 'https://rsvp-cadmus-matteo.onrender.com';
 
 let allGuests = [];
 let defaultCapacity = parseInt(localStorage.getItem('teo_table_capacity') || '10', 10);
@@ -568,21 +561,8 @@ let currentTableFilter = '';
 function updateServerBadge() {
   const badge = document.getElementById('serverBadge');
   if (!badge) return;
-  const isCloud = API_BASE.includes('onrender.com') || (window.location.hostname.includes('onrender.com'));
-  badge.textContent = isCloud ? '🟢 Cloud Server (Render Live)' : '💻 Local Server (Port 3000)';
-  badge.style.background = isCloud ? 'rgba(34, 197, 94, 0.25)' : 'rgba(59, 130, 246, 0.25)';
-}
-
-function toggleServer() {
-  if (API_BASE.includes('onrender.com')) {
-    API_BASE = 'http://localhost:3000';
-  } else {
-    API_BASE = 'https://rsvp-cadmus-matteo.onrender.com';
-  }
-  localStorage.setItem('cadmus_api_base', API_BASE);
-  updateServerBadge();
-  alert('Switched Server to: ' + (API_BASE || 'Current Host') + '\nKinukuha ang pinakabagong datos...');
-  loadData();
+  badge.textContent = '🟢 All Devices Synced (Render Cloud)';
+  badge.style.background = 'rgba(34, 197, 94, 0.25)';
 }
 
 async function downloadBackup() {

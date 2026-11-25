@@ -117,15 +117,7 @@
 </div>
 
 <script>
-const API_BASE = (function() {
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || /^192\.168\./.test(window.location.hostname)) {
-    return '';
-  }
-  if (window.location.hostname && !window.location.hostname.endsWith('github.io')) {
-    return '';
-  }
-  return 'https://rsvp-cadmus-matteo.onrender.com';
-})();
+const API_BASE = 'https://rsvp-cadmus-matteo.onrender.com';
 let scanner = null;
 let running = false;
 
