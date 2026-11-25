@@ -14,20 +14,20 @@
   },
   "guests": [
     {
-      "id": "mwvlfmfpg69nw",
-      "ticketCode": "CM-683839",
-      "name": "Roronoa Zoro",
-      "guestList": "Roronoa Zoro (Adult)",
+      "id": "mwvmmrqkop9uw",
+      "ticketCode": "CM-329284",
+      "name": "Mike Cortes",
+      "guestList": "Mike Cortes (Adult)",
       "contact": "",
       "email": "",
       "status": "Attending",
       "seats": 1,
       "dietary": "",
-      "wishes": "Best swordsman!",
+      "wishes": "Happy birthday, Teo!",
       "tableNumber": "",
       "checkedIn": true,
-      "checkedInAt": "2026-11-25T03:58:17.173Z",
-      "registeredAt": "2026-11-25T03:58:17.173Z"
+      "checkedInAt": "2026-11-25T04:31:50.252Z",
+      "registeredAt": "2026-11-25T04:31:50.252Z"
     },
     {
       "id": "mwvlevatcndos",
@@ -92,54 +92,6 @@
       "checkedIn": true,
       "checkedInAt": "2026-11-25T03:56:13.260Z",
       "registeredAt": "2026-11-25T03:56:13.260Z"
-    },
-    {
-      "id": "mwvgv3j9ybh0p",
-      "ticketCode": "CM-386358",
-      "name": "Monkey D. Luffy",
-      "guestList": "Monkey D. Luffy (Adult), Tony Chopper (Kid (0-12))",
-      "contact": "",
-      "email": "",
-      "status": "Attending",
-      "seats": 2,
-      "dietary": "",
-      "wishes": "Happy 7th Birthday!",
-      "tableNumber": "",
-      "checkedIn": false,
-      "checkedInAt": null,
-      "registeredAt": "2026-11-25T01:50:21.093Z"
-    },
-    {
-      "id": "mwvhrh6zblxsz",
-      "ticketCode": "CM-736882",
-      "name": "Nami (Navigator)",
-      "guestList": "Nami (Adult)",
-      "contact": "",
-      "email": "",
-      "status": "Attending",
-      "seats": 1,
-      "dietary": "",
-      "wishes": "Set sail!",
-      "tableNumber": "",
-      "checkedIn": false,
-      "checkedInAt": null,
-      "registeredAt": "2026-11-25T02:16:05.942Z"
-    },
-    {
-      "id": "mwvltt9tmq1ft",
-      "ticketCode": "CM-526744",
-      "name": "Sanji (Cook of the Straw Hats)",
-      "guestList": "Sanji (Adult)",
-      "contact": "",
-      "email": "",
-      "status": "Attending",
-      "seats": 1,
-      "dietary": "",
-      "wishes": "Cooking the grand feast for Captain Cadmus!",
-      "tableNumber": "",
-      "checkedIn": true,
-      "checkedInAt": "2026-11-25T04:09:19.217Z",
-      "registeredAt": "2026-11-25T04:09:19.217Z"
     }
   ],
   "lastUpdated": "2026-11-25T04:09:43.132Z"

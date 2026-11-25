@@ -670,7 +670,7 @@ $("send").addEventListener("click", async function() {
       alertBox.style.background = "#fee2e2";
       alertBox.style.color = "#991b1b";
       alertBox.style.border = "1px solid #f87171";
-      alertBox.textContent = "⚠️ Pakisulat po ang pangalan ng Guest " + (emptyIndex + 1) + ".";
+      alertBox.textContent = "⚠️ Please enter the name for Guest " + (emptyIndex + 1) + ".";
       return;
     }
     primaryName = guests[0].name;
@@ -683,7 +683,7 @@ $("send").addEventListener("click", async function() {
       alertBox.style.background = "#fee2e2";
       alertBox.style.color = "#991b1b";
       alertBox.style.border = "1px solid #f87171";
-      alertBox.textContent = "⚠️ Pakilagay po ang inyong pangalan.";
+      alertBox.textContent = "⚠️ Please enter your name.";
       return;
     }
     guests = [{ name: primaryName, type: "Adult" }];
@@ -704,7 +704,7 @@ $("send").addEventListener("click", async function() {
   // Show loading
   var originalBtnText = sendBtn.textContent;
   sendBtn.disabled = true;
-  sendBtn.textContent = "⏳ Isinusumite sa System...";
+  sendBtn.textContent = "⏳ Submitting RSVP...";
 
   try {
     // Universal Cloud Endpoint - Submits directly to the centralized cloud database from any device
@@ -735,33 +735,33 @@ $("send").addEventListener("click", async function() {
     if (yes) {
       alertBox.innerHTML = '<div style="text-align:center; padding:8px 4px;">' +
         '<div style="font-family:\'Pirata One\',serif; font-size:1.6rem; color:#14532d; margin-bottom:6px; letter-spacing:1px;">' +
-        '🎉 KUMPIRMADO AT NAKALISTA KA NA SA CREW! 🏴‍☠️' +
+        '🎉 RSVP CONFIRMED — WELCOME ABOARD! 🏴‍☠️' +
         '</div>' +
         '<div style="font-size:1.05rem; font-weight:800; color:#166534; margin-bottom:8px;">' +
-        'Welcome aboard, ' + escapeHtml(primaryName) + '! (Confirmation Code: ' + data.guest.ticketCode + ')' +
+        'Welcome to the crew, ' + escapeHtml(primaryName) + '! (Confirmation Code: ' + data.guest.ticketCode + ')' +
         '</div>' +
         '<p style="font-size:0.95rem; color:#166534; line-height:1.55; margin-bottom:10px;">' +
-        'Awtomatiko nang nakatala ang iyong <strong>' + guests.length + ' reserved seat(s)</strong> sa opisyal na guest list ni Captain Cadmus Matteo.' +
+        'Your <strong>' + guests.length + ' reserved seat(s)</strong> have been officially recorded on Captain Cadmus Matteo’s guest manifest.' +
         '</p>' +
         '<div style="background:#ffffff; border:2px dashed #86efac; border-radius:12px; padding:10px 14px; font-size:0.88rem; color:#14532d; font-weight:700; line-height:1.45;">' +
-        '✅ Diretso ka na sa party sa Monday, Nov 30, 2026 (Grace Harbour Pavillion)!<br>' +
-        '<span style="color:#0b5d91; font-weight:600;">Hindi na kailangan mag-scan ng QR code — kumpirmado na ang inyong upuan!</span>' +
+        '⚓ See you on Monday, Nov 30, 2026 at Grace Harbour Pavillion!<br>' +
+        '<span style="color:#0b5d91; font-weight:600;">Your seats are confirmed. No QR code or pass scanning required — head straight in!</span>' +
         '</div>' +
         '</div>';
-      sendBtn.textContent = "✅ Kumpirmadong Dadalo sa Crew!";
+      sendBtn.textContent = "✅ RSVP Confirmed (Attending)";
       sendBtn.style.background = "#15803d";
       sendBtn.disabled = true;
       $("txt").value = m + "\nStatus: Confirmed Attending\nConfirmation Code: " + data.guest.ticketCode;
     } else {
       alertBox.innerHTML = '<div style="text-align:center; padding:8px 4px;">' +
         '<div style="font-family:\'Pirata One\',serif; font-size:1.4rem; color:#1e293b; margin-bottom:6px;">' +
-        '💌 Maraming salamat sa pag-abiso, ' + escapeHtml(primaryName) + '!' +
+        '💌 Thank You for Letting Us Know, ' + escapeHtml(primaryName) + '!' +
         '</div>' +
         '<p style="font-size:0.92rem; color:#475569; line-height:1.55; margin-bottom:0;">' +
-        'Naitala na sa system ang iyong tugon na hindi makakadalo.' +
+        'Your response has been recorded in our system. We will miss you on the Grand Line!' +
         '</p>' +
         '</div>';
-      sendBtn.textContent = "✅ Naitala na ang iyong sagot";
+      sendBtn.textContent = "✅ Response Recorded";
       sendBtn.disabled = true;
     }
 
@@ -776,9 +776,9 @@ $("send").addEventListener("click", async function() {
     alertBox.style.background = "#fff3cd";
     alertBox.style.color = "#856404";
     alertBox.style.border = "1px solid #ffeeba";
-    alertBox.innerHTML = "⚠️ <strong>Notice:</strong> Hindi ma-konekta sa online server (" + (err.message || "Offline") + "). Paki-kopya na lang po ang mensahe sa ibaba para mai-send sa host via SMS o Messenger.";
+    alertBox.innerHTML = "⚠️ <strong>Notice:</strong> Unable to connect to online server (" + (err.message || "Offline") + "). Please copy the message below to send to the host via SMS or Messenger.";
     sendBtn.disabled = false;
-    sendBtn.textContent = "Subukan Muli / Send Reply";
+    sendBtn.textContent = "Try Again / Send Reply";
     $("out").style.display = "block";
   }
 });
