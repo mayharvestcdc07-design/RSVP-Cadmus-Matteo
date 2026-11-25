@@ -413,11 +413,22 @@ const server = http.createServer(async (req, res) => {
       'Accept-Ranges': 'bytes',
       'Cache-Control': ext === '.mp3' ? 'public, max-age=86400' : 'no-cache, no-store, must-revalidate'
     });
-    return fs.createReadStream(filePath).pipe(res);
+    const stream = fs.createReadStream(filePath);
+    stream.on('error', () => { if (!res.headersSent) { res.writeHead(500); res.end(); } });
+    res.on('close', () => stream.destroy());
+    return stream.pipe(res);
   }
 
   res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
   res.end('404 Not Found - RSVP Cadmus Matteo');
+});
+
+
+process.on('uncaughtException', (err) => {
+  console.error('[Server Error Guard] Uncaught Exception:', err && err.message ? err.message : err);
+});
+process.on('unhandledRejection', (reason) => {
+  console.error('[Server Error Guard] Unhandled Rejection:', reason);
 });
 
 server.listen(PORT, () => {
