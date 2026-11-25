@@ -574,20 +574,21 @@ $("copy").addEventListener("click",function(){
 
 <!-- Hidden / active in-viewport iframe for YouTube player -->
 <iframe id="ytMusicIframe"
-  src="https://www.youtube.com/embed/nUBWp89ATE8?enablejsapi=1&autoplay=0&mute=0&loop=1&playlist=nUBWp89ATE8&controls=0&playsinline=1"
+  src="https://www.youtube.com/embed/nUBWp89ATE8?enablejsapi=1&autoplay=1&mute=0&loop=1&playlist=nUBWp89ATE8&controls=0&playsinline=1"
   allow="autoplay *; encrypted-media *; fullscreen *"
   style="position:fixed; bottom:10px; right:10px; width:280px; height:160px; opacity:0.01; z-index:-1000; pointer-events:none; border:none;">
 </iframe>
 
 
+<
 <script>
-// PIRATE MUSIC CONTROLLER ("One Piece OST — The Very, Very, Strongest")
+// PIRATE MUSIC CONTROLLER ("One Piece OST — The Very, Very, Strongest") - AUTOMATIC AUTOPLAY
 (function(){
   var ytPlayer = null;
   var isMusicPlaying = false;
   var ytReady = false;
   var iframe = document.getElementById('ytMusicIframe');
-  var hasStarted = false;
+  var hasUnmuted = false;
 
   function updateMusicUI(playing) {
     isMusicPlaying = playing;
@@ -619,8 +620,23 @@ $("copy").addEventListener("click",function(){
     }
   }
 
-  function startMusicPlayback() {
-    hasStarted = true;
+  function doUnmute() {
+    if (hasUnmuted) return;
+    hasUnmuted = true;
+    if (ytPlayer && ytReady) {
+      try {
+        ytPlayer.unMute();
+        ytPlayer.setVolume(85);
+        ytPlayer.playVideo();
+      } catch(e) {}
+    }
+    sendIframeCommand('unMute');
+    sendIframeCommand('setVolume', [85]);
+    sendIframeCommand('playVideo');
+    updateMusicUI(true);
+  }
+
+  function triggerPlay() {
     if (ytPlayer && ytReady) {
       try {
         ytPlayer.unMute();
@@ -633,6 +649,14 @@ $("copy").addEventListener("click",function(){
     sendIframeCommand('setVolume', [85]);
     sendIframeCommand('playVideo');
     updateMusicUI(true);
+
+    // If browser insists on muted autoplay initially, play muted then unmute on mouse movement
+    setTimeout(function() {
+      if (!isMusicPlaying) {
+        sendIframeCommand('mute');
+        sendIframeCommand('playVideo');
+      }
+    }, 300);
   }
 
   function toggleMusic() {
@@ -643,7 +667,8 @@ $("copy").addEventListener("click",function(){
       sendIframeCommand('pauseVideo');
       updateMusicUI(false);
     } else {
-      startMusicPlayback();
+      triggerPlay();
+      doUnmute();
     }
   }
 
@@ -662,13 +687,9 @@ $("copy").addEventListener("click",function(){
             try {
               e.target.setVolume(85);
               e.target.unMute();
+              e.target.playVideo();
+              updateMusicUI(true);
             } catch(err) {}
-            if (hasStarted) {
-              try {
-                e.target.playVideo();
-                updateMusicUI(true);
-              } catch(err) {}
-            }
           },
           onStateChange: function(e) {
             if (e.data === YT.PlayerState.PLAYING) {
@@ -682,18 +703,31 @@ $("copy").addEventListener("click",function(){
     } catch(e) {}
   };
 
-  // Start music automatically on first user click anywhere on page
-  function firstInteractionPlay() {
-    if (!hasStarted) {
-      startMusicPlayback();
-    }
-    document.removeEventListener('click', firstInteractionPlay);
-    document.removeEventListener('touchstart', firstInteractionPlay);
-  }
-  document.addEventListener('click', firstInteractionPlay, { once: true });
-  document.addEventListener('touchstart', firstInteractionPlay, { once: true });
+  // Immediate autoplay execution on load
+  triggerPlay();
+  document.addEventListener('DOMContentLoaded', triggerPlay);
+  window.addEventListener('load', function() {
+    triggerPlay();
+    setTimeout(triggerPlay, 400);
+    setTimeout(triggerPlay, 1000);
+  });
 
-  // Toggle button and widget click
+  // Zero-click micro-motion trigger (unmutes and starts on ANY cursor movement, hover, touch, scroll)
+  var autoUnmuteEvents = ['mousemove', 'pointermove', 'mouseover', 'touchstart', 'scroll', 'wheel', 'keydown', 'click'];
+  function globalInteractionHandler() {
+    doUnmute();
+    triggerPlay();
+    autoUnmuteEvents.forEach(function(evt) {
+      window.removeEventListener(evt, globalInteractionHandler, true);
+      document.removeEventListener(evt, globalInteractionHandler, true);
+    });
+  }
+  autoUnmuteEvents.forEach(function(evt) {
+    window.addEventListener(evt, globalInteractionHandler, { capture: true, passive: true });
+    document.addEventListener(evt, globalInteractionHandler, { capture: true, passive: true });
+  });
+
+  // Manual toggle button & widget
   var toggleBtn = document.getElementById('musicToggleBtn');
   if (toggleBtn) {
     toggleBtn.onclick = function(e) {
@@ -712,6 +746,7 @@ $("copy").addEventListener("click",function(){
   }
 })();
 </script>
+
 
 </body>
 </html>
