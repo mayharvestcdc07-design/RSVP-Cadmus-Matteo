@@ -203,6 +203,150 @@ body::before,.mapdeco{left:50%;right:auto;width:430px;margin-left:-215px}
 }
 </style>
 
+
+<style id="pirateMusicStyles">
+/* ONE PIECE THEMED MUSIC CONTROLLER */
+.pirate-music-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(24, 43, 66, 0.96), rgba(198, 40, 40, 0.94));
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 50px;
+  border: 2px solid #f2b632;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 16px rgba(242, 182, 50, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+  user-select: none;
+  cursor: pointer;
+}
+.pirate-music-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(242, 182, 50, 0.5);
+}
+.music-skull-wrap {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+.music-skull {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2a1508 30%, #111 70%);
+  border: 2px solid #f2b632;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.music-skull.playing {
+  animation: skullSway 2s ease-in-out infinite alternate;
+}
+@keyframes skullSway {
+  0% { transform: rotate(-10deg) scale(1.05); }
+  100% { transform: rotate(10deg) scale(1.05); }
+}
+.music-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  text-align: left;
+}
+.music-badge {
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #f2b632;
+  text-transform: uppercase;
+  font-family: 'Pirata One', serif;
+}
+.music-name {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.music-eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  padding: 0 4px;
+}
+.music-eq .bar {
+  width: 3px;
+  background: #f2b632;
+  border-radius: 2px;
+  height: 4px;
+  transition: height 0.2s ease;
+}
+.music-eq.playing .bar1 { animation: eqJump 0.8s ease-in-out infinite alternate; }
+.music-eq.playing .bar2 { animation: eqJump 0.6s ease-in-out 0.2s infinite alternate; }
+.music-eq.playing .bar3 { animation: eqJump 0.9s ease-in-out 0.4s infinite alternate; }
+.music-eq.playing .bar4 { animation: eqJump 0.7s ease-in-out 0.1s infinite alternate; }
+@keyframes eqJump {
+  0% { height: 4px; }
+  100% { height: 18px; }
+}
+.music-btn {
+  background: #f2b632;
+  color: #182b42;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: transform 0.15s ease, background 0.2s ease;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.music-btn:hover {
+  transform: scale(1.1);
+  background: #fff;
+}
+.music-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+  .pirate-music-widget {
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .music-name {
+    font-size: 11.5px;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .music-skull-wrap, .music-skull {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .music-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="mapdeco" aria-hidden="true"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#6b3f17" stroke-linecap="round" stroke-linejoin="round" opacity=".5"><path d="M-10 90C70 40 150 170 230 120S350 190 330 290S150 330 170 440S340 520 300 620S160 700 260 780" stroke-width="3" stroke-dasharray="2 9"/><path d="M40 210q14-18 28 0t28 0M300 430q14-18 28 0t28 0M30 520q14-18 28 0t28 0" stroke-width="2"/><path d="M310 60c14-14 40-8 46 8s-10 34-34 30-26-24-12-38zM60 340c10-12 30-8 34 6s-8 26-26 22-18-18-8-28z" stroke-width="2"/><g transform="translate(70 700)"><circle r="34" stroke-width="2"/><circle r="26" stroke-width="1"/><path d="M0-50L8-8 50 0 8 8 0 50-8 8-50 0-8-8Z" stroke-width="2" fill="#6b3f17" fill-opacity=".25"/><text x="-5" y="-56" font-size="15" font-family="Pirata One,serif" fill="#6b3f17" stroke="none">N</text></g><path d="M246 764l22 22M268 764l-22 22" stroke="#a8281f" stroke-width="5" opacity="1"/></g></svg></div>
@@ -405,5 +549,169 @@ $("copy").addEventListener("click",function(){
   $("copy").textContent = "Copied!";
 });
 </script>
+
+<!-- ONE PIECE OST BACKGROUND MUSIC CONTROLLER -->
+<div id="pirateMusicWidget" class="pirate-music-widget">
+  <div class="music-skull-wrap">
+    <div class="music-skull" id="musicSkull">
+      <span class="skull-icon">🏴‍☠️</span>
+    </div>
+  </div>
+  <div class="music-details">
+    <div class="music-badge">ONE PIECE OST</div>
+    <div class="music-name">The Very, Very, Strongest</div>
+  </div>
+  <div class="music-eq" id="musicEq">
+    <span class="bar bar1"></span>
+    <span class="bar bar2"></span>
+    <span class="bar bar3"></span>
+    <span class="bar bar4"></span>
+  </div>
+  <button id="musicToggleBtn" class="music-btn" title="Play / Pause Pirate Theme" aria-label="Toggle Music">
+    <span id="musicBtnIcon">▶️</span>
+  </button>
+</div>
+
+<!-- Hidden / active in-viewport iframe for YouTube player -->
+<iframe id="ytMusicIframe"
+  src="https://www.youtube.com/embed/nUBWp89ATE8?enablejsapi=1&autoplay=0&mute=0&loop=1&playlist=nUBWp89ATE8&controls=0&playsinline=1"
+  allow="autoplay *; encrypted-media *; fullscreen *"
+  style="position:fixed; bottom:10px; right:10px; width:280px; height:160px; opacity:0.01; z-index:-1000; pointer-events:none; border:none;">
+</iframe>
+
+
+<script>
+// PIRATE MUSIC CONTROLLER ("One Piece OST — The Very, Very, Strongest")
+(function(){
+  var ytPlayer = null;
+  var isMusicPlaying = false;
+  var ytReady = false;
+  var iframe = document.getElementById('ytMusicIframe');
+  var hasStarted = false;
+
+  function updateMusicUI(playing) {
+    isMusicPlaying = playing;
+    var skull = document.getElementById('musicSkull');
+    var eq = document.getElementById('musicEq');
+    var icon = document.getElementById('musicBtnIcon');
+    if (skull) {
+      if (playing) skull.classList.add('playing');
+      else skull.classList.remove('playing');
+    }
+    if (eq) {
+      if (playing) eq.classList.add('playing');
+      else eq.classList.remove('playing');
+    }
+    if (icon) {
+      icon.textContent = playing ? '⏸️' : '▶️';
+    }
+  }
+
+  function sendIframeCommand(func, args) {
+    if (iframe && iframe.contentWindow) {
+      try {
+        iframe.contentWindow.postMessage(JSON.stringify({
+          event: 'command',
+          func: func,
+          args: args || []
+        }), '*');
+      } catch(e) {}
+    }
+  }
+
+  function startMusicPlayback() {
+    hasStarted = true;
+    if (ytPlayer && ytReady) {
+      try {
+        ytPlayer.unMute();
+        ytPlayer.setVolume(85);
+        ytPlayer.playVideo();
+        updateMusicUI(true);
+      } catch(e) {}
+    }
+    sendIframeCommand('unMute');
+    sendIframeCommand('setVolume', [85]);
+    sendIframeCommand('playVideo');
+    updateMusicUI(true);
+  }
+
+  function toggleMusic() {
+    if (isMusicPlaying) {
+      if (ytPlayer && ytReady) {
+        try { ytPlayer.pauseVideo(); } catch(e) {}
+      }
+      sendIframeCommand('pauseVideo');
+      updateMusicUI(false);
+    } else {
+      startMusicPlayback();
+    }
+  }
+
+  // Load YouTube IFrame API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  window.onYouTubeIframeAPIReady = function() {
+    try {
+      ytPlayer = new YT.Player('ytMusicIframe', {
+        events: {
+          onReady: function(e) {
+            ytReady = true;
+            try {
+              e.target.setVolume(85);
+              e.target.unMute();
+            } catch(err) {}
+            if (hasStarted) {
+              try {
+                e.target.playVideo();
+                updateMusicUI(true);
+              } catch(err) {}
+            }
+          },
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.PLAYING) {
+              updateMusicUI(true);
+            } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+              updateMusicUI(false);
+            }
+          }
+        }
+      });
+    } catch(e) {}
+  };
+
+  // Start music automatically on first user click anywhere on page
+  function firstInteractionPlay() {
+    if (!hasStarted) {
+      startMusicPlayback();
+    }
+    document.removeEventListener('click', firstInteractionPlay);
+    document.removeEventListener('touchstart', firstInteractionPlay);
+  }
+  document.addEventListener('click', firstInteractionPlay, { once: true });
+  document.addEventListener('touchstart', firstInteractionPlay, { once: true });
+
+  // Toggle button and widget click
+  var toggleBtn = document.getElementById('musicToggleBtn');
+  if (toggleBtn) {
+    toggleBtn.onclick = function(e) {
+      e.stopPropagation();
+      toggleMusic();
+    };
+  }
+
+  var widget = document.getElementById('pirateMusicWidget');
+  if (widget) {
+    widget.onclick = function(e) {
+      if (e.target !== toggleBtn && !toggleBtn.contains(e.target)) {
+        toggleMusic();
+      }
+    };
+  }
+})();
+</script>
+
 </body>
 </html>
