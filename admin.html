@@ -427,6 +427,7 @@
         <p>Grand Line Birthday Crew Manifest &bull; Admin Operations</p>
       </div>
       <div class="header-actions">
+        <button class="btn alt" onclick="loadData()" title="Reload latest guest responses">🔄 Refresh</button>
         <a href="/" class="btn alt">🏠 View Invitation</a>
         <a href="/scanner" class="btn alt">📷 Entrance Scanner</a>
         <a href="/api/export" class="btn">📥 Export CSV</a>
@@ -568,6 +569,9 @@ async function unlock() {
       document.getElementById('gateModal').style.display = 'none';
       document.getElementById('dashContent').style.display = 'block';
       loadData();
+      if (!window._adminPollInterval) {
+        window._adminPollInterval = setInterval(loadData, 15000);
+      }
     } else {
       alert('Incorrect Secret PIN.');
     }

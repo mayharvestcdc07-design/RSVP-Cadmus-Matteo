@@ -69,11 +69,49 @@ input,textarea,select{width:100%;padding:11px;border:2px solid var(--line);borde
 .seg input:checked+span{background:var(--red);border-color:var(--red);color:#fff}
 #out{display:none;margin-top:14px;font-size:.95rem}
 footer{padding:30px 20px 50px;color:var(--sub);font-size:.85rem}
-@media (min-width:600px){
-html{background:#2a1a0e}
-body{background:transparent;max-width:430px;min-height:100vh;margin:0 auto;box-shadow:0 0 50px rgba(0,0,0,.6)}
-body::before,.mapdeco{left:50%;right:auto;width:430px;margin-left:-215px}
-#cover{left:0;right:0;max-width:430px;margin:0 auto}
+/* RESPONSIVE LAYOUT ENGINE FOR BOTH CP (MOBILE) AND COMPUTER (DESKTOP) */
+@media (max-width: 600px) {
+  /* CP / Mobile Phone Optimizations */
+  body { padding: 0; }
+  section { max-width: 100%; padding: 24px 14px; }
+  .card { padding: 16px 14px; border-radius: 14px; margin: 12px 0; }
+  .hero h1 { font-size: clamp(2.1rem, 8.5vw, 2.9rem); }
+  .wanted-card { max-width: 100%; padding: 12px 10px 16px; margin: 10px auto; }
+    .wanted-poster-frame { max-width: min(94vw, 390px); margin: 8px auto 14px; }
+  .wanted-card .poster-portrait { height: clamp(170px, 45vw, 220px); }
+  .cd { gap: 6px; }
+  .cd div { padding: 8px 2px; }
+  .cd b { font-size: 1.5rem; }
+  .cd span { font-size: 0.65rem; }
+  #cover { padding: max(5vh, 20px) 16px 20px; }
+  .coverpic { width: min(85vw, 42vh, 310px); }
+  .ship-art { width: min(92vw, 360px); bottom: 22%; }
+  .seg span { padding: 12px 8px; font-size: 0.95rem; }
+  input, textarea, select { font-size: 16px; } /* Prevents iOS auto-zoom */
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Tablet / iPad Layout */
+  html { background: radial-gradient(ellipse at 50% 20%, #153c61 0%, #091c2f 100%); min-height: 100vh; }
+  body { background: var(--bg); max-width: 680px; min-height: 100vh; margin: 0 auto; box-shadow: 0 0 55px rgba(0,0,0,.65); border-left: 3px solid #b77c22; border-right: 3px solid #b77c22; position: relative; }
+  body::before, .mapdeco { left: 50%; right: auto; width: 680px; margin-left: -340px; }
+  section { max-width: 620px; padding: 36px 24px; }
+  .wanted-card { max-width: 480px; }
+}
+
+@media (min-width: 1025px) {
+  /* Computer / Desktop / Laptop Layout */
+  html { background: radial-gradient(ellipse at 50% 15%, #18426b 0%, #071829 100%); min-height: 100vh; }
+  body { background: var(--bg); max-width: 800px; min-height: 100vh; margin: 0 auto; box-shadow: 0 0 75px rgba(0,0,0,.75); border-left: 3px solid #b77c22; border-right: 3px solid #b77c22; position: relative; }
+  body::before, .mapdeco { left: 50%; right: auto; width: 800px; margin-left: -400px; }
+  section { max-width: 720px; padding: 46px 36px; }
+  .wanted-card { max-width: 520px; margin: 18px auto 26px; }
+    .wanted-poster-frame { max-width: 480px; margin: 16px auto 24px; }
+  .wanted-card .poster-portrait { height: 260px; }
+  .card { padding: 26px 24px; border-radius: 16px; margin: 18px 0; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .coverpic { width: 360px; }
+  .ship-art { width: 480px; bottom: 25%; }
 }
 @media (prefers-reduced-motion:reduce){.pulse,.ship,.crest,.cloud,.bird,.coverpic{animation:none}#cover{transition:none}}
 
@@ -149,6 +187,7 @@ body::before,.mapdeco{left:50%;right:auto;width:430px;margin-left:-215px}
   }
 
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style id="adventureLogStyles">
 .adventure-log-card {
@@ -495,6 +534,11 @@ body::before,.mapdeco{left:50%;right:auto;width:430px;margin-left:-215px}
 <footer>
   <div class="t" style="font-size:1.4rem;color:var(--red)">See you on the Grand Line, nakama!</div>
   <p>With love, the Cortes family ❤️</p>
+<div style="margin-top:20px; padding-top:14px; border-top:1px dashed rgba(242,182,50,0.3); font-size:0.8rem; opacity:0.85;">
+  ⚓ Crew & Coordinator Access: 
+  <a href="/scanner" style="color:#f2b632; text-decoration:underline; font-weight:bold; margin:0 6px;">Reception QR Scanner</a> • 
+  <a href="/admin" style="color:#f2b632; text-decoration:underline; font-weight:bold; margin:0 6px;">Captain's Master List</a>
+</div>
 </footer>
 
 <script>
@@ -531,24 +575,244 @@ function renderGuestFields(){
   }
 }
 $("n").addEventListener("change",renderGuestFields); renderGuestFields();
-$("send").addEventListener("click",function(){
-  var entries=Array.from(document.querySelectorAll(".guest-entry"));
-  var guests=entries.map(function(row,i){return {name:row.querySelector(".guest-name").value.trim(),type:row.querySelector(".guest-type").value};});
-  var emptyIndex=guests.findIndex(function(g){return !g.name;});
-  if(emptyIndex>=0){entries[emptyIndex].querySelector(".guest-name").focus();return;}
-  var yes = document.querySelector('input[name="go"]:checked').value==="yes";
-  var m = "RSVP for Cadmus's 7th Birthday: "+(yes?"Attending":"Unable to attend")+"\nGuest count: "+guests.length;
-  if(yes) m += "\nGuest list:\n"+guests.map(function(g,i){return (i+1)+". "+g.name+" ("+g.type+")";}).join("\n");
-  if($("msg").value.trim()) m += "\nMessage: "+$("msg").value.trim();
-  $("txt").value = m; $("out").style.display = "block";
-  if(HOST_PHONE) location.href = "sms:" + HOST_PHONE + "?&body=" + encodeURIComponent(m);
+function handleAttendanceToggle() {
+  var yes = document.querySelector('input[name="go"]:checked').value === "yes";
+  var nLabel = document.querySelector('label[for="n"]');
+  var nSelect = $("n");
+  var box = $("guestFields");
+  var sendBtn = $("send");
+
+  if (yes) {
+    if (nLabel) nLabel.style.display = "block";
+    if (nSelect) nSelect.style.display = "block";
+    renderGuestFields();
+    if (sendBtn) sendBtn.textContent = "Send my reply & Get Boarding Pass";
+  } else {
+    if (nLabel) nLabel.style.display = "none";
+    if (nSelect) nSelect.style.display = "none";
+    box.innerHTML = '<div class="guest-entry">' +
+      '<strong>Your Name / Pangalan *</strong>' +
+      '<input type="text" class="guest-name" id="declinedName" placeholder="Full name (e.g., Tita Maria / Dela Cruz Family)" required>' +
+      '</div>';
+    if (sendBtn) sendBtn.textContent = "Send my response";
+  }
+}
+
+document.querySelectorAll('input[name="go"]').forEach(function(r) {
+  r.addEventListener('change', handleAttendanceToggle);
 });
+
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s || '';
+  return d.innerHTML;
+}
+
+$("send").addEventListener("click", async function() {
+  var sendBtn = $("send");
+  var yes = document.querySelector('input[name="go"]:checked').value === "yes";
+  
+  var alertBox = document.getElementById("rsvpAlertBox");
+  if (!alertBox) {
+    alertBox = document.createElement("div");
+    alertBox.id = "rsvpAlertBox";
+    alertBox.style.cssText = "margin: 14px 0; padding: 12px 14px; border-radius: 10px; font-size: 0.9rem; font-weight: bold; text-align: center; display: none;";
+    sendBtn.parentNode.insertBefore(alertBox, sendBtn);
+  }
+  alertBox.style.display = "none";
+
+  var guests = [];
+  var primaryName = "";
+
+  if (yes) {
+    var entries = Array.from(document.querySelectorAll(".guest-entry"));
+    guests = entries.map(function(row) {
+      var nInput = row.querySelector(".guest-name");
+      var tSelect = row.querySelector(".guest-type");
+      return {
+        name: nInput ? nInput.value.trim() : "",
+        type: tSelect ? tSelect.value : "Adult"
+      };
+    });
+    var emptyIndex = guests.findIndex(function(g) { return !g.name; });
+    if (emptyIndex >= 0) {
+      entries[emptyIndex].querySelector(".guest-name").focus();
+      alertBox.style.display = "block";
+      alertBox.style.background = "#fee2e2";
+      alertBox.style.color = "#991b1b";
+      alertBox.style.border = "1px solid #f87171";
+      alertBox.textContent = "⚠️ Pakisulat po ang pangalan ng Guest " + (emptyIndex + 1) + ".";
+      return;
+    }
+    primaryName = guests[0].name;
+  } else {
+    var decInput = document.getElementById("declinedName") || document.querySelector(".guest-name");
+    primaryName = decInput ? decInput.value.trim() : "";
+    if (!primaryName) {
+      if (decInput) decInput.focus();
+      alertBox.style.display = "block";
+      alertBox.style.background = "#fee2e2";
+      alertBox.style.color = "#991b1b";
+      alertBox.style.border = "1px solid #f87171";
+      alertBox.textContent = "⚠️ Pakilagay po ang inyong pangalan.";
+      return;
+    }
+    guests = [{ name: primaryName, type: "Adult" }];
+  }
+
+  var wishesMsg = $("msg") ? $("msg").value.trim() : "";
+
+  // Prepare backup text message
+  var m = "RSVP for Cadmus's 7th Birthday: " + (yes ? "Attending" : "Unable to attend") + "\n";
+  if (yes) {
+    m += "Guest count: " + guests.length + "\nGuest list:\n" + guests.map(function(g,i){ return (i+1) + ". " + g.name + " (" + g.type + ")"; }).join("\n");
+  } else {
+    m += "From: " + primaryName;
+  }
+  if (wishesMsg) m += "\nMessage: " + wishesMsg;
+  $("txt").value = m;
+
+  // Show loading
+  var originalBtnText = sendBtn.textContent;
+  sendBtn.disabled = true;
+  sendBtn.textContent = "⏳ Isinusumite sa System...";
+
+  try {
+    var apiUrl = (window.location.protocol === "file:") ? "http://localhost:3000/api/rsvp" : "/api/rsvp";
+    var res = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: primaryName,
+        guests: yes ? guests : [],
+        status: yes ? "Attending" : "Declined",
+        seats: yes ? guests.length : 0,
+        wishes: wishesMsg
+      })
+    });
+
+    var data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || "Failed to submit RSVP");
+    }
+
+    // Success!
+    alertBox.style.display = "block";
+    alertBox.style.background = "#dcfce7";
+    alertBox.style.color = "#166534";
+    alertBox.style.border = "1px solid #86efac";
+
+    if (yes) {
+      alertBox.innerHTML = "🎉 <strong>RSVP Confirmed!</strong> Welcome aboard, " + escapeHtml(primaryName) + "! (Ticket: " + data.guest.ticketCode + ")";
+      sendBtn.textContent = "✅ Naka-RSVP na! (" + data.guest.ticketCode + ")";
+      
+      // Update text to include Ticket Code
+      $("txt").value = m + "\nTicket Code: " + data.guest.ticketCode;
+      
+      // Open Boarding Pass with QR code
+      if (typeof showPiratePass === "function") {
+        showPiratePass(data.guest);
+      }
+    } else {
+      alertBox.innerHTML = "💌 <strong>Maraming salamat sa pag-abiso, " + escapeHtml(primaryName) + "!</strong> Naitala na sa system ang iyong tugon.";
+      sendBtn.textContent = "✅ Naitala na ang iyong sagot";
+    }
+
+    $("out").style.display = "block";
+    if (HOST_PHONE && !sessionStorage.getItem("rsvp_sms_done")) {
+      sessionStorage.setItem("rsvp_sms_done", "1");
+      location.href = "sms:" + HOST_PHONE + "?&body=" + encodeURIComponent($("txt").value);
+    }
+  } catch (err) {
+    console.error("RSVP Submission error:", err);
+    alertBox.style.display = "block";
+    alertBox.style.background = "#fff3cd";
+    alertBox.style.color = "#856404";
+    alertBox.style.border = "1px solid #ffeeba";
+    alertBox.innerHTML = "⚠️ <strong>Notice:</strong> Hindi ma-konekta sa online server (" + (err.message || "Offline") + "). Paki-kopya na lang po ang mensahe sa ibaba para mai-send sa host via SMS o Messenger.";
+    sendBtn.disabled = false;
+    sendBtn.textContent = "Subukan Muli / Send Reply";
+    $("out").style.display = "block";
+  }
+});
+
 $("copy").addEventListener("click",function(){
   $("txt").select();
   try{ navigator.clipboard.writeText($("txt").value); }catch(e){ document.execCommand("copy"); }
   $("copy").textContent = "Copied!";
 });
 </script>
+
+<!-- Pirate Digital Boarding Pass Modal -->
+<div id="piratePassModal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(10,26,44,0.92); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:16px;">
+  <div style="background:#fffcf0; border:4px solid #f2b632; border-radius:24px; max-width:420px; width:100%; box-shadow:0 25px 60px rgba(0,0,0,0.7); text-align:center; padding:28px 22px; font-family:'Nunito',sans-serif; color:#182b42; position:relative; max-height:90vh; overflow-y:auto;">
+    <div style="font-family:'Pirata One',serif; font-size:1.9rem; color:#c62828; letter-spacing:1px; margin-bottom:2px">🏴‍☠️ STRAW HAT CREW PASS 🏴‍☠️</div>
+    <div style="font-size:0.9rem; color:#49627b; margin-bottom:14px; font-weight:700;">Cadmus Matteo's 7th Birthday Voyage</div>
+    
+    <div style="background:#fdf2cf; border:2px dashed #d29b35; border-radius:16px; padding:12px; margin-bottom:16px;">
+      <div id="passGuestName" style="font-family:'Pirata One',serif; font-size:1.7rem; color:#0b5d91; margin-bottom:2px; line-height:1.2;">Guest Name</div>
+      <div id="passTicketCode" style="font-size:1.1rem; font-weight:800; color:#c62828; letter-spacing:2px; margin-bottom:4px;">CM-000000</div>
+      <div id="passCrewBadge" style="font-size:0.85rem; color:#6b4700; font-weight:bold;">Official Straw Hat Crew Member</div>
+    </div>
+
+    <div style="background:#ffffff; padding:14px; display:inline-block; border-radius:16px; border:2px solid #d29b35; margin-bottom:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+      <div id="pirateQr"></div>
+    </div>
+
+    <div style="background:#f4ece1; border:1px solid #d4c2a5; border-radius:14px; padding:12px 16px; font-size:0.85rem; margin-bottom:16px; text-align:left; line-height:1.6;">
+      <div>📅 <strong>Date:</strong> Monday, Nov 30, 2026 • 3:00 PM</div>
+      <div>📍 <strong>Venue:</strong> Grace Harbour Pavillion, Santa Maria, Bulacan</div>
+      <div id="passSeats">👥 <strong>Seats Reserved:</strong> 1</div>
+      <div id="passTable">🧭 <strong>Table:</strong> Open Seating</div>
+      <div>👒 <strong>Attire:</strong> Come as you are</div>
+    </div>
+
+    <div style="font-size:0.8rem; color:#666; margin-bottom:16px;">
+      📸 <em>Please take a screenshot of this boarding pass or present this QR code at the reception scanner!</em>
+    </div>
+
+    <div style="display:flex; gap:10px; justify-content:center;">
+      <button onclick="window.print()" style="padding:10px 18px; border:none; border-radius:10px; background:#0b5d91; color:#fff; font-weight:bold; cursor:pointer; font-size:0.9rem;">🖨️ Print / Save</button>
+      <button onclick="document.getElementById('piratePassModal').style.display='none'" style="padding:10px 22px; border:none; border-radius:10px; background:#c62828; color:#fff; font-weight:bold; cursor:pointer; font-size:0.9rem;">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPiratePass(guest) {
+  var nameEl = document.getElementById("passGuestName");
+  var codeEl = document.getElementById("passTicketCode");
+  var seatsEl = document.getElementById("passSeats");
+  var tableEl = document.getElementById("passTable");
+  
+  if (nameEl) nameEl.textContent = guest.name || "Straw Hat Nakama";
+  if (codeEl) codeEl.textContent = guest.ticketCode || "CM-INVITE";
+  if (seatsEl) seatsEl.innerHTML = "👥 <strong>Seats Reserved:</strong> " + (guest.seats || 1);
+  if (tableEl) tableEl.innerHTML = "🧭 <strong>Table:</strong> " + (guest.tableNumber || "Open Seating");
+
+  var qr = document.getElementById("pirateQr");
+  if (qr) {
+    qr.innerHTML = "";
+    if (window.QRCode) {
+      new QRCode(qr, {
+        text: guest.ticketCode,
+        width: 170,
+        height: 170,
+        colorDark: "#182b42",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  }
+
+  var modal = document.getElementById("piratePassModal");
+  if (modal) {
+    modal.style.display = "flex";
+  }
+}
+
+</script>
+
 
 <!-- ONE PIECE OST BACKGROUND MUSIC CONTROLLER -->
 <div id="pirateMusicWidget" class="pirate-music-widget">

@@ -575,18 +575,167 @@ function renderGuestFields(){
   }
 }
 $("n").addEventListener("change",renderGuestFields); renderGuestFields();
-$("send").addEventListener("click",function(){
-  var entries=Array.from(document.querySelectorAll(".guest-entry"));
-  var guests=entries.map(function(row,i){return {name:row.querySelector(".guest-name").value.trim(),type:row.querySelector(".guest-type").value};});
-  var emptyIndex=guests.findIndex(function(g){return !g.name;});
-  if(emptyIndex>=0){entries[emptyIndex].querySelector(".guest-name").focus();return;}
-  var yes = document.querySelector('input[name="go"]:checked').value==="yes";
-  var m = "RSVP for Cadmus's 7th Birthday: "+(yes?"Attending":"Unable to attend")+"\nGuest count: "+guests.length;
-  if(yes) m += "\nGuest list:\n"+guests.map(function(g,i){return (i+1)+". "+g.name+" ("+g.type+")";}).join("\n");
-  if($("msg").value.trim()) m += "\nMessage: "+$("msg").value.trim();
-  $("txt").value = m; $("out").style.display = "block";
-  if(HOST_PHONE) location.href = "sms:" + HOST_PHONE + "?&body=" + encodeURIComponent(m);
+function handleAttendanceToggle() {
+  var yes = document.querySelector('input[name="go"]:checked').value === "yes";
+  var nLabel = document.querySelector('label[for="n"]');
+  var nSelect = $("n");
+  var box = $("guestFields");
+  var sendBtn = $("send");
+
+  if (yes) {
+    if (nLabel) nLabel.style.display = "block";
+    if (nSelect) nSelect.style.display = "block";
+    renderGuestFields();
+    if (sendBtn) sendBtn.textContent = "Send my reply & Get Boarding Pass";
+  } else {
+    if (nLabel) nLabel.style.display = "none";
+    if (nSelect) nSelect.style.display = "none";
+    box.innerHTML = '<div class="guest-entry">' +
+      '<strong>Your Name / Pangalan *</strong>' +
+      '<input type="text" class="guest-name" id="declinedName" placeholder="Full name (e.g., Tita Maria / Dela Cruz Family)" required>' +
+      '</div>';
+    if (sendBtn) sendBtn.textContent = "Send my response";
+  }
+}
+
+document.querySelectorAll('input[name="go"]').forEach(function(r) {
+  r.addEventListener('change', handleAttendanceToggle);
 });
+
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s || '';
+  return d.innerHTML;
+}
+
+$("send").addEventListener("click", async function() {
+  var sendBtn = $("send");
+  var yes = document.querySelector('input[name="go"]:checked').value === "yes";
+  
+  var alertBox = document.getElementById("rsvpAlertBox");
+  if (!alertBox) {
+    alertBox = document.createElement("div");
+    alertBox.id = "rsvpAlertBox";
+    alertBox.style.cssText = "margin: 14px 0; padding: 12px 14px; border-radius: 10px; font-size: 0.9rem; font-weight: bold; text-align: center; display: none;";
+    sendBtn.parentNode.insertBefore(alertBox, sendBtn);
+  }
+  alertBox.style.display = "none";
+
+  var guests = [];
+  var primaryName = "";
+
+  if (yes) {
+    var entries = Array.from(document.querySelectorAll(".guest-entry"));
+    guests = entries.map(function(row) {
+      var nInput = row.querySelector(".guest-name");
+      var tSelect = row.querySelector(".guest-type");
+      return {
+        name: nInput ? nInput.value.trim() : "",
+        type: tSelect ? tSelect.value : "Adult"
+      };
+    });
+    var emptyIndex = guests.findIndex(function(g) { return !g.name; });
+    if (emptyIndex >= 0) {
+      entries[emptyIndex].querySelector(".guest-name").focus();
+      alertBox.style.display = "block";
+      alertBox.style.background = "#fee2e2";
+      alertBox.style.color = "#991b1b";
+      alertBox.style.border = "1px solid #f87171";
+      alertBox.textContent = "⚠️ Pakisulat po ang pangalan ng Guest " + (emptyIndex + 1) + ".";
+      return;
+    }
+    primaryName = guests[0].name;
+  } else {
+    var decInput = document.getElementById("declinedName") || document.querySelector(".guest-name");
+    primaryName = decInput ? decInput.value.trim() : "";
+    if (!primaryName) {
+      if (decInput) decInput.focus();
+      alertBox.style.display = "block";
+      alertBox.style.background = "#fee2e2";
+      alertBox.style.color = "#991b1b";
+      alertBox.style.border = "1px solid #f87171";
+      alertBox.textContent = "⚠️ Pakilagay po ang inyong pangalan.";
+      return;
+    }
+    guests = [{ name: primaryName, type: "Adult" }];
+  }
+
+  var wishesMsg = $("msg") ? $("msg").value.trim() : "";
+
+  // Prepare backup text message
+  var m = "RSVP for Cadmus's 7th Birthday: " + (yes ? "Attending" : "Unable to attend") + "\n";
+  if (yes) {
+    m += "Guest count: " + guests.length + "\nGuest list:\n" + guests.map(function(g,i){ return (i+1) + ". " + g.name + " (" + g.type + ")"; }).join("\n");
+  } else {
+    m += "From: " + primaryName;
+  }
+  if (wishesMsg) m += "\nMessage: " + wishesMsg;
+  $("txt").value = m;
+
+  // Show loading
+  var originalBtnText = sendBtn.textContent;
+  sendBtn.disabled = true;
+  sendBtn.textContent = "⏳ Isinusumite sa System...";
+
+  try {
+    var apiUrl = (window.location.protocol === "file:") ? "http://localhost:3000/api/rsvp" : "/api/rsvp";
+    var res = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: primaryName,
+        guests: yes ? guests : [],
+        status: yes ? "Attending" : "Declined",
+        seats: yes ? guests.length : 0,
+        wishes: wishesMsg
+      })
+    });
+
+    var data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || "Failed to submit RSVP");
+    }
+
+    // Success!
+    alertBox.style.display = "block";
+    alertBox.style.background = "#dcfce7";
+    alertBox.style.color = "#166534";
+    alertBox.style.border = "1px solid #86efac";
+
+    if (yes) {
+      alertBox.innerHTML = "🎉 <strong>RSVP Confirmed!</strong> Welcome aboard, " + escapeHtml(primaryName) + "! (Ticket: " + data.guest.ticketCode + ")";
+      sendBtn.textContent = "✅ Naka-RSVP na! (" + data.guest.ticketCode + ")";
+      
+      // Update text to include Ticket Code
+      $("txt").value = m + "\nTicket Code: " + data.guest.ticketCode;
+      
+      // Open Boarding Pass with QR code
+      if (typeof showPiratePass === "function") {
+        showPiratePass(data.guest);
+      }
+    } else {
+      alertBox.innerHTML = "💌 <strong>Maraming salamat sa pag-abiso, " + escapeHtml(primaryName) + "!</strong> Naitala na sa system ang iyong tugon.";
+      sendBtn.textContent = "✅ Naitala na ang iyong sagot";
+    }
+
+    $("out").style.display = "block";
+    if (HOST_PHONE && !sessionStorage.getItem("rsvp_sms_done")) {
+      sessionStorage.setItem("rsvp_sms_done", "1");
+      location.href = "sms:" + HOST_PHONE + "?&body=" + encodeURIComponent($("txt").value);
+    }
+  } catch (err) {
+    console.error("RSVP Submission error:", err);
+    alertBox.style.display = "block";
+    alertBox.style.background = "#fff3cd";
+    alertBox.style.color = "#856404";
+    alertBox.style.border = "1px solid #ffeeba";
+    alertBox.innerHTML = "⚠️ <strong>Notice:</strong> Hindi ma-konekta sa online server (" + (err.message || "Offline") + "). Paki-kopya na lang po ang mensahe sa ibaba para mai-send sa host via SMS o Messenger.";
+    sendBtn.disabled = false;
+    sendBtn.textContent = "Subukan Muli / Send Reply";
+    $("out").style.display = "block";
+  }
+});
+
 $("copy").addEventListener("click",function(){
   $("txt").select();
   try{ navigator.clipboard.writeText($("txt").value); }catch(e){ document.execCommand("copy"); }
@@ -662,60 +811,6 @@ function showPiratePass(guest) {
   }
 }
 
-// Enhance RSVP submission with API call
-(function() {
-  var sendBtn = document.getElementById("send");
-  if (!sendBtn) return;
-
-  sendBtn.addEventListener("click", function() {
-    var attendingBtn = document.querySelector(".btn-attending.active") || document.querySelector("button[data-status='attending'].active");
-    var yes = true;
-    if (document.getElementById("btn-no") && document.getElementById("btn-no").classList.contains("active")) {
-      yes = false;
-    }
-    
-    // Read guests list from original form
-    var guestRows = document.querySelectorAll(".guest-row") || [];
-    var guests = [];
-    if (guestRows.length > 0) {
-      guestRows.forEach(function(row) {
-        var nameInput = row.querySelector("input[type='text']");
-        var typeSelect = row.querySelector("select");
-        if (nameInput && nameInput.value.trim()) {
-          guests.push({
-            name: nameInput.value.trim(),
-            type: typeSelect ? typeSelect.value : "Adult"
-          });
-        }
-      });
-    }
-
-    var primaryName = guests.length > 0 ? guests[0].name : "Guest";
-    var wishesMsg = document.getElementById("msg") ? document.getElementById("msg").value.trim() : "";
-
-    // Sync to backend API
-    fetch('/api/rsvp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: primaryName,
-        guests: guests,
-        status: yes ? "Attending" : "Declined",
-        seats: guests.length > 0 ? guests.length : 1,
-        wishes: wishesMsg
-      })
-    })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      if (data.success && data.guest && yes) {
-        showPiratePass(data.guest);
-      }
-    })
-    .catch(function(err) {
-      console.warn("API sync fallback:", err);
-    });
-  });
-})();
 </script>
 
 
