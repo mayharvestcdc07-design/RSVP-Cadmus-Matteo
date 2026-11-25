@@ -117,6 +117,7 @@
 </div>
 
 <script>
+const API_BASE = (window.location.protocol === 'file:') ? 'http://localhost:3000' : '';
 let scanner = null;
 let running = false;
 
@@ -152,7 +153,7 @@ async function verifyTicket(code) {
   box.textContent = 'Verifying Ticket Code...';
 
   try {
-    const res = await fetch('/api/check-in', {
+    const res = await fetch(`${API_BASE}/api/check-in`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: code.trim() })

@@ -12,6 +12,23 @@
     "welcomeNote": "The crew is gathering. The treasure is cake. The adventure is turning seven! See you on the Grand Line, nakama! 🏴‍☠️",
     "adminPin": "2026"
   },
-  "guests": [],
-  "lastUpdated": "2026-11-25T01:35:00.000Z"
+  "guests": [
+    {
+      "id": "mwvgv3j9ybh0p",
+      "ticketCode": "CM-386358",
+      "name": "Monkey D. Luffy",
+      "guestList": "Monkey D. Luffy (Adult), Tony Chopper (Kid (0-12))",
+      "contact": "",
+      "email": "",
+      "status": "Attending",
+      "seats": 2,
+      "dietary": "",
+      "wishes": "Happy 7th Birthday!",
+      "tableNumber": "",
+      "checkedIn": false,
+      "checkedInAt": null,
+      "registeredAt": "2026-11-25T01:50:21.093Z"
+    }
+  ],
+  "lastUpdated": "2026-11-25T01:50:21.093Z"
 }

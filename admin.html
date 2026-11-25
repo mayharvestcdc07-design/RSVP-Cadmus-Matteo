@@ -544,6 +544,7 @@
 </div>
 
 <script>
+const API_BASE = (window.location.protocol === 'file:') ? 'http://localhost:3000' : '';
 let allGuests = [];
 let defaultCapacity = parseInt(localStorage.getItem('teo_table_capacity') || '10', 10);
 let customTables = JSON.parse(localStorage.getItem('teo_custom_tables') || '[]');
@@ -559,7 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function unlock() {
   const pin = document.getElementById('pinInput').value.trim();
   try {
-    const res = await fetch('/api/admin/verify', {
+    const res = await fetch(`${API_BASE}/api/admin/verify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ pin })
@@ -582,7 +583,7 @@ async function unlock() {
 
 async function loadData() {
   try {
-    const res = await fetch('/api/guests');
+    const res = await fetch(`${API_BASE}/api/guests`);
     if (res.ok) {
       const data = await res.json();
       allGuests = data.guests || [];
@@ -700,7 +701,7 @@ function renderSeatingMap() {
         <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:10px;">
           ${unassignedGuests.map(g => `
             <div style="background:#fdf6e2; padding:10px; border-radius:8px; border:1px solid var(--border);">
-              <div style="font-weight:800; font-size:14px;">${escapeHtml(g.name)}</div>
+              <div style="font-weight:800; font-size:14px;">${escapeHtml(g.name || (g.guestList ? g.guestList.split('(')[0].trim() : 'Guest'))}</div>
               <div style="font-size:12px; color:var(--sub);">${g.seats} seats &bull; Code: <strong>${escapeHtml(g.ticketCode)}</strong></div>
               <div style="margin-top:6px;">
                 <select class="table-select" style="width:100%" onchange="updateTable('${g.id}', this.value)">
@@ -754,7 +755,7 @@ function renderSeatingMap() {
     } else {
       guestListHtml = t.guests.map(g => `
         <div class="table-guest-item">
-          <span><strong>${escapeHtml(g.name)}</strong> (${g.seats} ${g.seats > 1 ? 'seats' : 'seat'})</span>
+          <span><strong>${escapeHtml(g.name || (g.guestList ? g.guestList.split('(')[0].trim() : 'Guest'))}</strong> (${g.seats} ${g.seats > 1 ? 'seats' : 'seat'})</span>
           <button class="unassign-btn" title="Alisin sa mesang ito" onclick="updateTable('${g.id}', '')">✕</button>
         </div>
       `).join('');
@@ -904,7 +905,7 @@ function renderTable() {
 
     return `<tr>
       <td><strong style="font-family:monospace; color:var(--sea); font-size:14px">${escapeHtml(g.ticketCode)}</strong></td>
-      <td><strong>${escapeHtml(g.name)}</strong></td>
+      <td><strong>${escapeHtml(g.name || (g.guestList ? g.guestList.split('(')[0].trim() : 'Guest'))}</strong></td>
       <td><small style="color:var(--sub)">${escapeHtml(g.guestList || '—')}</small></td>
       <td><span class="badge ${yes?'yes':'no'}">${escapeHtml(g.status)}</span></td>
       <td><strong style="font-size:15px;">${g.seats}</strong></td>
@@ -945,7 +946,7 @@ function handleTableSelect(guestId, selectElem) {
 
 async function updateTable(id, tableNumber) {
   try {
-    await fetch(`/api/guests/${id}`, {
+    await fetch(`${API_BASE}/api/guests/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ tableNumber: tableNumber ? tableNumber.trim() : '' })
@@ -957,7 +958,7 @@ async function updateTable(id, tableNumber) {
 }
 
 async function toggleCheckin(id, checkedIn) {
-  await fetch(`/api/guests/${id}`, {
+  await fetch(`${API_BASE}/api/guests/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ checkedIn, checkedInAt: checkedIn ? new Date().toISOString() : null })
@@ -967,7 +968,7 @@ async function toggleCheckin(id, checkedIn) {
 
 async function deleteGuest(id) {
   if (!confirm('Alisin ang bisitang ito sa roster?')) return;
-  await fetch(`/api/guests/${id}`, { method: 'DELETE' });
+  await fetch(`${API_BASE}/api/guests/${id}`, { method: 'DELETE' });
   loadData();
 }
 
