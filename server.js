@@ -90,41 +90,44 @@ if (process.env.DATABASE_URL) {
         registered_at TIMESTAMPTZ
       );
     `).then(async () => {
-      const countRes = await pgPool.query('SELECT count(*) FROM rsvp_guests');
-      const count = parseInt(countRes.rows[0].count, 10);
-      if (count === 0) {
-        const local = loadData();
-        for (const g of local.guests) {
-          await pgPool.query(
-            `INSERT INTO rsvp_guests (id, ticket_code, name, guest_list, contact, email, status, seats, dietary, wishes, table_number, checked_in, checked_in_at, registered_at)
-             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
-             ON CONFLICT (id) DO NOTHING`,
-            [g.id, g.ticketCode, g.name, g.guestList, g.contact, g.email, g.status, g.seats, g.dietary, g.wishes, g.tableNumber, g.checkedIn, g.checkedInAt, g.registeredAt]
-          );
-        }
-        console.log(`[RSVP Server] Cloud Database initialized and seeded with ${local.guests.length} guests!`);
-      } else {
-        const cloudRes = await pgPool.query('SELECT * FROM rsvp_guests ORDER BY registered_at DESC');
-        const local = loadData();
-        local.guests = cloudRes.rows.map(r => ({
-          id: r.id,
-          ticketCode: r.ticket_code,
-          name: r.name,
-          guestList: r.guest_list,
-          contact: r.contact,
-          email: r.email,
-          status: r.status,
-          seats: r.seats,
-          dietary: r.dietary,
-          wishes: r.wishes,
-          tableNumber: r.table_number,
-          checkedIn: r.checked_in,
-          checkedInAt: r.checked_in_at,
-          registeredAt: r.registered_at
-        }));
-        saveData(local);
-        console.log(`[RSVP Server] Successfully synced ${cloudRes.rows.length} guests from Cloud PostgreSQL into local storage!`);
+      // Upsert all local guests into PostgreSQL so any new guests from deploy are guaranteed present
+      const local = loadData();
+      for (const g of (local.guests || [])) {
+        await pgPool.query(
+          `INSERT INTO rsvp_guests (id, ticket_code, name, guest_list, contact, email, status, seats, dietary, wishes, table_number, checked_in, checked_in_at, registered_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+           ON CONFLICT (id) DO UPDATE SET
+             ticket_code = EXCLUDED.ticket_code,
+             name = EXCLUDED.name,
+             guest_list = EXCLUDED.guest_list,
+             status = EXCLUDED.status,
+             seats = EXCLUDED.seats,
+             wishes = EXCLUDED.wishes,
+             table_number = EXCLUDED.table_number,
+             checked_in = EXCLUDED.checked_in,
+             checked_in_at = EXCLUDED.checked_in_at`,
+          [g.id, g.ticketCode, g.name, g.guestList, g.contact, g.email, g.status, g.seats, g.dietary, g.wishes, g.tableNumber, g.checkedIn, g.checkedInAt, g.registeredAt]
+        );
       }
+      const cloudRes = await pgPool.query('SELECT * FROM rsvp_guests ORDER BY registered_at DESC');
+      local.guests = cloudRes.rows.map(r => ({
+        id: r.id,
+        ticketCode: r.ticket_code,
+        name: r.name,
+        guestList: r.guest_list,
+        contact: r.contact,
+        email: r.email,
+        status: r.status,
+        seats: r.seats,
+        dietary: r.dietary,
+        wishes: r.wishes,
+        tableNumber: r.table_number,
+        checkedIn: r.checked_in,
+        checkedInAt: r.checked_in_at,
+        registeredAt: r.registered_at
+      }));
+      saveData(local);
+      console.log(`[RSVP Server] Successfully synced ${cloudRes.rows.length} guests with Cloud PostgreSQL!`);
     }).catch(err => {
       console.error('[RSVP Server] Cloud PostgreSQL init error:', err.message);
     });
