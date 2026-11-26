@@ -194,7 +194,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   // Health check for Render
-  if (pathname === '/healthz' || pathname === '/health') {
+  if (pathname === '/healthz' || pathname === '/health' || pathname === '/api/ping') {
     return sendJson(res, 200, {
       status: 'ok',
       service: 'RSVP Cadmus Matteo',
@@ -291,7 +291,7 @@ const server = http.createServer(async (req, res) => {
         seats: seatsCount,
         dietary: String(body.dietary || '').trim(),
         wishes: String(body.wishes || body.message || '').trim(),
-        tableNumber: '',
+        tableNumber: String(body.tableNumber || '').trim(),
         checkedIn: body.status !== 'Declined',
         checkedInAt: body.status !== 'Declined' ? new Date().toISOString() : null,
         registeredAt: new Date().toISOString()

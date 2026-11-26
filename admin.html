@@ -432,6 +432,7 @@
       </div>
       <div class="header-actions">
         <button class="btn alt" onclick="loadData()" title="Reload latest guest responses">🔄 Refresh Now</button>
+        <button class="btn" onclick="openAddGuestModal()" style="background:#15803d; font-weight:800; box-shadow:0 2px 8px rgba(21,128,61,0.4);" title="Manually add a guest who confirmed via SMS/Messenger">➕ Add Guest Manually</button>
         <button class="btn alt" onclick="downloadBackup()" title="Download a JSON backup file to keep on your device">💾 Download Backup</button>
         <button class="btn alt" onclick="triggerRestoreBackup()" title="Restore/Import guests from a JSON backup file">📤 Restore Backup</button>
         <input type="file" id="restoreFileInput" accept=".json" style="display:none;" onchange="handleRestoreFile(event)">
@@ -519,6 +520,7 @@
       <div class="card-head">
         <h2>Pirate Crew Roster (<span id="countBadge">0</span>)</h2>
         <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <button class="btn sm" onclick="openAddGuestModal()" style="background:#15803d; font-weight:800;">➕ Add Guest</button>
           <input type="text" class="search-input" id="searchBox" placeholder="🔍 Search guest name or code..." oninput="renderTable()">
           <button class="btn sm alt" onclick="clearTableFilter()">Show All Guests</button>
         </div>
@@ -544,6 +546,88 @@
       </div>
     </div>
   </div>
+
+<!-- ADD GUEST MODAL -->
+<div id="addGuestModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,26,44,0.72); z-index:99999; backdrop-filter:blur(3px); align-items:center; justify-content:center; padding:16px; box-sizing:border-box;">
+  <div style="background:#fffdf5; border:3px solid #d29b35; border-radius:18px; max-width:540px; width:100%; max-height:90vh; overflow-y:auto; padding:24px; box-shadow:0 12px 36px rgba(0,0,0,0.3); position:relative; box-sizing:border-box;">
+    <button onclick="closeAddGuestModal()" type="button" style="position:absolute; top:14px; right:16px; background:transparent; border:none; font-size:22px; cursor:pointer; color:#49627b; font-weight:900;">✕</button>
+    
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+      <span style="font-size:26px;">⚓</span>
+      <div>
+        <h2 style="font-family:'Pirata One',serif; font-size:24px; color:#c62828; margin:0; line-height:1.2;">Manual Guest Manifest Entry</h2>
+        <p style="font-size:12.5px; color:#49627b; margin:0;">Direktang idagdag ang bisitang nag-confirm via SMS / Messenger / Tawag</p>
+      </div>
+    </div>
+
+    <form id="addGuestForm" onsubmit="submitManualGuest(event)">
+      <!-- Attendance Status -->
+      <div style="margin-bottom:14px;">
+        <label style="font-size:12px; font-weight:800; color:#182b42; display:block; margin-bottom:5px;">Attendance Status:</label>
+        <div style="display:flex; gap:10px;">
+          <label style="flex:1; border:2px solid #86efac; border-radius:10px; padding:8px 12px; display:flex; align-items:center; gap:8px; cursor:pointer; background:#f0fdf4; font-weight:700; font-size:13px; color:#15803d;">
+            <input type="radio" name="mStatus" value="Attending" checked onchange="toggleManualSeats()">
+            ✅ Confirmed Attending
+          </label>
+          <label style="flex:1; border:2px solid #fecaca; border-radius:10px; padding:8px 12px; display:flex; align-items:center; gap:8px; cursor:pointer; background:#fef2f2; font-weight:700; font-size:13px; color:#991b1b;">
+            <input type="radio" name="mStatus" value="Declined" onchange="toggleManualSeats()">
+            ❌ Declined
+          </label>
+        </div>
+      </div>
+
+      <!-- Seats Count -->
+      <div id="mSeatsGroup" style="margin-bottom:14px;">
+        <label for="mSeats" style="font-size:12px; font-weight:800; color:#182b42; display:block; margin-bottom:5px;">Bilang ng Upuan / Guests:</label>
+        <select id="mSeats" onchange="renderManualGuestRows()" style="width:100%; padding:9px 12px; border-radius:8px; border:1.5px solid #d29b35; font-size:14px; font-weight:700; background:#fff; color:#182b42;">
+          <option value="1">1 Person</option>
+          <option value="2">2 Persons</option>
+          <option value="3">3 Persons</option>
+          <option value="4">4 Persons</option>
+          <option value="5">5 Persons</option>
+          <option value="6">6 Persons</option>
+          <option value="7">7 Persons</option>
+          <option value="8">8 Persons</option>
+          <option value="9">9 Persons</option>
+          <option value="10">10 Persons</option>
+        </select>
+      </div>
+
+      <!-- Guest Fields Container -->
+      <div id="mGuestFields" style="margin-bottom:14px; display:flex; flex-direction:column; gap:8px;"></div>
+
+      <!-- Table Assignment -->
+      <div id="mTableGroup" style="margin-bottom:14px;">
+        <label for="mTableSelect" style="font-size:12px; font-weight:800; color:#182b42; display:block; margin-bottom:5px;">Mesa / Table Assignment (With Vacancy):</label>
+        <select id="mTableSelect" style="width:100%; padding:9px 12px; border-radius:8px; border:1.5px solid #d29b35; font-size:14px; font-weight:700; background:#fff; color:#182b42;">
+          <option value="">-- No Table Assigned Yet (Assign Later) --</option>
+        </select>
+      </div>
+
+      <!-- Contact & Notes -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+        <div>
+          <label for="mContact" style="font-size:12px; font-weight:800; color:#182b42; display:block; margin-bottom:5px;">Contact # (Optional):</label>
+          <input type="text" id="mContact" placeholder="09171234567" style="width:100%; padding:8px 10px; border-radius:8px; border:1.5px solid #d29b35; font-size:13px; box-sizing:border-box;">
+        </div>
+        <div>
+          <label for="mNotes" style="font-size:12px; font-weight:800; color:#182b42; display:block; margin-bottom:5px;">Source / Notes (Optional):</label>
+          <input type="text" id="mNotes" placeholder="e.g. Confirmed via Messenger" style="width:100%; padding:8px 10px; border-radius:8px; border:1.5px solid #d29b35; font-size:13px; box-sizing:border-box;">
+        </div>
+      </div>
+
+      <div style="margin-bottom:18px;">
+        <label for="mWishes" style="font-size:12px; font-weight:800; color:#182b42; display:block; margin-bottom:5px;">Wishes / Message para kay Cadmus Matteo:</label>
+        <textarea id="mWishes" rows="2" placeholder="Happy 7th Birthday, Cadmus!" style="width:100%; padding:8px 10px; border-radius:8px; border:1.5px solid #d29b35; font-size:13px; box-sizing:border-box; font-family:inherit;"></textarea>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" onclick="closeAddGuestModal()" class="btn alt sm" style="padding:8px 18px;">Cancel</button>
+        <button type="submit" id="mSubmitBtn" class="btn sm" style="background:#15803d; font-size:14px; padding:9px 24px;">💾 Save to Manifest</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 </div>
 
@@ -1035,6 +1119,151 @@ async function deleteGuest(id) {
 function escapeHtml(v) {
   return String(v || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
+
+function openAddGuestModal() {
+  const modal = document.getElementById('addGuestModal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+  populateModalTableSelect();
+  renderManualGuestRows();
+  setTimeout(() => {
+    const first = document.querySelector('.m-guest-name');
+    if (first) first.focus();
+  }, 100);
+}
+
+function closeAddGuestModal() {
+  const modal = document.getElementById('addGuestModal');
+  if (modal) modal.style.display = 'none';
+}
+
+function toggleManualSeats() {
+  const yes = document.querySelector('input[name="mStatus"]:checked').value === 'Attending';
+  document.getElementById('mSeatsGroup').style.display = yes ? 'block' : 'none';
+  document.getElementById('mTableGroup').style.display = yes ? 'block' : 'none';
+  renderManualGuestRows();
+}
+
+function populateModalTableSelect() {
+  const select = document.getElementById('mTableSelect');
+  if (!select) return;
+  const { tables } = computeSeating();
+  const tableList = Object.values(tables);
+
+  let html = '<option value="">-- No Table Assigned Yet (Assign Later) --</option>';
+  tableList.forEach(t => {
+    const vacant = Math.max(0, t.capacity - t.totalSeats);
+    const isFull = vacant <= 0;
+    html += `<option value="${escapeHtml(t.name)}">${escapeHtml(t.name)} (${vacant} vacant / ${t.capacity})${isFull ? ' [FULL]' : ''}</option>`;
+  });
+  html += '<option value="__custom__">+ Custom Table...</option>';
+  select.innerHTML = html;
+}
+
+function renderManualGuestRows() {
+  const container = document.getElementById('mGuestFields');
+  if (!container) return;
+  const yes = document.querySelector('input[name="mStatus"]:checked').value === 'Attending';
+  
+  if (!yes) {
+    container.innerHTML = `
+      <div>
+        <label style="font-size:12px; font-weight:800; color:#182b42; display:block; margin-bottom:4px;">Guest Name:</label>
+        <input type="text" class="m-guest-name" placeholder="Pangalan ng bisita" required style="width:100%; padding:8px 10px; border-radius:8px; border:1.5px solid #d29b35; font-size:13px; box-sizing:border-box;">
+      </div>
+    `;
+    return;
+  }
+
+  const count = parseInt(document.getElementById('mSeats').value || '1', 10);
+  let html = '';
+  for (let i = 1; i <= count; i++) {
+    html += `
+      <div style="display:flex; gap:8px; align-items:center;">
+        <span style="font-size:12px; font-weight:800; color:var(--sea); min-width:62px;">Guest ${i}:</span>
+        <input type="text" class="m-guest-name" placeholder="Name of Guest ${i}" required style="flex:1; padding:8px 10px; border-radius:8px; border:1.5px solid #d29b35; font-size:13px; box-sizing:border-box;">
+        <select class="m-guest-type" style="padding:8px 10px; border-radius:8px; border:1.5px solid #d29b35; font-size:13px; background:#fff;">
+          <option value="Adult">Adult</option>
+          <option value="Kid">Kid (0-12)</option>
+        </select>
+      </div>
+    `;
+  }
+  container.innerHTML = html;
+}
+
+async function submitManualGuest(e) {
+  e.preventDefault();
+  const btn = document.getElementById('mSubmitBtn');
+  const yes = document.querySelector('input[name="mStatus"]:checked').value === 'Attending';
+  const nameInputs = Array.from(document.querySelectorAll('.m-guest-name'));
+  const typeSelects = Array.from(document.querySelectorAll('.m-guest-type'));
+  
+  const guests = nameInputs.map((input, idx) => ({
+    name: input.value.trim(),
+    type: typeSelects[idx] ? typeSelects[idx].value : 'Adult'
+  })).filter(g => g.name);
+
+  if (!guests.length) {
+    alert('Mangyaring maglagay ng kahit isang pangalan ng bisita.');
+    return;
+  }
+
+  const primaryName = guests[0].name;
+  let tableVal = document.getElementById('mTableSelect')?.value || '';
+  if (tableVal === '__custom__') {
+    const custom = prompt('Ilagay ang pangalan ng bagong Table:');
+    if (custom && custom.trim()) {
+      tableVal = custom.trim();
+      if (!customTables.includes(tableVal)) {
+        customTables.push(tableVal);
+        localStorage.setItem('teo_custom_tables', JSON.stringify(customTables));
+      }
+    } else {
+      tableVal = '';
+    }
+  }
+
+  const wishes = (document.getElementById('mWishes')?.value || '').trim();
+  const notes = (document.getElementById('mNotes')?.value || '').trim();
+  const contact = (document.getElementById('mContact')?.value || '').trim();
+  const finalWishes = wishes + (notes ? (wishes ? ' [' + notes + ']' : notes) : '');
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Adding to Manifest...';
+
+  try {
+    const res = await fetch(`${API_BASE}/api/rsvp`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: primaryName,
+        guests: yes ? guests : [],
+        status: yes ? 'Attending' : 'Declined',
+        seats: yes ? guests.length : 0,
+        wishes: finalWishes,
+        contact: contact,
+        tableNumber: yes ? tableVal : ''
+      })
+    });
+
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || 'Failed to add guest');
+    }
+
+    closeAddGuestModal();
+    document.getElementById('addGuestForm').reset();
+    alert(`✅ Matagumpay na naidagdag si ${primaryName} (${data.guest.ticketCode}) sa manifest!`);
+    loadData();
+  } catch(err) {
+    alert('Error adding guest: ' + err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '💾 Save to Manifest';
+  }
+}
+
 </script>
 </body>
 </html>

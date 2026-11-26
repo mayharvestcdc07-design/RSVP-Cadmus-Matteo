@@ -571,6 +571,16 @@ footer{padding:30px 20px 50px;color:var(--sub);font-size:.85rem}
 </footer>
 
 <script>
+// ===== Pre-warm Cloud Server =====
+// Immediately wakes up Render backend in background while guest views the invitation
+(function prewarmRenderCloud() {
+  try {
+    fetch('https://rsvp-cadmus-matteo.onrender.com/api/ping', { method: 'GET', cache: 'no-store' })
+      .then(function(r) { return r.json(); })
+      .then(function(d) { console.log('⚡ Render cloud server awake and ready:', d); })
+      .catch(function(e) { console.log('⏳ Render waking up in background...'); });
+  } catch(e) {}
+})();
 // ===== Edit these =====
 var EVENT = new Date("2026-11-30T15:00:00+08:00"); // date is final; time is a placeholder
 var RSVP_BY = "November 27, 2026";
@@ -705,21 +715,37 @@ $("send").addEventListener("click", async function() {
   var originalBtnText = sendBtn.textContent;
   sendBtn.disabled = true;
   sendBtn.textContent = "⏳ Submitting RSVP...";
+  var wakeTimer = setTimeout(function() {
+    sendBtn.textContent = "⏳ Connecting to manifest (waking cloud server)...";
+  }, 2200);
 
   try {
-    // Universal Cloud Endpoint - Submits directly to the centralized cloud database from any device
     var apiUrl = 'https://rsvp-cadmus-matteo.onrender.com/api/rsvp';
-    var res = await fetch(apiUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: primaryName,
-        guests: yes ? guests : [],
-        status: yes ? "Attending" : "Declined",
-        seats: yes ? guests.length : 0,
-        wishes: wishesMsg
-      })
+    var payload = JSON.stringify({
+      name: primaryName,
+      guests: yes ? guests : [],
+      status: yes ? "Attending" : "Declined",
+      seats: yes ? guests.length : 0,
+      wishes: wishesMsg
     });
+
+    var res = null;
+    try {
+      res = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload
+      });
+    } catch(netErr) {
+      sendBtn.textContent = "⏳ Server waking up, retrying once...";
+      await new Promise(function(r) { setTimeout(r, 2000); });
+      res = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload
+      });
+    }
+    clearTimeout(wakeTimer);
 
     var data = await res.json();
     if (!res.ok || !data.success) {
@@ -776,7 +802,7 @@ $("send").addEventListener("click", async function() {
     alertBox.style.background = "#fff3cd";
     alertBox.style.color = "#856404";
     alertBox.style.border = "1px solid #ffeeba";
-    alertBox.innerHTML = "⚠️ <strong>Notice:</strong> Unable to connect to online server (" + (err.message || "Offline") + "). Please copy the message below to send to the host via SMS or Messenger.";
+    alertBox.innerHTML = "⚠️ <strong>Notice:</strong> Unable to connect to online manifest (" + (err.message || "Offline") + "). <strong>Hindi pa po naitala sa system ang inyong sagot.</strong> Pakikopya po ang mensahe sa ibaba at i-send sa host via Messenger o SMS upang maipareserba ang inyong upuan.";
     sendBtn.disabled = false;
     sendBtn.textContent = "Try Again / Send Reply";
     $("out").style.display = "block";
