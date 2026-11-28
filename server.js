@@ -415,23 +415,46 @@ const server = http.createServer(async (req, res) => {
   // API 8: CSV Export
   if (pathname === '/api/export' && req.method === 'GET') {
     const data = loadData();
-    const headers = ['Ticket Code', 'Name', 'Status', 'Seats', 'Table #', 'Checked In', 'Checked-In Time', 'Contact', 'Email', 'Dietary Requirements', 'Wishes / Message', 'RSVP Date'];
+    const headers = [
+      'Ticket Code',
+      'Name',
+      'Type (Adult / Kid)',
+      'Crew Details',
+      'Status',
+      'Seats',
+      'Table #',
+      'Checked In',
+      'Checked-In Time',
+      'Contact',
+      'Email',
+      'Dietary Requirements',
+      'Wishes / Message',
+      'RSVP Date'
+    ];
     const csvRows = [headers];
 
     data.guests.forEach(g => {
+      let type = g.guestType;
+      if (!type) {
+        const gl = (g.guestList || '').toLowerCase();
+        type = (gl.includes('(kid)') || gl.includes('kid')) ? 'Kid' : 'Adult';
+      }
+
       csvRows.push([
         g.ticketCode || '',
         g.name || '',
+        type,
+        g.guestList || '',
         g.status || '',
         g.seats || '1',
         g.tableNumber || '',
         g.checkedIn ? 'YES' : 'NO',
-        g.checkedInAt ? new Date(g.checkedInAt).toLocaleString() : '',
+        g.checkedInAt ? new Date(g.checkedInAt).toLocaleString('en-US', { timeZone: 'Asia/Manila' }) : '',
         g.contact || '',
         g.email || '',
         g.dietary || '',
         (g.wishes || '').replace(/\r?\n/g, ' '),
-        g.registeredAt ? new Date(g.registeredAt).toLocaleString() : ''
+        g.registeredAt ? new Date(g.registeredAt).toLocaleString('en-US', { timeZone: 'Asia/Manila' }) : ''
       ]);
     });
 

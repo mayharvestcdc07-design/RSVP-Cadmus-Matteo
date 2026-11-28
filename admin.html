@@ -437,7 +437,7 @@
         <button class="btn alt" onclick="triggerRestoreBackup()" title="Restore/Import guests from a JSON backup file">📤 Restore Backup</button>
         <input type="file" id="restoreFileInput" accept=".json" style="display:none;" onchange="handleRestoreFile(event)">
         <a href="/" class="btn alt">🏠 View Invitation</a>
-        <a href="/api/export" class="btn">📥 Export CSV</a>
+        <button onclick="downloadGuestListCsv()" class="btn" style="background:var(--sea); font-weight:800;" title="Download complete guestlist CSV with Adult / Kid classification">📥 Export CSV (with Adult/Kid)</button>
       </div>
     </header>
 
@@ -533,6 +533,7 @@
             <tr>
               <th>Ticket Code</th>
               <th>Guest Name</th>
+              <th>Type</th>
               <th>Crew Details</th>
               <th>Status</th>
               <th>Seats</th>
@@ -663,6 +664,69 @@ async function downloadBackup() {
     URL.revokeObjectURL(url);
   } catch(e) {
     alert('Backup failed: ' + e.message);
+  }
+}
+
+function downloadGuestListCsv() {
+  try {
+    const headers = [
+      'Ticket Code',
+      'Name',
+      'Type (Adult / Kid)',
+      'Crew Details',
+      'Status',
+      'Seats',
+      'Table #',
+      'Checked In',
+      'Checked-In Time',
+      'Contact',
+      'Email',
+      'Dietary Requirements',
+      'Wishes / Message',
+      'RSVP Date'
+    ];
+    const csvRows = [headers];
+
+    allGuests.forEach(g => {
+      let type = g.guestType;
+      if (!type) {
+        const gl = (g.guestList || '').toLowerCase();
+        type = (gl.includes('(kid)') || gl.includes('kid')) ? 'Kid' : 'Adult';
+      }
+
+      csvRows.push([
+        g.ticketCode || '',
+        g.name || '',
+        type,
+        g.guestList || '',
+        g.status || '',
+        g.seats || '1',
+        g.tableNumber || '',
+        g.checkedIn ? 'YES' : 'NO',
+        g.checkedInAt ? new Date(g.checkedInAt).toLocaleString('en-US', { timeZone: 'Asia/Manila' }) : '',
+        g.contact || '',
+        g.email || '',
+        g.dietary || '',
+        (g.wishes || '').replace(/\r?\n/g, ' '),
+        g.registeredAt ? new Date(g.registeredAt).toLocaleString('en-US', { timeZone: 'Asia/Manila' }) : ''
+      ]);
+    });
+
+    const csvContent = '\ufeff' + csvRows.map(row => 
+      row.map(cell => '"' + String(cell).replace(/"/g, '""') + '"').join(',')
+    ).join('\r\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `RSVP_Cadmus_Matteo_GuestList_${new Date().toISOString().slice(0,10)}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } catch(err) {
+    alert('Failed to generate CSV: ' + err.message);
   }
 }
 
@@ -1052,9 +1116,14 @@ function renderTable() {
     });
     tableOptionsHtml += `<option value="__custom__">+ Custom Table...</option>`;
 
+    const isKid = (g.guestType === 'Kid') || ((g.guestList || '').toLowerCase().includes('(kid)') || (g.guestList || '').toLowerCase().includes('kid'));
+    const typeLabel = isKid ? '🧒 Kid' : '🧑 Adult';
+    const typeBadge = `<span class="badge" style="background:${isKid ? 'rgba(234,179,8,0.18)' : 'rgba(59,130,246,0.15)'}; color:${isKid ? '#ca8a04' : '#2563eb'}; border:1px solid ${isKid ? 'rgba(234,179,8,0.4)' : 'rgba(59,130,246,0.3)'}; font-size:11px; padding:3px 8px; border-radius:12px; font-weight:800; white-space:nowrap;">${typeLabel}</span>`;
+
     return `<tr>
       <td><strong style="font-family:monospace; color:var(--sea); font-size:14px">${escapeHtml(g.ticketCode)}</strong></td>
       <td><strong>${escapeHtml(g.name || (g.guestList ? g.guestList.split('(')[0].trim() : 'Guest'))}</strong></td>
+      <td>${typeBadge}</td>
       <td><small style="color:var(--sub)">${escapeHtml(g.guestList || '—')}</small></td>
       <td><span class="badge ${yes?'yes':'no'}" style="font-size:12px; font-weight:700;">${yes ? '✅ Confirmed' : '❌ Declined'}</span></td>
       <td><strong style="font-size:15px; color:var(--sea);">${g.seats}</strong></td>

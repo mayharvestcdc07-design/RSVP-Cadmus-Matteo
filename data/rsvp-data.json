@@ -27,7 +27,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T18:26:42.000Z",
-      "registeredAt": "2026-11-25T18:26:42.000Z"
+      "registeredAt": "2026-11-25T18:26:42.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwwz8em7zaqtg",
@@ -43,7 +44,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T18:25:00.000Z",
-      "registeredAt": "2026-11-25T18:25:00.000Z"
+      "registeredAt": "2026-11-25T18:25:00.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwwz8em77i1li",
@@ -59,7 +61,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T18:22:59.000Z",
-      "registeredAt": "2026-11-25T18:22:59.000Z"
+      "registeredAt": "2026-11-25T18:22:59.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwwz8em77k7oa",
@@ -75,7 +78,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T18:16:51.000Z",
-      "registeredAt": "2026-11-25T18:16:51.000Z"
+      "registeredAt": "2026-11-25T18:16:51.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwwz8em7zx9az",
@@ -91,7 +95,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T18:15:52.000Z",
-      "registeredAt": "2026-11-25T18:15:52.000Z"
+      "registeredAt": "2026-11-25T18:15:52.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwwz8em7vig5u",
@@ -107,7 +112,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T18:13:16.000Z",
-      "registeredAt": "2026-11-25T18:13:16.000Z"
+      "registeredAt": "2026-11-25T18:13:16.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwwz8em7cjcw2",
@@ -123,7 +129,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T18:06:09.000Z",
-      "registeredAt": "2026-11-25T18:06:09.000Z"
+      "registeredAt": "2026-11-25T18:06:09.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwvmmrqkop9uw",
@@ -139,7 +146,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-24T20:31:50.000Z",
-      "registeredAt": "2026-11-24T20:31:50.000Z"
+      "registeredAt": "2026-11-24T20:31:50.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwvlevatcndos",
@@ -155,7 +163,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-24T19:57:42.000Z",
-      "registeredAt": "2026-11-24T19:57:42.000Z"
+      "registeredAt": "2026-11-24T19:57:42.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwvle683kckav",
@@ -171,7 +180,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-24T19:57:09.000Z",
-      "registeredAt": "2026-11-24T19:57:09.000Z"
+      "registeredAt": "2026-11-24T19:57:09.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwvldiaoty1dz",
@@ -187,7 +197,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-24T19:56:38.000Z",
-      "registeredAt": "2026-11-24T19:56:38.000Z"
+      "registeredAt": "2026-11-24T19:56:38.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwvlcytokqtzh",
@@ -203,7 +214,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-24T19:56:13.000Z",
-      "registeredAt": "2026-11-24T19:56:13.000Z"
+      "registeredAt": "2026-11-24T19:56:13.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4sjkj37bv",
@@ -219,7 +231,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Kid"
     },
     {
       "id": "mwwt4shkml5ia",
@@ -235,7 +248,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Kid"
     },
     {
       "id": "mwwt4sfhvm7ny",
@@ -251,7 +265,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4sdhrh2ue",
@@ -267,7 +282,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4sbi1hh9g",
@@ -283,7 +299,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4s9f8g3eu",
@@ -299,7 +316,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Kid"
     },
     {
       "id": "mwwt4s7hq7pkv",
@@ -315,7 +333,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4s5gkhe8d",
@@ -331,7 +350,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4s3hyxh5m",
@@ -347,7 +367,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4s1ikyu94",
@@ -363,7 +384,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rzi55roi",
@@ -379,7 +401,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rxi8jyd3",
@@ -395,7 +418,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rvh52mgp",
@@ -411,7 +435,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rtchq2c8",
@@ -427,7 +452,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:34.000Z",
-      "registeredAt": "2026-11-25T16:21:34.000Z"
+      "registeredAt": "2026-11-25T16:21:34.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rr9zdwhd",
@@ -443,7 +469,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:33.000Z",
-      "registeredAt": "2026-11-25T16:21:33.000Z"
+      "registeredAt": "2026-11-25T16:21:33.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rp4hdqui",
@@ -459,7 +486,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:33.000Z",
-      "registeredAt": "2026-11-25T16:21:33.000Z"
+      "registeredAt": "2026-11-25T16:21:33.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rn4t3iob",
@@ -475,7 +503,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:33.000Z",
-      "registeredAt": "2026-11-25T16:21:33.000Z"
+      "registeredAt": "2026-11-25T16:21:33.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rl5du858",
@@ -491,7 +520,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:33.000Z",
-      "registeredAt": "2026-11-25T16:21:33.000Z"
+      "registeredAt": "2026-11-25T16:21:33.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rj1nonzf",
@@ -507,7 +537,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:33.000Z",
-      "registeredAt": "2026-11-25T16:21:33.000Z"
+      "registeredAt": "2026-11-25T16:21:33.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rgxebntj",
@@ -523,7 +554,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:33.000Z",
-      "registeredAt": "2026-11-25T16:21:33.000Z"
+      "registeredAt": "2026-11-25T16:21:33.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4reuovvg6",
@@ -539,7 +571,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:33.000Z",
-      "registeredAt": "2026-11-25T16:21:33.000Z"
+      "registeredAt": "2026-11-25T16:21:33.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwt4rcuodl5i",
@@ -555,7 +588,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:21:33.000Z",
-      "registeredAt": "2026-11-25T16:21:33.000Z"
+      "registeredAt": "2026-11-25T16:21:33.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwsyp2ft61g4",
@@ -571,7 +605,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:16:50.000Z",
-      "registeredAt": "2026-11-25T16:16:50.000Z"
+      "registeredAt": "2026-11-25T16:16:50.000Z",
+      "guestType": "Kid"
     },
     {
       "id": "mwwstw55kxqg6",
@@ -587,7 +622,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:13:06.000Z",
-      "registeredAt": "2026-11-25T16:13:06.000Z"
+      "registeredAt": "2026-11-25T16:13:06.000Z",
+      "guestType": "Kid"
     },
     {
       "id": "mwwssxjo85qj6",
@@ -603,7 +639,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:12:21.000Z",
-      "registeredAt": "2026-11-25T16:12:21.000Z"
+      "registeredAt": "2026-11-25T16:12:21.000Z",
+      "guestType": "Kid"
     },
     {
       "id": "mwwspo0tf0i87",
@@ -619,7 +656,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:09:49.000Z",
-      "registeredAt": "2026-11-25T16:09:49.000Z"
+      "registeredAt": "2026-11-25T16:09:49.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwso4dbrmq82",
@@ -635,7 +673,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:08:37.000Z",
-      "registeredAt": "2026-11-25T16:08:37.000Z"
+      "registeredAt": "2026-11-25T16:08:37.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwsmjlpa8wn1",
@@ -651,7 +690,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:07:23.000Z",
-      "registeredAt": "2026-11-25T16:07:23.000Z"
+      "registeredAt": "2026-11-25T16:07:23.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "mwwsklwiuqkxo",
@@ -667,7 +707,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-25T16:05:53.000Z",
-      "registeredAt": "2026-11-25T16:05:53.000Z"
+      "registeredAt": "2026-11-25T16:05:53.000Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbhyjt2tq",
@@ -683,7 +724,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbhzny8vr",
@@ -699,7 +741,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbhzxv5zb",
@@ -715,7 +758,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbhz2tsk9",
@@ -731,7 +775,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbhztc0me",
@@ -747,7 +792,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbhzi1m80",
@@ -763,7 +809,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbhz8w3jc",
@@ -779,7 +826,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbhznnhgp",
@@ -795,7 +843,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbhztgl65",
@@ -811,7 +860,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbhztoz34",
@@ -827,7 +877,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbhzy0s5z",
@@ -843,7 +894,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbhzfuv5w",
@@ -859,7 +911,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbhziomsq",
@@ -875,7 +928,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbhzcl8bd",
@@ -891,7 +945,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbhz02k2z",
@@ -907,7 +962,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbhzmdpoi",
@@ -923,7 +979,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0y8ykg",
@@ -939,7 +996,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi026kk6",
@@ -955,7 +1013,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0ws1fs",
@@ -971,7 +1030,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi07jqu3",
@@ -987,7 +1047,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi024ckz",
@@ -1003,7 +1064,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0y23wp",
@@ -1019,7 +1081,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0b75o6",
@@ -1035,7 +1098,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0gduee",
@@ -1051,7 +1115,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi06oix5",
@@ -1067,7 +1132,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0lkdka",
@@ -1083,7 +1149,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0e0k03",
@@ -1099,7 +1166,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0k6i4b",
@@ -1115,7 +1183,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0q8rlt",
@@ -1131,7 +1200,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi067rc4",
@@ -1147,7 +1217,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi03u82o",
@@ -1163,7 +1234,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0lgi18",
@@ -1179,7 +1251,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0nl6w2",
@@ -1195,7 +1268,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0p62w1",
@@ -1211,7 +1285,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0470om",
@@ -1227,7 +1302,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0mxj5b",
@@ -1243,7 +1319,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0kajec",
@@ -1259,7 +1336,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0lgcg3",
@@ -1275,7 +1353,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0n36za",
@@ -1291,7 +1370,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0jqerq",
@@ -1307,7 +1387,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi03jiyq",
@@ -1323,7 +1404,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi0yzlq4",
@@ -1339,7 +1421,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi04yl11",
@@ -1355,7 +1438,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0soen7",
@@ -1371,7 +1455,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi0ofryx",
@@ -1387,7 +1472,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwznqbi1kiakh",
@@ -1403,7 +1489,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwznqbi1hh51q",
@@ -1419,7 +1506,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:13:40.145Z",
-      "registeredAt": "2026-11-28T00:13:40.145Z"
+      "registeredAt": "2026-11-28T00:13:40.145Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l0e3tm",
@@ -1435,7 +1523,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lc7esm",
@@ -1451,7 +1540,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l2c8em",
@@ -1467,7 +1557,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lx0ob1",
@@ -1483,7 +1574,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9li52gf",
@@ -1499,7 +1591,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l6ggde",
@@ -1515,7 +1608,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lcbql1",
@@ -1531,7 +1625,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9ll6yr2",
@@ -1547,7 +1642,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lc8gm1",
@@ -1563,7 +1659,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9luod32",
@@ -1579,7 +1676,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lymso1",
@@ -1595,7 +1693,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l4wud8",
@@ -1611,7 +1710,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l15y9h",
@@ -1627,7 +1727,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l0wmcc",
@@ -1643,7 +1744,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lpy6k1",
@@ -1659,7 +1761,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lk1hmy",
@@ -1675,7 +1778,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lqpvw8",
@@ -1691,7 +1795,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l20t88",
@@ -1707,7 +1812,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lz82vp",
@@ -1723,7 +1829,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lf9jen",
@@ -1739,7 +1846,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lywkf1",
@@ -1755,7 +1863,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lp31u2",
@@ -1771,7 +1880,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l77zyf",
@@ -1787,7 +1897,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lyq768",
@@ -1803,7 +1914,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l6ya76",
@@ -1819,7 +1931,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9ljnog5",
@@ -1835,7 +1948,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9ln7exq",
@@ -1851,7 +1965,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l7jsi1",
@@ -1867,7 +1982,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l7s5y8",
@@ -1883,7 +1999,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lwyabn",
@@ -1899,7 +2016,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lrlkbq",
@@ -1915,7 +2033,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lu5rti",
@@ -1931,7 +2050,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lavstq",
@@ -1947,7 +2067,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lcczdm",
@@ -1963,7 +2084,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lkb7h0",
@@ -1979,7 +2101,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l84wz5",
@@ -1995,7 +2118,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lk3fkx",
@@ -2011,7 +2135,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9lelv6t",
@@ -2027,7 +2152,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9ll9c7c",
@@ -2043,7 +2169,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Kid"
     },
     {
       "id": "cm_mwzo6a9l2ednd",
@@ -2059,7 +2186,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9lj68r3",
@@ -2075,7 +2203,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9l1nvnf",
@@ -2091,7 +2220,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9ly54fz",
@@ -2107,7 +2237,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9l53iqz",
@@ -2123,7 +2254,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9l9p6fr",
@@ -2139,7 +2271,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9ntqz25",
@@ -2155,7 +2288,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nnqm5c",
@@ -2171,7 +2305,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nohlgg",
@@ -2187,7 +2322,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n55q1g",
@@ -2203,7 +2339,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nz6xvd",
@@ -2219,7 +2356,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nr6dht",
@@ -2235,7 +2373,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n0ssai",
@@ -2251,7 +2390,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nlh77p",
@@ -2267,7 +2407,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n7l6mk",
@@ -2283,7 +2424,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nq35vg",
@@ -2299,7 +2441,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nnmp1p",
@@ -2315,7 +2458,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nqshgu",
@@ -2331,7 +2475,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n1qs6e",
@@ -2347,7 +2492,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nh1nal",
@@ -2363,7 +2509,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nujvxb",
@@ -2379,7 +2526,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n8u5y5",
@@ -2395,7 +2543,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nwh9t0",
@@ -2411,7 +2560,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nqmcay",
@@ -2427,7 +2577,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nbjntx",
@@ -2443,7 +2594,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n87y21",
@@ -2459,7 +2611,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nxv183",
@@ -2475,7 +2628,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nayhyt",
@@ -2491,7 +2645,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nd4g5f",
@@ -2507,7 +2662,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nernca",
@@ -2523,7 +2679,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9no0etu",
@@ -2539,7 +2696,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n20sj7",
@@ -2555,7 +2713,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nkv5ze",
@@ -2571,7 +2730,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n8so08",
@@ -2587,7 +2747,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nqhkor",
@@ -2603,7 +2764,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nbgjoo",
@@ -2619,7 +2781,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nm0bmo",
@@ -2635,7 +2798,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nh9h0d",
@@ -2651,7 +2815,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n647x7",
@@ -2667,7 +2832,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nzncos",
@@ -2683,7 +2849,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nwrp8u",
@@ -2699,7 +2866,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n9cpiw",
@@ -2715,7 +2883,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nme53n",
@@ -2731,7 +2900,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nkp5xk",
@@ -2747,7 +2917,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nn0at5",
@@ -2763,7 +2934,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nrxtpc",
@@ -2779,7 +2951,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nrvkn9",
@@ -2795,7 +2968,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nsx1ly",
@@ -2811,7 +2985,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n79xpq",
@@ -2827,7 +3002,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n885gr",
@@ -2843,7 +3019,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nmkdpn",
@@ -2859,7 +3036,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nz30vm",
@@ -2875,7 +3053,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n7rons",
@@ -2891,7 +3070,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nt5fme",
@@ -2907,7 +3087,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nzqqig",
@@ -2923,7 +3104,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n9b1ii",
@@ -2939,7 +3121,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nrfp52",
@@ -2955,7 +3138,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nm6b2n",
@@ -2971,7 +3155,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n5e4s8",
@@ -2987,7 +3172,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n2fr1i",
@@ -3003,7 +3189,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nk0sc9",
@@ -3019,7 +3206,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n08m3s",
@@ -3035,7 +3223,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nbz9dg",
@@ -3051,7 +3240,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9ni2jjk",
@@ -3067,7 +3257,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nlpgjf",
@@ -3083,7 +3274,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n4w4h4",
@@ -3099,7 +3291,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nrq8th",
@@ -3115,7 +3308,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n9adw4",
@@ -3131,7 +3325,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nvndnt",
@@ -3147,7 +3342,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nwgsob",
@@ -3163,7 +3359,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n60gcw",
@@ -3179,7 +3376,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n15cb9",
@@ -3195,7 +3393,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9na27bo",
@@ -3211,7 +3410,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nmffwb",
@@ -3227,7 +3427,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nlrn6q",
@@ -3243,7 +3444,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nktcjx",
@@ -3259,7 +3461,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nmyqx0",
@@ -3275,7 +3478,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9ne6uvz",
@@ -3291,7 +3495,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nr45l4",
@@ -3307,7 +3512,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9ngz4y1",
@@ -3323,7 +3529,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nkr8a0",
@@ -3339,7 +3546,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nzj0km",
@@ -3355,7 +3563,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n5cvwt",
@@ -3371,7 +3580,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n47ywr",
@@ -3387,7 +3597,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9njdfn3",
@@ -3403,7 +3614,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n54orr",
@@ -3419,7 +3631,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nw3iqr",
@@ -3435,7 +3648,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nkyab5",
@@ -3451,7 +3665,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nx0kh4",
@@ -3467,7 +3682,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nxq8z6",
@@ -3483,7 +3699,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n49nhi",
@@ -3499,7 +3716,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n0xiko",
@@ -3515,7 +3733,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nawoxt",
@@ -3531,7 +3750,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nrtvtb",
@@ -3547,7 +3767,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n26c9o",
@@ -3563,7 +3784,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nhyx1b",
@@ -3579,7 +3801,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nnycti",
@@ -3595,7 +3818,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n3f37r",
@@ -3611,7 +3835,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nqe7nu",
@@ -3627,7 +3852,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nadku8",
@@ -3643,7 +3869,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nbsujs",
@@ -3659,7 +3886,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n3wppe",
@@ -3675,7 +3903,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nkg1j3",
@@ -3691,7 +3920,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n2pc66",
@@ -3707,7 +3937,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nb49a3",
@@ -3723,7 +3954,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nvblcg",
@@ -3739,7 +3971,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nxwc21",
@@ -3755,7 +3988,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nmnrv5",
@@ -3771,7 +4005,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9ng5v5s",
@@ -3787,7 +4022,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n06evw",
@@ -3803,7 +4039,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nwza0u",
@@ -3819,7 +4056,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nssfix",
@@ -3835,7 +4073,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n0letu",
@@ -3851,7 +4090,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9ng9i6y",
@@ -3867,7 +4107,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nswz5y",
@@ -3883,7 +4124,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nwbhky",
@@ -3899,7 +4141,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9njp8vm",
@@ -3915,7 +4158,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n9pmqc",
@@ -3931,7 +4175,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nyaxy8",
@@ -3947,7 +4192,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n5zr4m",
@@ -3963,7 +4209,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nbjlam",
@@ -3979,7 +4226,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nyaatf",
@@ -3995,7 +4243,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nr8n4h",
@@ -4011,7 +4260,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9ng6ztu",
@@ -4027,7 +4277,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n3s4rr",
@@ -4043,7 +4294,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nstvg9",
@@ -4059,7 +4311,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n205ui",
@@ -4075,7 +4328,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nq28p2",
@@ -4091,7 +4345,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n67pgy",
@@ -4107,7 +4362,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n5s0o7",
@@ -4123,7 +4379,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nwt5ur",
@@ -4139,7 +4396,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n264jc",
@@ -4155,7 +4413,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9noqqte",
@@ -4171,7 +4430,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nsl8zf",
@@ -4187,7 +4447,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nv6g57",
@@ -4203,7 +4464,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n076mt",
@@ -4219,7 +4481,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nrk27n",
@@ -4235,7 +4498,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n3mblm",
@@ -4251,7 +4515,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9na5t69",
@@ -4267,7 +4532,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nxiysv",
@@ -4283,7 +4549,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n3jczy",
@@ -4299,7 +4566,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nzn58w",
@@ -4315,7 +4583,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nn3b0k",
@@ -4331,7 +4600,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nf5fyp",
@@ -4347,7 +4617,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nosylt",
@@ -4363,7 +4634,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n6v5ux",
@@ -4379,7 +4651,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nv2cw0",
@@ -4395,7 +4668,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n4pmgz",
@@ -4411,7 +4685,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n5g6eh",
@@ -4427,7 +4702,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9na9gfm",
@@ -4443,7 +4719,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nh7wvf",
@@ -4459,7 +4736,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nc6587",
@@ -4475,7 +4753,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n87nnl",
@@ -4491,7 +4770,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nd4i89",
@@ -4507,7 +4787,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nm65cy",
@@ -4523,7 +4804,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n5mlkz",
@@ -4539,7 +4821,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n6jr4g",
@@ -4555,7 +4838,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9n2i1pm",
@@ -4571,7 +4855,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nr8kdk",
@@ -4587,7 +4872,8 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     },
     {
       "id": "cm_mwzo6a9nc72kj",
@@ -4603,8 +4889,9 @@
       "tableNumber": "",
       "checkedIn": true,
       "checkedInAt": "2026-11-28T00:26:05.046Z",
-      "registeredAt": "2026-11-28T00:26:05.046Z"
+      "registeredAt": "2026-11-28T00:26:05.046Z",
+      "guestType": "Adult"
     }
   ],
-  "lastUpdated": "2026-11-28T00:26:05.046Z"
+  "lastUpdated": "2026-11-28T00:30:26.864Z"
 }
